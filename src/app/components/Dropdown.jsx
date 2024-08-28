@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 // import { useAppDispatch, useAppSelector } from '../lib/hooks';
 // import {setCurrency} from '../lib/features/currency/currencySlice'
