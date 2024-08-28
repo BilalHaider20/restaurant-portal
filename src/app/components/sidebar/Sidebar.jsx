@@ -27,7 +27,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className='px-[20px] py-5 mt-[200px] flex gap-2 '>
+      <div className='px-[20px] py-2 mt-[200px] flex gap-2 '>
         <Image src={images.logout} alt="logout" />
         <span className='text-red-500'>Logout</span>
       </div>
