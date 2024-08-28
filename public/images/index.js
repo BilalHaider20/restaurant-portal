@@ -7,11 +7,11 @@ const images = {
     hotel:require('./listing/hotel.png'),   
     logo: require('./bookme-logo.png'),
     footerlogo:require('./footer-logo.png'),
-    
-}
-
-export default images
-
+  plusSquare: require("./listing/plus-square.svg"),
+  filter: require("./listing/filter.svg"),
+  trend: require("./listing/trend.svg"),
+  discount: require("./listing/discount.svg"),
+};
 export const dashboardimages={
     bus : require('./bus-front.png'),
     car:require('./car-front.png'),
@@ -21,3 +21,4 @@ export const dashboardimages={
     tour: require('./palmtree.png'),
     tv:require('./tv.png'),
 };
+export default images;

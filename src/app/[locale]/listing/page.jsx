@@ -3,7 +3,7 @@ import WelcomeStats from "../../components/WelcomeStats"
 import HotelCard from "../../components/HotelCard"
 const Listing = () => {
   return (
-   <div className="bg-bg-highlight">
+   <div className="bg-bg-highlight w-[1150px]">
       <WelcomeStats 
       userName="Sir Bilal"
       firstblock={"Total Sales"}
