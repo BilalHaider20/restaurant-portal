@@ -1,16 +1,16 @@
 import { RestaurantDropDown } from "./RestaurantDropDown";
 import { reservations } from "../data/ReservationData";
-
+import { useTranslations } from "next-intl";
 
 
 const TotalReservations = () => {
   const DropdownOptions = ["Last Week", "Last Month", "Last Year"];
-
+    const t = useTranslations('dashboard');
   return (
     <div className="bg-white rounded-lg py-3 shadow-md w-[472px] px-2">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-heading-clr font-semibold text-2xl tracking-tighter">
-          Total Reservations
+          {t('totalreservations')}
         </h3>
         <RestaurantDropDown DropdownOptions={DropdownOptions} />
       </div>
@@ -24,8 +24,8 @@ const TotalReservations = () => {
             {/*left */}
             
             <div className="flex items-center space-x-2 ">
-              <span className="text-xl">{reservation.icon}</span>
-              <div className="flex-col w-[390px]">
+              <span className="text-2xl ">{reservation.icon}</span>
+              <div className="flex-col w-[390px] py-1">
                 {/* <div className="w-[348px]"> */}
                     {/* Progress bar */}
 
@@ -37,8 +37,8 @@ const TotalReservations = () => {
                   </div>
 
                   
-                   <div className="flex justify-between align-center py-1">
-                  <p className="font-medium text-light-text text-sm ">
+                   <div className="flex justify-between align-center">
+                  <p className="font-medium text-light-text text-sm">
                     {reservation.category}
                   </p>
                   {reservation.bookings > 0 ? <p className="text-xs text-green-500 text-nowrap">

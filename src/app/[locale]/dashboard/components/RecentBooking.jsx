@@ -1,58 +1,8 @@
 import React from 'react'
-
-
-
-const bookingData = {
-    recentBookings: [
-      {
-        srNo: 1,
-        orderID: "DTT12345",
-        createdBy: "Admin",
-        bookingType: "Event",
-        date: "10 Nov 2023 10:00 PM",
-        debit: "Rs. 1,000",
-        credit: "Rs. 1,000",
-        status: "Completed",
-        action: "View"
-      },
-      {
-        srNo: 2,
-        orderID: "DTT12345",
-        createdBy: "Admin",
-        bookingType: "Event",
-        date: "10 Nov 2023 10:00 PM",
-        debit: "Rs. 1,000",
-        credit: "Rs. 1,000",
-        status: "Completed",
-        action: "View"
-      },
-      {
-        srNo: 3,
-        orderID: "DTT12345",
-        createdBy: "Admin",
-        bookingType: "Event",
-        date: "10 Nov 2023 10:00 PM",
-        debit: "Rs. 1,000",
-        credit: "Rs. 1,000",
-        status: "Completed",
-        action: "View"
-      },
-      {
-        srNo: 4,
-        orderID: "DTT12345",
-        createdBy: "Admin",
-        bookingType: "Event",
-        date: "10 Nov 2023 10:00 PM",
-        debit: "Rs. 1,000",
-        credit: "Rs. 1,000",
-        status: "Completed",
-        action: "View"
-      }
-    ]
-  };
+import { bookingData } from '../data/RecentBookingdata'
 const RecentBooking = () => {
   return (
-    <div className='px-3 py-4  mx-6 my-4 rounded-md '>
+    <div className='px-3 py-4 mx-6 my-4 rounded-md bg-white shadow-md'>
         <h3 className="text-heading-clr font-semibold text-2xl tracking-tighter mb-4">
           Recent Bookings
         </h3>
