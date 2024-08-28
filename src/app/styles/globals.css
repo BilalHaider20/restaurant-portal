@@ -16,3 +16,6 @@
   }
 }
 
+.navbarCircleDiv{
+  @apply w-[42px] h-[42px] bg-bg-highlight flex items-center justify-center mx-auto cursor-pointer rounded-full ;
+}

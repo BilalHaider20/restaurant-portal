@@ -1,3 +1,15 @@
 {
-    
+    "login": "Login",
+    "sidebar":{
+        "dashboard": "dashboard",
+        "restraunt": "restraunt",
+        "make_bookings": "Make Bookings",
+        "reports": "Reports",
+        "my_bookings": "My Bookings",
+        "invoices": "Invoices",
+        "users": "Users",
+        "departments": "Departments",
+        "privacy": "Privacy Policy",
+        "terms": "Terms and Conditions"
+    }
 }
