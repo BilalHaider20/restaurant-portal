@@ -6,6 +6,7 @@ const Listing = () => {
    <div className="bg-bg-highlight">
       <WelcomeStats 
       userName="Sir Bilal"
+      firstblock={"Total Sales"}
       totalSales={300}
       totalSavings={200}
       expenses={320}

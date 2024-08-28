@@ -5,12 +5,13 @@ import Chart from 'chart.js/auto';
 import {CategoryScale} from 'chart.js';
 import { barchartdata as  data } from '../data/barchartdata';
 import { RestaurantDropDown } from "./RestaurantDropDown";
-
+import TotalReservations from "./TotalReservationStats";
 Chart.register(CategoryScale);
 
 const DropdownOptions=[
   'Arcadian Cafe','Burger Lab','Gloria Jeans','KFC','McDonalds'
 ];
+
 
 export const BarChart = () => {
   return (
