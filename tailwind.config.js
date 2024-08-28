@@ -12,6 +12,7 @@ module.exports = {
         "bg-light": "#FFFF",
         "bg-highlight": "#F6F9FD",
         "primary-blue": "#346CC4",
+        "gray-80" : "#808080",
         "light-text": "#808080",
         "dark-text": "#3C3C3C",
         "divider-clr":"#E6E6E6",
