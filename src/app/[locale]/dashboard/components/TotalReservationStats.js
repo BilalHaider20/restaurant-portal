@@ -1,65 +1,9 @@
 import { RestaurantDropDown } from "./RestaurantDropDown";
+import { reservations } from "../data/ReservationData";
+
+
 
 const TotalReservations = () => {
-  const reservations = [
-    {
-      icon: "🟧",
-      category: "Arcadian Cafe",
-      bookings: 635,
-      amount: "Rs. 0",
-      progress: 70,
-    },
-    {
-      icon: "🟩",
-      category: "Buses",
-      bookings: 0,
-      amount: "Rs. 0",
-      progress: 2,
-    },
-    {
-      icon: "🟦",
-      category: "Car Rental",
-      bookings: 0,
-      amount: "Rs. 0",
-      progress: 2,
-    },
-    {
-      icon: "🟨",
-      category: "Hotels",
-      bookings: 0,
-      amount: "Rs. 0",
-      progress: 2,
-    },
-    {
-      icon: "🟪",
-      category: "Trains",
-      bookings: 0,
-      amount: "Rs. 0",
-      progress: 2,
-    },
-    {
-      icon: "🟥",
-      category: "Events",
-      bookings: 0,
-      amount: "Rs. 0",
-      progress: 2,
-    },
-    {
-      icon: "🟫",
-      category: "Tours",
-      bookings: 0,
-      amount: "Rs. 0",
-      progress: 0,
-    },
-    {
-      icon: "🟦",
-      category: "Movies",
-      bookings: 0,
-      amount: "Rs. 0",
-      progress: 2,
-    },
-  ];
-
   const DropdownOptions = ["Last Week", "Last Month", "Last Year"];
 
   return (
@@ -93,8 +37,8 @@ const TotalReservations = () => {
                   </div>
 
                   
-                   <div className="flex justify-between items-center">
-                  <p className="font-medium text-gray-700 text-sm ">
+                   <div className="flex justify-between align-center py-1">
+                  <p className="font-medium text-light-text text-sm ">
                     {reservation.category}
                   </p>
                   {reservation.bookings > 0 ? <p className="text-xs text-green-500 text-nowrap">
