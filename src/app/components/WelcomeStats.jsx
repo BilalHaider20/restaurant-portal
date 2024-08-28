@@ -6,13 +6,13 @@ import SaveBadge from "../../../public/images/listing/save-badge.png"
 import DollarBadge from "../../../public/images/listing/badge-dollar-sign.png"
 
 
-const WelcomeStats = ({ userName, totalSales, totalSavings, expenses, salesChange, savingsChange, expensesChange }) => {
+const WelcomeStats = ({ userName,firstblock, totalSales, totalSavings, expenses, salesChange, savingsChange, expensesChange }) => {
   return (
-    <div className="flex-grow p-5 w-[1150px] bg-[#F6F9FD]">
+    <div className="flex-grow p-5 bg-[#F6F9FD]">
       <div className="flex flex-col gap-[23px]">
         <div className="flex flex-row items-center justify-between h-[52px]">
           <div className="w-[273px] h-[52px]">
-            <h1 className="font-semibold text-2xl">Good Morning, {userName}!</h1>
+            <h1 className="font-semibold text-2xl tracking-tighter text-nowrap">Good Morning, {userName}!</h1>
             <p className="text-gray-80 font-normal text-sm">
               Lorem ipsum dolor sit amet
             </p>
@@ -21,7 +21,7 @@ const WelcomeStats = ({ userName, totalSales, totalSavings, expenses, salesChang
         </div>
         <div className="flex flex-row gap-[20px]">
           <BookingCard
-            label="Total Sales"
+            label={firstblock}
             totalBookings={totalSales}
             percentageChange={salesChange}
             iconSrc={BookBadge}
