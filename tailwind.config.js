@@ -14,7 +14,8 @@ module.exports = {
         "primary-blue": "#346CC4",
         "light-text": "#808080",
         "dark-text": "#3C3C3C",
-        "divider-clr":"#E6E6E6"
+        "divider-clr":"#E6E6E6",
+        "heading-clr":'#15223C',
       }
     },
   },
