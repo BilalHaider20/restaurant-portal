@@ -22,8 +22,8 @@ const RestaurantModal = ({ onClose }) => {
   };
 
   return (
-    <div className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50`}>
-      <div className={`w-full h-full max-w-3xl bg-[#F2F4F7] min-h-screen transition-transform duration-300
+    <div className={`fixed h-screen overflow-y-auto inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50`}>
+      <div className={`w-full max-w-3xl relative top-36 bg-[#F2F4F7] transition-transform duration-300
         ${isModalOpen ? 'transform translate-x-0' : 'transform translate-x-full'}
       `}>
         <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
@@ -90,7 +90,7 @@ const RestaurantModal = ({ onClose }) => {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 bg-white p-4 flex justify-end space-x-4">
+        <div className="sticky bottom-0 bg-white p-4 flex justify-end space-x-4">
           <button className="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100" onClick={handleModalClose}>
             Cancel
           </button>

@@ -20,9 +20,9 @@ const RecentBooking = () => {
       <th className="px-3 py-2 text-primary-blue font-medium">Action</th>
     </tr>
   </thead>
-  <tbody>
 
-    {bookingData.recentBookings.map((booking) => (
+    {bookingData.recentBookings.map((booking,index) => (
+  <tbody key={index}>
         <tr className='text-center text-light-text tracking-tighter'>
         <td className="border border-x-0 px-4 py-2 text-sm">{booking.srNo}</td>
         <td className="border border-x-0 px-4 py-2 text-sm">{booking.orderID}</td>
@@ -36,9 +36,9 @@ const RecentBooking = () => {
           <a href="#" className="text-blue-500 hover:underline bg-blue-100 px-2 py-1 rounded-sm ">{booking.action}</a>
         </td>
       </tr>
+  </tbody>
     ))}
     
-  </tbody>
 </table>
 
     </div>
