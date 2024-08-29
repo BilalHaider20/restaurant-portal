@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Icons from '../../../public/images/kit.png';
 import vector from '../../../public/images/vector.png';
@@ -9,11 +9,21 @@ import profile from '../../../public/images/profile.png';
 import camera from '../../../public/images/camera.png';
 
 const RestaurantModal = () => {
+  const [ismodalclose,setismodalclose] =useState(false);
+  const HandleModal =()=>{
+    setismodalclose(true);
+  }
+
+  
+  
+
   return (
-    <div className="w-full h-[1123px] max-w-3xl bg-[#F2F4F7] min-h-screen absolute right-0 mx-auto">
+    <div className={`w-full h-[1123px] max-w-3xl bg-[#F2F4F7] min-h-screen absolute  mx-auto transition-all ease-linear transform
+      ${ismodalclose ? 'right-[-800px] ': 'right-0'}
+      `}>
       <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
         <h2 className="text-xl sm:text-2xl">Add a New Restaurant</h2>
-        <button className="text-xl">&times;</button>
+        <button className="text-xl" onClick={HandleModal}>&times;</button>
       </div>
     
       <div className="bg-white rounded-lg m-4 p-4 space-y-6">
@@ -78,7 +88,7 @@ const RestaurantModal = () => {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 bg-white p-4 flex justify-end space-x-4">
-        <button className="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100">
+        <button className="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100" onClick={HandleModal}>
           Cancel
         </button>
         <button className="px-4 py-2 text-white bg-primary-blue rounded-lg hover:bg-blue-600">

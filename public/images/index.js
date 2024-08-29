@@ -11,6 +11,7 @@ const images = {
   filter: require("./listing/filter.svg"),
   trend: require("./listing/trend.svg"),
   discount: require("./listing/discount.svg"),
+  
 };
 export const dashboardimages={
     bus : require('./bus-front.png'),
