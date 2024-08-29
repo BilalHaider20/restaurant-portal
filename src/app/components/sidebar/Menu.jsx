@@ -9,7 +9,7 @@ const Menu = () => {
   const t = useTranslations('sidebar')
   const data = [
     { text: t('dashboard'), icon: images.dashboard },
-    { text: t('restraunt'), icon: images.restraunt },
+    { text: t('restaurant'), icon: images.restaurant },
     { text: t('make_bookings'), icon: images.make_bookings },
     { text: t('reports'), icon: images.reports },
     { text: t('my_bookings'), icon: images.my_bookings },
@@ -20,7 +20,7 @@ const Menu = () => {
     { text: t('terms'), icon: images.newspaper }
   ];
 
-  const [current, setCurrent] = useState(t('flights'));
+  const [current, setCurrent] = useState(t('dashboard'));
 
   return (
     <ul>
