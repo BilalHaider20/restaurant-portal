@@ -8,8 +8,8 @@ const RestaurantIntro = ({ rest }) => {
         return index < rest.reviews ? <Image src={images.star_fill} alt='star' /> : <Image src={images.star_hollow} alt='star' />;
     });
     return (
-        <div className='flex p-5'>
-            <div className='flex-[0.15] flex flex-col justify-between'>
+        <div className='flex flex-col p-5 md:flex-row'>
+            <div className=' flex flex-col justify-between md:flex-[0.15]'>
                 <Image src={rest.image} alt='restaurant image' />
                 <span className='text-light-text tracking-tighter'>{rest.cuisines}</span>
             </div>

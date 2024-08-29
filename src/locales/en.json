@@ -14,6 +14,9 @@
         "credit":"Credit",
         "balance": "Total Balance"
     },
+    "restaurant": {
+        "branches": "Branches"
+    },
     "dashboard":{
         "totalreservations": "Total Reservations",
         "recentbooking": "Recent Bookings"

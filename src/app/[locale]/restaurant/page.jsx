@@ -6,8 +6,10 @@ import WelcomeStats from '@/app/components/WelcomeStats'
 import RestaurantCard from './components/restaurantCard'
 import RestaurantIntro from '@/app/components/RestaurantIntro'
 import FilterDropdown from '@/app/components/buttons/FilterDropDown'
+import { useTranslations } from 'next-intl'
 
 const Page = () => {
+    const t = useTranslations('restaurant')
     const rest = {
         reviews: 4,
         image: rest_images.rest_image,
@@ -75,7 +77,7 @@ const Page = () => {
             <RestaurantIntro rest={rest} />
 
             <div className='px-5 flex justify-between'>
-                <h2 className='font-semibold text-2xl text-heading-clr' >{rest.name} Branches</h2>
+                <h2 className='font-semibold text-2xl text-heading-clr' >{rest.name} {t('branches')}</h2>
                 <FilterDropdown />
 
             </div>
