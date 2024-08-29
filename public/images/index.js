@@ -18,6 +18,7 @@ const images = {
   cross: require('./x.svg'),
   delete: require('./listing/Delete.svg'),
   edit: require('./listing/Edit.svg'),
+  mail_form: require('./mail-form.svg')
 };
 export const dashboardimages = {
   bus: require('./bus-front.png'),

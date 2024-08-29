@@ -9,7 +9,7 @@ const Sidebar = ({ sidebarOpen }) => {
   const t = useTranslations('sidebar')
 
   return (
-    <div className={`sticky h-screen overflow-y-scroll block border-r-0 ${sidebarOpen ? 'w-[289px]' : ''}  py-[12px] px-[20px] flex-col flex-shrink-0 gap-6 `}>
+    <div className={`sticky h-screen overflow-y-scroll scrollbar-none scrollbar-thumb-rounded block border-r-0 ${sidebarOpen ? 'w-[289px]' : ''}  py-[12px] px-[20px] flex-col flex-shrink-0 gap-6 hidden md:flex `}>
       <Menu sidebarOpen={sidebarOpen} />
       <div className='w-full h-[1px] bg-divider-grey my-2'></div>
 

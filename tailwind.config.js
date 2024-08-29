@@ -23,5 +23,6 @@ module.exports = {
 
   plugins: [
     require('preline/plugin'),
+    require('tailwind-scrollbar')
   ],
 };

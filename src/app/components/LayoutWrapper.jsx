@@ -15,7 +15,7 @@ const LayoutWrapper = ({ children }) => {
       
       <main className="flex w-full">
         <Sidebar sidebarOpen={sidebarOpen} />
-        <div className="relative w-full">
+        <div className="h-screen overflow-y-scroll relative w-full">
           <div className="flex-1">{children}</div>
           <Footer />
         </div>
