@@ -12,7 +12,11 @@ const images = {
     departments: require("./departments.svg"),
     newspaper: require("./newspaper.svg"),
     logo: require('./bookme-logo.png'),
+    dashboard: require("./dashboard.svg"),
     arrow: require('./arrow.svg'),
+    restraunt: require('./restraunt.svg'),
+    wallet: require('./wallet.svg'),
+    logout: require("./logout.svg")
 };
 
 export default images;

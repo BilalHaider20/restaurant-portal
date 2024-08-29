@@ -5,12 +5,16 @@ import Dropdown from './Dropdown'
 import LoginBtn from './buttons/LoginBtn'
 import ProfileBtn from './buttons/ProfileBtn'
 
+<<<<<<< HEAD
 
 const Navbar = () => {
+=======
+const Navbar = ({toggleSidebar}) => {
+>>>>>>> 169ce267279ffbf0275877b4f855ffc1c6bb11d5
   return (
     <div className='flex items-center justify-between px-5 py-4 '>
       <div className='flex gap-5'>
-        <Image className='cursor-pointer' src={images.menu} alt='menu icon' />
+        <Image className='cursor-pointer' onClick={toggleSidebar} src={images.menu} alt='menu icon' />
         <Image src={images.logo} alt='logo' />
       </div>
       <div className='flex items-center gap-3'>
