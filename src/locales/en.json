@@ -1,5 +1,5 @@
 {
-    "sidebar":{
+    "sidebar": {
         "dashboard": "Dashboard",
         "restaurant": "Restaurants",
         "make_bookings": "Make Bookings",
@@ -11,14 +11,32 @@
         "privacy": "Privacy Policy",
         "terms": "Terms and Conditions",
         "login": "Login",
-        "credit":"Credit",
+        "credit": "Credit",
         "balance": "Total Balance"
     },
     "restaurant": {
         "branches": "Branches"
     },
     "dashboard":{
+
         "totalreservations": "Total Reservations",
         "recentbooking": "Recent Bookings"
+    },
+    "restaurants": {
+        "restaurantListing": "Restaurant Listing"
+    },
+    "SearchInput": {
+        "searchPlaceholder": "Search Restaurants"
+    },
+    "FilterDropdown": {
+        "filter": "Filter",
+        "all": "All",
+        "italian": "Italian",
+        "french": "French",
+        "asian": "Asian",
+        "mexican": "Mexican"
+    },
+    "AddBtn":{
+        "add" : "Add New"
     }
 }

@@ -12,7 +12,7 @@
     "@reduxjs/toolkit": "^2.2.7",
     "chart.js": "^4.4.4",
     "next": "14.2.6",
-    "next-intl": "^3.17.6",
+    "next-intl": "^3.18.0",
     "next-themes": "^0.3.0",
     "preline": "^2.4.1",
     "react": "^18",

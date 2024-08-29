@@ -1,91 +1,102 @@
-"use client"
-import React from 'react'
-import Image from 'next/image'
-import Icons from '../../../public/images/kit.png'
-import vector from '../../../public/images/vector.png'
-import center from '../../../public/images/center.png'
-import Link from 'next/link'
-import profile from '../../../public/images/profile.png'
-import camera from '../../../public/images/camera.png'
-
-
+"use client";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import Icons from '../../../public/images/kit.png';
+import vector from '../../../public/images/vector.png';
+import center from '../../../public/images/center.png';
+import Link from 'next/link';
+import profile from '../../../public/images/profile.png';
+import camera from '../../../public/images/camera.png';
 
 const RestaurantModal = () => {
+  const [ismodalclose,setismodalclose] =useState(false);
+  const HandleModal =()=>{
+    setismodalclose(true);
+  }
+
+  
+  
+
   return (
-    <div className="w-[778px] h-[1123px] bg-[#F2F4F7]  absolute right-0">
-      <div className=" font-semibold text-[#15223C] bg-[#E6E6E6] w-[778px] h-[82px] flex justify-between pt-[32px] pl-[32px] pr-[16px] pb-[32px] text-2xl ">
-        Add a New Restaurant
-        <p>X</p>
+    <div className={`w-full h-[1123px] max-w-3xl bg-[#F2F4F7] min-h-screen absolute  mx-auto transition-all ease-linear transform
+      ${ismodalclose ? 'right-[-800px] ': 'right-0'}
+      `}>
+      <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
+        <h2 className="text-xl sm:text-2xl">Add a New Restaurant</h2>
+        <button className="text-xl" onClick={HandleModal}>&times;</button>
       </div>
     
-    <div className="w-[714px] h-[668px] bg-[#FFFFFF] rounded-[10px] mt-[20px] ml-[20px] mr-[20px] mb-[20px] pt-[16px] pl-[18px] " >
-      <div className="w-[674px] h-[178px] bg-[#FFFFFF] " >
-      <div className="w-[148px] h-[153px] bg-[#FFFFFF] flex flex-row">
-        <Image src = {profile} alt =""/>
-        <div className="w-[73px] h-[28px] bg-primary-blue text-[#FFFFFF] mt-[135px] ml-[79px] absolute left-0 rounded-full ">
-        <button className=' flex items-center justify-between ml-2 '>
-          <Image className ="w-[20px] h-[20px] flex items-center justify-between " src ={camera}/>Add</button>
+      <div className="bg-white rounded-lg m-4 p-4 space-y-6">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="relative ">
+            <Image src={profile} alt="Restaurant Profile" width={148} height={153} className="  rounded-full" />
+            <button className=" m-l-3  transform -translate-x-1/2 bg-primary-blue text-white rounded-full px-3 py-1 flex items-center text-sm">
+              <Image src={camera} alt="Camera" width={20} height={20} className="mr-1 " />
+              Add
+            </button>
           </div>
-        <div className='text-[#3C3C3C]  w-[514px] ml-2 font-semibold'>Restaurant Name <br />
-        <input type="Restaurant Name" className='border boder-1px bg-[#FFFFFF] w-[482px] h-[48px] pl-2 mt-2 font-normal ' placeholder='Enter First Name' />
-        <div className="flex flex-row">
-        <div className='text-[#3C3C3C] font-semibold w-[299px] '>Choose Cuisine <br />
-        <div className="absolute right-0 mr-16 w-[191px] h-[28px] top-48 mt-3">Pricing Category
-          <div className="  flex flex-row">
-            <ul>
-            <li className="ml-4 list-[circle]">$</li>
-            </ul>
-            <ul><li className=' list-[circle] w-[20px] h-[20px] ml-6'>$$</li></ul>
-          <ul><li className=' list-[circle] ml-6'>$$$</li></ul>
-          </div>
-          
-          
-        </div>
-
-        <div className="flex items-center justify-between border border-collapse ">
-          <div className="w-[56px] h-[48px] flex items-center justify-center  ">
-        <Image className='w-[24px] h-[24px] ' src={Icons}/>
-        </div>
-        <input type="Restaurant Name" className=' bg-[#FFFFFF] w-[299px] h-[48px] pl-2 font-normal  ' placeholder='Select' />
-        
-        <div className="w-[56px] h-[48px] flex items-center justify-center ">
-        <Image src ={vector} alt= ""/>
-        </div>
-        </div>
-        </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      <h3 className='mb-2 text-[#3C3C3C]'>Restaurant Description</h3>
-      <div className="w-[674px] h-[150px] bg-white border border-[#E6E6E6] rounded-[10px] ">
-        <div className="width-[642px] h-[48px] items-center ml-4 text-xl mt-2  rounded-[10px] text-[#E6E6E6] bg-[#FFFFFF]">
-          Enter Short Desciption
-        </div>
-      </div>
-
-      <h3 className='mb-2 text-[#3C3C3C] mt-4' >Promotions Banner</h3>
-
-
-      <div className="w-[674px] h-[209px] bg-white border border-[#E6E6E6] rounded-[10px] flex items-center justify-center flex-col">
-        <div className="w-[70px] h-[44px] ">
-        <Image src = {center}/>
-        </div>
-        <div className="mt-4 text-[#1F2937]">Drop Your files here or
-          <Link className='text-blue-700 pl-2' href="link">browse</Link>
-          <div className="text-[#9CA3AF] text-center">Maximum size:50MB</div>
-        </div>
-        </div>
-        <div className="w-[778px] h-[101px] bg-[#FFFFFF] absolute bottom-0 right-0 flex items-center">
-          <div className=" flex items-center justify-between w-[173px] h-[43px] absolute right-12">
-          <button className='w-[89px] h-[44px] text-[#E6E6E6] bg-[#FFFFFF] border border-[#E6E6E6] rounded-[8px] '>Cancel</button>
-          <button className='w-[68px] h-[44px] text-[#FFFFFF] bg-primary-blue border border-[#E6E6E6] rounded-[8px]'>Add</button>
+          <div className="flex-grow w-full">
+            <label className="block text-[#3C3C3C] font-semibold mb-2">Restaurant Name</label>
+            <input type="text" className="border border-gray-300 w-full p-2 rounded" placeholder="Enter Restaurant Name" />
           </div>
         </div>
-        </div> 
+        <div className="">
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="w-[299px] sm:w-1/2  ">
+            <label className="block text-[#3C3C3C] font-semibold mb-2">Choose Cuisine</label>
+            <div className="flex items-center border border-gray-300  rounded overflow-hidden">
+              <div className="p-2">
+                <Image src={Icons} alt="Cuisine icon" width={24} height={24} />
+              </div>
+              <input type="text" className="flex-grow p-2 " placeholder="Select" />
+              <div className="p-2">
+                <Image src={vector} alt="Vector icon" width={24} height={24} />
+              </div>
+            </div>
+          </div>
+
+          <div className="w-[191px] sm:w-1/2 ">
+            <label className="block text-[#3C3C3C] font-semibold mb-2">Pricing Category</label>
+            <div className="flex items-center space-x-6">
+              {['$', '$$', '$$$'].map((price, index) => (
+                <button key={index} className="text-lg cursor-pointer hover:text-primary-blue">{price}</button>
+              ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-  )
-}
+        <div className='pt-1'>
+          <label className="block text-[#3C3C3C] font-semibold mb-2">Restaurant Description</label>
+          <textarea 
+            className="w-full bg-white border border-gray-300 rounded-lg p-4 h-32 resize-none"
+            placeholder="Enter Short Description"
+          ></textarea>
+        </div>
 
-export default RestaurantModal
+        <div>
+          <label className="block text-[#3C3C3C] font-semibold mb-2">Promotions Banner</label>
+          <div className="border-2 border-line rounded-lg p-8 text-center">
+            <Image src={center} alt="Upload icon" width={70} height={44} className="mx-auto mb-4" />
+            <p className="text-[#1F2937]">
+              Drop your files here or <Link href="#" className="text-blue-700">browse</Link>
+            </p>
+            <p className="text-[#9CA3AF] text-sm mt-2">Maximum size: 50MB</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 bg-white p-4 flex justify-end space-x-4">
+        <button className="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100" onClick={HandleModal}>
+          Cancel
+        </button>
+        <button className="px-4 py-2 text-white bg-primary-blue rounded-lg hover:bg-blue-600">
+          Add
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default RestaurantModal;
