@@ -14,7 +14,6 @@ const images = {
   star_fill: require('./star-fill.svg'),
   star_hollow: require('./star-hollow.svg'),
   location_pin: require('./location-pin.svg'),
-  filter: require('./filter.svg'),
   clock: require('./clock.svg'),
 };
 export const dashboardimages = {

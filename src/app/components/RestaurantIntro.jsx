@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import images from '../../../../../public/images'
+import images from '../../../public/images'
 
 const RestaurantIntro = ({ rest }) => {
     const maxStars = 5
