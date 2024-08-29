@@ -17,6 +17,11 @@ const images = {
   clock: require('./clock.svg'),
   delete: require('./listing/Delete.svg'),
   edit: require('./listing/Edit.svg'),
+  location: require('./location.png'),
+  clock: require('./clock.png'),
+  modify: require('./modify.png'),
+  trashbin: require('./trashbin.png'),
+  search: require('./search.png'),
 };
 export const dashboardimages = {
   bus: require('./bus-front.png'),
