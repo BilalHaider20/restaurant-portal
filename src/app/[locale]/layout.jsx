@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
-// import Providers from "@/lib/providers";
+import Providers from "@/lib/providers";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import PrelineScript from "../components/PrelineScript";
