@@ -7,7 +7,7 @@ import WelcomeStats from '@/app/components/WelcomeStats'
 
 const page = () => {
   return (
-    <div className='bg-[#F6F9FD] pb-2'>
+    <div className='bg-[#F6F9FD] pb-2 h-screen overflow-y-scroll'>
       <WelcomeStats 
       userName="John Doe"
       firstblock={"Total Bookings"}
@@ -18,7 +18,7 @@ const page = () => {
       savingsChange="3.45%"
       expensesChange="11.67%"
       />
-        <div className='flex flex-col justify-center py-4 lg:flex-row gap-4 px-4'>
+        <div className=' flex flex-col justify-center py-4 lg:flex-row gap-4 px-4'>
         <TotalReservations />
         <BarChart />
         </div>
