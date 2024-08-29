@@ -5,6 +5,7 @@ import Dropdown from './Dropdown'
 import LoginBtn from './buttons/LoginBtn'
 import ProfileBtn from './buttons/ProfileBtn'
 
+
 const Navbar = () => {
   return (
     <div className='flex items-center justify-between px-5 py-4 '>
@@ -23,7 +24,8 @@ const Navbar = () => {
         </div>
         <Dropdown />
         <LoginBtn />
-        <ProfileBtn />
+        <ProfileBtn />        
+
       </div>
     </div>
   )

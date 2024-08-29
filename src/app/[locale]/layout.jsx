@@ -24,6 +24,8 @@ export default async function RootLayout({ children, params }) {
         </NextIntlClientProvider>
       </body>
       <PrelineScript />
+      
+
     </html>
   );
 }
