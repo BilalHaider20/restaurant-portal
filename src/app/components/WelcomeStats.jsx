@@ -8,7 +8,7 @@ import DollarBadge from "../../../public/images/listing/badge-dollar-sign.png"
 
 const WelcomeStats = ({ userName,firstblock, totalSales, totalSavings, expenses, salesChange, savingsChange, expensesChange }) => {
   return (
-    <div className="flex-grow p-5 bg-[#F6F9FD]">
+    <div className="flex-grow p-5 bg-[#F6F9FD] ">
       <div className="flex flex-col gap-[23px]">
         <div className="flex flex-row items-center justify-between h-[52px]">
           <div className="w-[273px] h-[52px]">
@@ -19,7 +19,7 @@ const WelcomeStats = ({ userName,firstblock, totalSales, totalSavings, expenses,
           </div>
           <SearchInput />
         </div>
-        <div className="flex flex-row gap-[20px]">
+        <div className="flex flex-col lg:flex-row gap-[20px]">
           <BookingCard
             label={firstblock}
             totalBookings={totalSales}

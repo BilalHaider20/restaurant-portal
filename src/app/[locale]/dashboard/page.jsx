@@ -7,7 +7,7 @@ import WelcomeStats from '@/app/components/WelcomeStats'
 
 const page = () => {
   return (
-    <div className='bg-[#F6F9FD] pb-2'>
+    <div className='bg-[#F6F9FD] pb-2 h-screen overflow-y-scroll'>
       <WelcomeStats 
       userName="John Doe"
       firstblock={"Total Bookings"}

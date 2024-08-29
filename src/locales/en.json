@@ -20,7 +20,30 @@
     "dashboard":{
 
         "totalreservations": "Total Reservations",
-        "recentbooking": "Recent Bookings"
+        "recentbooking": "Recent Bookings",
+        "cafedropdown":{
+            "Arcadian Cafe": "Arcadian Cafe",
+            "Burger Lab": "Burger Lab",
+            "Gloria Jeans": "Gloria Jeans",
+            "KFC": "KFC",
+            "McDonalds": "McDonalds"
+        },
+        "BarChartLabels": {
+                "Monday": "Monday",
+                "Tuesday": "Tuesday",
+                "Wednesday": "Wednesday",
+                "Thursday": "Thursday",
+                "Friday": "Friday",
+                "Saturday": "Saturday",
+                "Sunday": "Sunday"
+            },
+            "IntervalDropDown": {
+                    "Last Week": "Last Week",
+                    "Last Month": "Last Month",
+                    "Last Year": "Last Year"
+                }
+            
+        
     },
     "restaurants": {
         "restaurantListing": "Restaurant Listing"
