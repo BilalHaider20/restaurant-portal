@@ -16,6 +16,8 @@ const images = {
   location_pin: require('./location-pin.svg'),
   filter: require('./filter.svg'),
   clock: require('./clock.svg'),
+  delete: require('./listing/Delete.svg'),
+  edit: require('./listing/Edit.svg'),
 };
 export const dashboardimages = {
   bus: require('./bus-front.png'),

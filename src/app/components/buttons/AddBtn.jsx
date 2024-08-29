@@ -1,8 +1,10 @@
 import React from 'react'
 import images from '../../../../public/images/index'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 const AddBtn = () => {
+  const t = useTranslations('AddBtn');
   return (
     <div>
       <button className='w-[170px] h-[44px] bg-primary-blue rounded-lg text-white 
@@ -12,7 +14,7 @@ const AddBtn = () => {
         alt=''
         className='inline-block'
         />
-        Add New
+        {t('add')}
       </button>
     </div>
   )

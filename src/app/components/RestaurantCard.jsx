@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import images from "../../../public/images/index";
-import { HiPencil, HiTrash } from "react-icons/hi";
+// import { HiPencil, HiTrash } from "react-icons/hi";
 import Tags from "../[locale]/restaurants/Tags";
 
 const RestaurantCard = () => {
@@ -29,8 +29,18 @@ const RestaurantCard = () => {
         <div className="flex justify-between items-start">
           <h2 className="text-lg sm:text-xl font-bold">Arcadian Cafe</h2>
           <div className="flex space-x-2">
-            <HiPencil className="text-gray-600 cursor-pointer" size={24} />
-            <HiTrash className="text-gray-600 cursor-pointer" size={24} />
+            {/* <HiPencil className="text-gray-600 cursor-pointer" size={24} /> */}
+            {/* <HiTrash className="text-gray-600 cursor-pointer" size={24} /> */}
+            <Image 
+            className="cursor-pointer"
+            src={images.delete}
+            alt="delete"
+            />
+            <Image 
+            className="cursor-pointer"
+            src={images.edit}
+            alt="edit"
+            />
           </div>
         </div>
         <div className="flex flex-col justify-between flex-grow">
