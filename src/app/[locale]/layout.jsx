@@ -20,13 +20,13 @@ export default async function RootLayout({ children, params }) {
     <html lang={params.locale} suppressHydrationWarning>
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages} >
-          <StoreProvider>
+          {/* <StoreProvider> */}
             <Providers>
               <LayoutWrapper>
               {children}
               </LayoutWrapper>
             </Providers>
-          </StoreProvider>
+          {/* </StoreProvider> */}
         </NextIntlClientProvider>
       </body>
       <PrelineScript />

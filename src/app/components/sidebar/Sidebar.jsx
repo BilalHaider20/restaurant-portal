@@ -9,7 +9,7 @@ const Sidebar = () => {
   const t = useTranslations('sidebar')
 
   return (
-    <div className='block border-r-0 w-[289px] py-[12px] px-[20px] flex-col flex-shrink-0 gap-6 '>
+    <div className='relative block border-r-0 w-[289px] py-[12px] px-[20px] flex-col flex-shrink-0 gap-6 '>
       <Menu  /> 
       <div className='w-full h-[1px] bg-divider-grey my-2'></div>
 
@@ -27,7 +27,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className='px-[20px] py-2 mt-[200px] flex gap-2 '>
+      <div className='absolute px-[20px] py-2 bottom-10 flex gap-2 '>
         <Image src={images.logout} alt="logout" />
         <span className='text-red-500'>Logout</span>
       </div>

@@ -14,7 +14,7 @@ const images = {
     logo: require('./bookme-logo.png'),
     dashboard: require("./dashboard.svg"),
     arrow: require('./arrow.svg'),
-    restraunt: require('./restraunt.svg'),
+    restaurant: require('./restaurant.svg'),
     wallet: require('./wallet.svg'),
     logout: require("./logout.svg")
 };
