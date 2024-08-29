@@ -2,7 +2,7 @@ import React from "react";
 import RestaurantCard from "../../components/RestaurantCard";
 import AddBtn from "../../components/buttons/AddBtn";
 import SearchInput from "@/app/components/SearchInput";
-import FilterDropDown from "./FilterDropDown";
+import FilterDropDown from "../../components/buttons/FilterDropDown";
 
 const Page = () => {
   return (
