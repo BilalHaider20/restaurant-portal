@@ -11,8 +11,8 @@ const RestaurantCard = () => {
           src={images.hotel}
           alt=""
           layout="responsive"
-          width={237} 
-          height={182} 
+          width={237}
+          height={182}
           className="object-cover"
         />
         <div className="absolute top-2 right-0 bg-[#EBF5F0] text-[#2F9461] text-xs font-semibold py-1 px-2 rounded-l flex items-center">
@@ -28,15 +28,15 @@ const RestaurantCard = () => {
         <div className="flex justify-between items-start">
           <h2 className="text-lg sm:text-xl font-bold">Arcadian Cafe</h2>
           <div className="flex space-x-2">
-            <Image 
-            className="cursor-pointer"
-            src={images.delete}
-            alt="delete" 
+            <Image
+              className="cursor-pointer"
+              src={images.delete}
+              alt="delete"
             />
-            <Image 
-            className="cursor-pointer"
-            src={images.edit}
-            alt="edit"
+            <Image
+              className="cursor-pointer"
+              src={images.edit}
+              alt="edit"
             />
           </div>
         </div>
