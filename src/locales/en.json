@@ -38,5 +38,21 @@
     },
     "AddBtn":{
         "add" : "Add New"
-    }
+    },
+
+    
+    "RestaurantModal" : {
+        "newRestaurant" : "Add a New Restaurant",
+        "restaurantName" : "Restaurant Name",
+        "cusine" : "Choose Cusine",
+        "pricing" :"Pricing Category",
+        "restaurantDescription" : "Restaurant Description",
+        "promotionBanner" : "Promotion Banner",
+        "browse" : "browse",
+        "maximumSize" : "Maximum Size:50MB",
+        "cancle" : "Cancle",
+        "add" : "Add",
+        "dragFiles" : "Drag your Files here or"
+
+        }
 }
