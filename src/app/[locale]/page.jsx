@@ -1,8 +1,8 @@
-
-import dashboard from '../[locale]/dashboard/page'
+import React from 'react';
+import DashboardPage from './dashboard/page';
 
 const HomePage = () => {
-  return <dashboard />;
+  return <DashboardPage />;
 };
 
 export default HomePage;
