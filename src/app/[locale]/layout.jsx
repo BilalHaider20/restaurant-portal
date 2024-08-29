@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
-import Providers from "@/lib/providers";
+// import Providers from "@/lib/providers";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import PrelineScript from "../components/PrelineScript";
@@ -19,11 +19,11 @@ export default async function RootLayout({ children, params }) {
     <html lang={params.locale} suppressHydrationWarning>
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages} >
-          <Providers>
+          {/* <Providers> */}
             <LayoutWrapper>
             {children}
             </LayoutWrapper>
-          </Providers>
+          {/* </Providers> */}
         </NextIntlClientProvider>
       </body>
       <PrelineScript />
