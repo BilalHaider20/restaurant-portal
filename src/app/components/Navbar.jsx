@@ -23,7 +23,8 @@ const Navbar = ({toggleSidebar}) => {
         </div>
         <Dropdown />
         <LoginBtn />
-        <ProfileBtn />
+        <ProfileBtn />        
+
       </div>
     </div>
   )
