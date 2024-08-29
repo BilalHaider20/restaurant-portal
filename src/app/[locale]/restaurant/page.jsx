@@ -63,7 +63,7 @@ const Page = () => {
         ]
     }
     return (
-        <div className=' bg-bg-main flex flex-col space-y-5 pb-4 h-screen overflow-y-scroll'>
+        <div className=' bg-bg-main scrollbar-none flex flex-col space-y-5 pb-4 h-screen overflow-y-scroll'>
             <WelcomeStats
                 userName="John Doe"
                 firstblock={"Total Sales"}
