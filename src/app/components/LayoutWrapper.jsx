@@ -14,7 +14,7 @@ const LayoutWrapper = ({ children }) => {
       <Navbar toggleSidebar={toggleSidebar} />
       
       <main className="flex w-full">
-        {sidebarOpen && <Sidebar />}
+        <Sidebar sidebarOpen={sidebarOpen} />
         <div className="relative w-full">
           <div className="flex-1">{children}</div>
           <Footer />

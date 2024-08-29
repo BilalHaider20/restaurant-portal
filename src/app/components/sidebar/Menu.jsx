@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import images from '../../../../public/images/navbar';
 
-const Menu = () => {
+const Menu = ({sidebarOpen}) => {
 
   const t = useTranslations('sidebar')
   const data = [
@@ -34,7 +34,7 @@ const Menu = () => {
               height={20}
             />
           </span>
-          <span>{e.text}</span>
+          { sidebarOpen && <span>{e.text}</span>}
         </li>
       ))}
     </ul>

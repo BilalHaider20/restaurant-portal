@@ -15,6 +15,7 @@ const images = {
   star_hollow: require('./star-hollow.svg'),
   location_pin: require('./location-pin.svg'),
   clock: require('./clock.svg'),
+  cross: require('./x.svg'),
   delete: require('./listing/Delete.svg'),
   edit: require('./listing/Edit.svg'),
 };
