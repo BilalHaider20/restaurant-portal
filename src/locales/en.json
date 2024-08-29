@@ -13,5 +13,9 @@
         "login": "Login",
         "credit":"Credit",
         "balance": "Total Balance"
+    },
+    "dashboard":{
+        "totalreservations": "Total Reservations",
+        "recentbooking": "Recent Bookings"
     }
 }
