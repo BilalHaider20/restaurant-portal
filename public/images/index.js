@@ -15,6 +15,7 @@ const images = {
   star_hollow: require('./star-hollow.svg'),
   location_pin: require('./location-pin.svg'),
   clock: require('./clock.svg'),
+  cross: require('./x.svg'),
   delete: require('./listing/Delete.svg'),
   edit: require('./listing/Edit.svg'),
   location: require('./location.png'),
@@ -22,6 +23,8 @@ const images = {
   modify: require('./modify.png'),
   trashbin: require('./trashbin.png'),
   search: require('./search.png'),
+  mail_form: require('./mail-form.svg')
+
 };
 export const dashboardimages = {
   bus: require('./bus-front.png'),

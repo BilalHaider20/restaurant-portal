@@ -3,12 +3,12 @@ import images from '../../../../public/images/index'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
-const AddBtn = () => {
+const AddBtn = ({ onClick }) => {
   const t = useTranslations('AddBtn');
   return (
     <div>
       <button className='w-[170px] h-[44px] bg-primary-blue rounded-lg text-white 
-      flex flex-row justify-center items-center gap-2'>
+      flex flex-row justify-center items-center gap-2' onClick={onClick}>
         <Image
         src={images.plusSquare}
         alt=''

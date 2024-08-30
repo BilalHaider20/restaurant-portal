@@ -5,3 +5,42 @@
 .navbarCircleDiv{
   @apply w-[42px] h-[42px] bg-bg-highlight flex items-center justify-center mx-auto cursor-pointer rounded-full ;
 }
+.inputForm {
+  @apply border-divider-clr m-0 py-2  pr-5  px-4 block w-full rounded-lg border focus:border-transparent ;
+}
+.inputForm:has(.special-label){
+  @apply p-0 border-0 border-l;
+}
+.inputForm .special-label{
+  @apply hidden !important;
+}
+.inputForm .flag-dropdown{
+  @apply   bg-white border-0  rounded-lg !important;
+}
+
+.inputForm .selected-flag{
+  @apply w-full ml-0 pl-5  flex   !important;
+}
+.inputForm input{
+  @apply  border-[#e6e6e6] m-0 py-2 h-10 px-4 block w-full rounded-lg text-base border pl-14 focus:outline-blue-500 !important;
+}
+
+.inputSvg{
+  @apply pl-11;
+}
+
+.selectForm{
+  @apply border-divider-clr m-0 py-2  pr-5 text-dark-text  px-4 block w-full text-left flex justify-between items-center w-full text-left  rounded-lg border bg-bg-light border focus:border-primary-blue ;
+}
+.selectForm option{
+  @apply bg-bg-light border;
+}
+
+
+.formSvgDiv{
+  @apply absolute top-[34px] start-0 flex items-center pointer-events-none ps-4 peer-disabled:opacity-50 peer-disabled:pointer-events-none;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;               /* width of the entire scrollbar */
+}

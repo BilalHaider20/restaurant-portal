@@ -1,8 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import images from "../../../public/images/index";
-// import { HiPencil, HiTrash } from "react-icons/hi";
-import Tags from "../[locale]/restaurants/Tags";
+import Tags from "../[locale]/restaurants/components/Tags";
 
 const RestaurantCard = () => {
   return (
@@ -12,8 +11,8 @@ const RestaurantCard = () => {
           src={images.hotel}
           alt=""
           layout="responsive"
-          width={237} // Use the actual image width
-          height={182} // Use the actual image height
+          width={237}
+          height={182}
           className="object-cover"
         />
         <div className="absolute top-2 right-0 bg-[#EBF5F0] text-[#2F9461] text-xs font-semibold py-1 px-2 rounded-l flex items-center">
@@ -29,17 +28,15 @@ const RestaurantCard = () => {
         <div className="flex justify-between items-start">
           <h2 className="text-lg sm:text-xl font-bold">Arcadian Cafe</h2>
           <div className="flex space-x-2">
-            {/* <HiPencil className="text-gray-600 cursor-pointer" size={24} /> */}
-            {/* <HiTrash className="text-gray-600 cursor-pointer" size={24} /> */}
-            <Image 
-            className="cursor-pointer"
-            src={images.delete}
-            alt="delete"
+            <Image
+              className="cursor-pointer"
+              src={images.delete}
+              alt="delete"
             />
-            <Image 
-            className="cursor-pointer"
-            src={images.edit}
-            alt="edit"
+            <Image
+              className="cursor-pointer"
+              src={images.edit}
+              alt="edit"
             />
           </div>
         </div>
