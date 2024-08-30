@@ -5,13 +5,14 @@ import images from '../../../public/images'
 import Image from 'next/image'
 import PhoneInput from 'react-phone-input-2';
 import "react-phone-input-2/lib/style.css";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import Select from './Select';
+import Input from './Input'
 
 
 const BranchesModal = () => {
     const {
-        register,
+        control,
         handleSubmit,
         formState: { errors },
     } = useForm();
@@ -77,7 +78,7 @@ const BranchesModal = () => {
     ];
 
     const handleClick = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         setIsModalOpen(!isModalOpen);
     }
 
@@ -88,63 +89,98 @@ const BranchesModal = () => {
         // console.log(data);
     };
     return (
-        <div className={`w-[778px] ml-auto bg-bg-main transition-transform duration-300 ${isModalOpen ? 'transform translate-x-0' : 'transform translate-x-full'}`}>
+        <div className={`w-full ml-auto bg-bg-main transition-transform duration-300 ${isModalOpen ? 'transform translate-x-0' : 'transform translate-x-full'} md:w-[778px]`}>
             <div className='w-full flex justify-between py-3 px-5 bg-bg-light'>
                 <h2 className='font-semibold text-lg text-heading-clr '>Edit Arcadian Cafe Packages Mall</h2>
-                <button type='button' onClick={(e) => handleClick(e) }>
+                <button type='button' onClick={(e) => handleClick(e)}>
                     <Image src={images.cross} alt="x" />
                 </button>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className=' m-5 p-3 bg-bg-light space-y-3' >
-                <div className=" w-full space-y-1  relative">
-                    <label className='m-0' htmlFor="name">Branch Name </label>
-                    <input
-                        {...register('name', { required: "Please enter branch name" })}
-                        type="text"
-                        className="inputForm"
-                        placeholder="Branch Name"
-                        name='name'
-                    />
-                    {errors.name && <p className="text-red-500" role="alert">{errors.name.message}</p>}
-                </div>
-                <div className='flex  gap-3'>
+                <Controller
+                    name="name"
+                    control={control}
+                    rules={{ required: "Please enter branch name" }}
+                    render={({ field }) => (
+                        <Input
+                            label="Branch Name"
+                            name="name"
+                            value={field.value}
+                            onChange={field.onChange}
+                            placeholder="Branch Name"
+                            error={errors.name?.message}
+                        />
+                    )}
+                />
+                <div className='flex flex-col gap-3 md:flex-row'>
                     <div className="space-y-1 relative w-full">
                         <label className='m-0' htmlFor="phone">Phone Number </label>
                         <PhoneInput country='pk' name="phone" className="inputForm" />
                     </div>
-                    <div className="space-y-1 relative w-full">
-                        <label className='m-0' htmlFor="email">Email Address</label>
-                        <input
-                            {...register("email", { required: "Please enter email address" })}
-                            type="email"
-                            className="inputForm inputSvg "
-                            name='email'
-                            placeholder="Email Address"
-                        />
-                        <div className="formSvgDiv">
-                            <Image src={images.mail_form} alt='mail' />
-                        </div>
-                        {errors.email && <p className="text-red-500" role="alert">{errors.email.message}</p>}
-                    </div>
+                    <Controller
+                        name="name"
+                        control={control}
+                        rules={{ required: "Please enter branch name" }}
+                        render={({ field }) => (
+                            <Input
+                                label="Branch Name"
+                                name="name"
+                                value={field.value}
+                                onChange={field.onChange}
+                                placeholder="Branch Name"
+                                error={errors.name?.message}
+                            />
+                        )}
+                    />
                 </div>
-                <div className='flex gap-3'>
-                    <Select label="Choose Day" name="day" options={dayOptions} />
-                    <Select label="Choose Day" name="day" options={dayOptions} />
+                <div className='flex flex-col gap-3 md:flex-row'>
+                    <Controller
+                        name="day"
+                        control={control}
+                        render={({ field }) => (
+                            <Select label="Choose Day" name="day" options={dayOptions} value={field.value} onChange={field.onChange} />
+                        )}
+                    />
+                    <Controller
+                        name="day2"
+                        control={control}
+                        render={({ field }) => (
+                            <Select label="Choose Day" name="day2" options={dayOptions} value={field.value} onChange={field.onChange} />
+                        )}
+                    />
                 </div>
-
-
-                <div className='flex gap-3'>
-                    <Select label="Choose Day" name="day" options={dayOptions} />
-                    <Select label="Opening Hours" name="opening-hours" options={timeOptions} />
-                    <Select label="Closing Hours" name="closing-hours" options={timeOptions} />
+                <div className='flex flex-col gap-3 md:flex-row'>
+                    <Controller
+                        name="opening-hours"
+                        control={control}
+                        render={({ field }) => (
+                            <Select label="Opening Hours" name="opening-hours" options={timeOptions} value={field.value} onChange={field.onChange} />
+                        )}
+                    />
+                    <Controller
+                        name="closing-hours"
+                        control={control}
+                        render={({ field }) => (
+                            <Select label="Closing Hours" name="closing-hours" options={timeOptions} value={field.value} onChange={field.onChange} />
+                        )}
+                    />
                 </div>
-
-                <div className='flex gap-3'>
-                    <Select label="Select Facilities" name="facilites" options={facilitiesOptions} />
-                    <Select label="Select Payment Methods" name="payment-methods" options={paymentOptions} />
+                <div className='flex flex-col gap-3 md:flex-row'>
+                    <Controller
+                        name="facilities"
+                        control={control}
+                        render={({ field }) => (
+                            <Select label="Select Facilities" name="facilities" options={facilitiesOptions} value={field.value} onChange={field.onChange} />
+                        )}
+                    />
+                    <Controller
+                        name="payment-methods"
+                        control={control}
+                        render={({ field }) => (
+                            <Select label="Select Payment Methods" name="payment-methods" options={paymentOptions} value={field.value} onChange={field.onChange} />
+                        )}
+                    />
                 </div>
-
-
             </form>
         </div>
     )

@@ -28,9 +28,9 @@ const Select = ({ label, name, options }) => {
                     id={name}
                     type="button"
                     onClick={() => setOpen(!open)}
-                    className="selectForm selectPlaceholder w-full text-left"
+                    className="selectForm "
                 >
-                    {selected ? options.find(option => option.value === selected)?.label : 'Select an option'}
+                    {selected ? options.find(option => option.value === selected)?.label : <span className='text-light-text'>Select an option</span> }
                     <svg
                         className={`w-4 h-4 transform ${open ? 'rotate-180' : 'rotate-0'}`}
                         xmlns="http://www.w3.org/2000/svg"
