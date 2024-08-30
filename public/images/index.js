@@ -18,8 +18,16 @@ const images = {
   cross: require('./x.svg'),
   delete: require('./listing/Delete.svg'),
   edit: require('./listing/Edit.svg'),
-  mail_form: require('./mail-form.svg'),
+  location: require('./location.png'),
+  clock: require('./clock.png'),
+  modify: require('./modify.png'),
+  trashbin: require('./trashbin.png'),
+  search: require('./search.png'),
+  mail_form: require('./mail-form.svg')
+
+
   browse_image: require('./browse-image.png')
+
 };
 export const dashboardimages = {
   bus: require('./bus-front.png'),
