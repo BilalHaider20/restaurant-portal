@@ -8,6 +8,7 @@ import "react-phone-input-2/lib/style.css";
 import { useForm, Controller } from "react-hook-form";
 import Select from './Select';
 import Input from './Input'
+import FileUpload from './FileUpload'
 
 
 const BranchesModal = () => {
@@ -96,27 +97,8 @@ const BranchesModal = () => {
                     <Image src={images.cross} alt="x" />
                 </button>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className=' m-5 p-3 bg-bg-light space-y-3' >
-                <Controller
-                    name="name"
-                    control={control}
-                    rules={{ required: "Please enter branch name" }}
-                    render={({ field }) => (
-                        <Input
-                            label="Branch Name"
-                            name="name"
-                            value={field.value}
-                            onChange={field.onChange}
-                            placeholder="Branch Name"
-                            error={errors.name?.message}
-                        />
-                    )}
-                />
-                <div className='flex flex-col gap-3 md:flex-row'>
-                    <div className="space-y-1 relative w-full">
-                        <label className='m-0' htmlFor="phone">Phone Number </label>
-                        <PhoneInput country='pk' name="phone" className="inputForm" />
-                    </div>
+            <form onSubmit={handleSubmit(onSubmit)} className=' ' >
+                <div className='m-5 bg-bg-light p-3 space-y-5'>
                     <Controller
                         name="name"
                         control={control}
@@ -132,54 +114,95 @@ const BranchesModal = () => {
                             />
                         )}
                     />
+                    <div className='flex flex-col gap-3 md:flex-row'>
+                        <div className="space-y-1 relative w-full">
+                            <label className='m-0' htmlFor="phone">Phone Number </label>
+                            <PhoneInput country='pk' name="phone" className="inputForm" />
+                        </div>
+                        <Controller
+                            name="email"
+                            
+                            control={control}
+                            rules={{ required: "Please enter branch name" }}
+                            render={({ field }) => (
+                                <Input
+                                    label="Email Address"
+                                    name="email"
+                                    type="email"
+                                    value={field.value}
+                                    onChange={field.onChange}
+                                    placeholder="Enter Email Address"
+                                    error={errors.name?.message}
+                                />
+                            )}
+                        />
+                    </div>
+                    <div className='flex flex-col gap-3 md:flex-row'>
+                        <Controller
+                            name="city"
+                            control={control}
+                            render={({ field }) => (
+                                <Select label="Branch City" name="city" options={dayOptions} value={field.value} onChange={field.onChange} />
+                            )}
+                        />
+                        <Controller
+                            name="country"
+                            control={control}
+                            render={({ field }) => (
+                                <Select label="Branch Country" name="country" options={dayOptions} value={field.value} onChange={field.onChange} />
+                            )}
+                        />
+                    </div>
+                    <div className='flex flex-col gap-3 md:flex-row'>
+                        <Controller
+                            name="day"
+                            control={control}
+                            render={({ field }) => (
+                                <Select label="Choose Day" name="day" options={dayOptions} value={field.value} onChange={field.onChange} />
+                            )}
+                        />
+
+                        <Controller
+                            name="opening-hours"
+                            control={control}
+                            render={({ field }) => (
+                                <Select label="Opening Hours" name="opening-hours" options={timeOptions} value={field.value} onChange={field.onChange} />
+                            )}
+                        />
+                        <Controller
+                            name="closing-hours"
+                            control={control}
+                            render={({ field }) => (
+                                <Select label="Closing Hours" name="closing-hours" options={timeOptions} value={field.value} onChange={field.onChange} />
+                            )}
+                        />
+                    </div>
+
+                    <div className='flex flex-col gap-3 md:flex-row'>
+                        <Controller
+                            name="facilities"
+                            control={control}
+                            render={({ field }) => (
+                                <Select label="Select Facilities" name="facilities" options={facilitiesOptions} value={field.value} onChange={field.onChange} />
+                            )}
+                        />
+                        <Controller
+                            name="payment-methods"
+                            control={control}
+                            render={({ field }) => (
+                                <Select label="Select Payment Methods" name="payment-methods" options={paymentOptions} value={field.value} onChange={field.onChange} />
+                            )}
+                        />
+                    </div>
+                    <FileUpload control={control} name="gallery" />
                 </div>
-                <div className='flex flex-col gap-3 md:flex-row'>
-                    <Controller
-                        name="day"
-                        control={control}
-                        render={({ field }) => (
-                            <Select label="Choose Day" name="day" options={dayOptions} value={field.value} onChange={field.onChange} />
-                        )}
-                    />
-                    <Controller
-                        name="day2"
-                        control={control}
-                        render={({ field }) => (
-                            <Select label="Choose Day" name="day2" options={dayOptions} value={field.value} onChange={field.onChange} />
-                        )}
-                    />
-                </div>
-                <div className='flex flex-col gap-3 md:flex-row'>
-                    <Controller
-                        name="opening-hours"
-                        control={control}
-                        render={({ field }) => (
-                            <Select label="Opening Hours" name="opening-hours" options={timeOptions} value={field.value} onChange={field.onChange} />
-                        )}
-                    />
-                    <Controller
-                        name="closing-hours"
-                        control={control}
-                        render={({ field }) => (
-                            <Select label="Closing Hours" name="closing-hours" options={timeOptions} value={field.value} onChange={field.onChange} />
-                        )}
-                    />
-                </div>
-                <div className='flex flex-col gap-3 md:flex-row'>
-                    <Controller
-                        name="facilities"
-                        control={control}
-                        render={({ field }) => (
-                            <Select label="Select Facilities" name="facilities" options={facilitiesOptions} value={field.value} onChange={field.onChange} />
-                        )}
-                    />
-                    <Controller
-                        name="payment-methods"
-                        control={control}
-                        render={({ field }) => (
-                            <Select label="Select Payment Methods" name="payment-methods" options={paymentOptions} value={field.value} onChange={field.onChange} />
-                        )}
-                    />
+                <div className='bg-bg-light px-4 py-2 flex justify-end gap-3'>
+                    <button className="px-4 py-2 text-gray-600 bg-bg-light border border-gray-300 rounded-lg hover:bg-gray-100">
+                        Cancel
+                    </button>
+                    <button className="px-4 py-2 text-white bg-primary-blue rounded-lg hover:bg-blue-600">
+                        Add
+                    </button>
                 </div>
             </form>
         </div>
