@@ -10,7 +10,7 @@ const RestaurantIntro = ({ rest }) => {
     return (
         <div className='flex flex-col p-5 md:flex-row'>
             <div className=' flex flex-col justify-between md:flex-[0.15]'>
-                <Image src={rest.image} alt='restaurant image' />
+                <Image src={rest.image} alt='restaurant image'  />
                 <span className='text-light-text tracking-tighter'>{rest.cuisines}</span>
             </div>
             <div className='flex-[0.85] space-y-3'>

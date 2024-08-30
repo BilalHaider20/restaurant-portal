@@ -31,20 +31,20 @@ const RestaurantModal = ({ onClose }) => {
           <button className="text-xl" onClick={handleModalClose}>&times;</button>
         </div>
 
-        <div className="bg-white rounded-lg m-4 p-4 space-y-6">
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <div className="relative">
-              <Image src={profile} alt="Restaurant Profile" width={148} height={153} className="rounded-full" />
-              <button className="absolute m-l-3  left-[20px] top-[100px] bg-primary-blue text-white rounded-full px-3 py-1 flex items-center text-sm">
-                <Image src={camera} alt="Camera" width={20} height={20} className="mr-1" />
-                Add
-              </button>
-            </div>
-            <div className="flex-grow w-full">
-              <label className="block text-[#3C3C3C] font-semibold mb-2">Restaurant Name</label>
-              <input type="text" className="border border-gray-300 w-full p-2 rounded" placeholder="Enter Restaurant Name" />
-            </div>
+      <div className="bg-white rounded-lg m-4 p-4 space-y-6">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="relative">
+            <Image src={profile} alt="Restaurant Profile" width={148} height={153} className="rounded-full" />
+            <button className="absolute bottom-0 right-[22px] bg-primary-blue text-white rounded-full px-3 py-1 flex items-center text-sm">
+              <Image src={camera} alt="Camera" width={20} height={20} className="mr-1" />
+              Add
+            </button>
           </div>
+          <div className="flex-grow w-full">
+            <label className="block text-[#3C3C3C] font-semibold mb-2">Restaurant Name</label>
+            <input type="text" className="border border-gray-300 w-full p-2 rounded" placeholder="Enter Restaurant Name" />
+          </div>
+        </div>
 
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="w-[299px] sm:w-1/2">
@@ -60,33 +60,34 @@ const RestaurantModal = ({ onClose }) => {
               </div>
             </div>
 
-            <div className="w-[191px] sm:w-1/2 ">
-              <label className="block text-[#3C3C3C] font-semibold mb-2">Pricing Category</label>
-              <div className="flex items-center space-x-6 mt-4">
-                <label className="flex items-center">
-                  <input className="peer" type="radio" name="price" value="$" />
-                  <span className="ml-2 peer-checked:text-primary-blue">$</span>
+          <div className="w-full sm:w-1/2">
+            <label className="block text-[#3C3C3C] font-semibold mb-2">Pricing Category</label>
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-6 mt-[8px]">
+                <label className="flex items-center cursor-pointer">
+                  <input type="radio" name="price" value="$" className="peer" />
+                  <span className="ml-2 text-gray-500 peer-checked:text-blue-500">$</span>
                 </label>
-                <label className="flex items-center">
-                  <input className="peer" type="radio" name="price" value="$$" />
-                  <span className="ml-2 peer-checked:text-primary-blue">$$</span>
+                <label className="flex items-center cursor-pointer">
+                  <input type="radio" name="price" value="$$" className="peer" />
+                  <span className="ml-2 text-gray-500 peer-checked:text-blue-500">$$</span>
                 </label>
-                <label className="flex items-center">
-                  <input className="peer" type="radio" name="price" value="$$$" />
-                  <span className="ml-2 peer-checked:text-primary-blue">$$$</span>
+                <label className="flex items-center cursor-pointer">
+                  <input type="radio" name="price" value="$$$" className="peer" />
+                  <span className="ml-2 text-gray-500 peer-checked:text-blue-500">$$$</span>
                 </label>
               </div>
-
             </div>
           </div>
+        </div>
 
-          <div className='pt-1'>
-            <label className="block text-[#3C3C3C] font-semibold mb-2">Restaurant Description</label>
-            <textarea
-              className="w-full bg-white border border-gray-300 rounded-lg p-4 h-32 resize-none"
-              placeholder="Enter Short Description"
-            ></textarea>
-          </div>
+        <div className="pt-1">
+          <label className="block text-[#3C3C3C] font-semibold mb-2">Restaurant Description</label>
+          <textarea
+            className="w-full bg-white border border-gray-300 rounded-lg p-4 h-32 resize-none"
+            placeholder="Enter Short Description"
+          ></textarea>
+        </div>
 
           <div>
             <label className="block text-[#3C3C3C] font-semibold mb-2">Promotions Banner</label>
