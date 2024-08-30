@@ -1,35 +1,35 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Icons from '../../../public/images/kit.png';
 import vector from '../../../public/images/vector.png';
+import center from '../../../public/images/center.png';
+import Link from 'next/link';
 import profile from '../../../public/images/profile.png';
 import camera from '../../../public/images/camera.png';
-import { useTranslations } from 'next-intl';
 
-const RestaurantModal = () => {
-  const [isModalClose, setIsModalClose] = useState(false);
-  const t = useTranslations(); // Assuming translations hook is correctly set up
+const RestaurantModal = ({ onClose }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleModal = () => {
-    setIsModalClose(true);
-  };
+  useEffect(() => {
+    setIsModalOpen(true);
+    return () => setIsModalOpen(false);
+  }, []);
 
-  const handleFileChange = (e) => {
-    // Handle file upload logic here
-    const file = e.target.files[0];
-    if (file) {
-      console.log("Selected file:", file.name);
-    }
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setTimeout(onClose, 300);
   };
 
   return (
-    <div className={`w-full max-w-3xl bg-[#F2F4F7] min-h-screen absolute mx-auto transition-all ease-linear transform
-      ${isModalClose ? 'right-[-800px]' : 'right-0'}`}>
-      <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
-        <h2 className="text-xl sm:text-2xl">Add a New Restaurant</h2>
-        <button className="text-xl" onClick={handleModal}>&times;</button>
-      </div>
+    <div className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50`}>
+      <div className={`w-full max-w-3xl relative top-36 bg-[#F2F4F7] transition-transform duration-300
+        ${isModalOpen ? 'transform translate-x-0' : 'transform translate-x-full'}
+      `}>
+        <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
+          <h2 className="text-xl sm:text-2xl">Add a New Restaurant</h2>
+          <button className="text-xl" onClick={handleModalClose}>&times;</button>
+        </div>
 
       <div className="bg-white rounded-lg m-4 p-4 space-y-6">
         <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -46,19 +46,19 @@ const RestaurantModal = () => {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4">
-          <div className="w-full sm:w-1/2">
-            <label className="block text-[#3C3C3C] font-semibold mb-2">Choose Cuisine</label>
-            <div className="flex items-center border border-gray-300 rounded overflow-hidden">
-              <div className="p-2">
-                <Image src={Icons} alt="Cuisine icon" width={24} height={24} />
-              </div>
-              <input type="text" className="flex-grow p-2" placeholder="Select" />
-              <div className="p-2">
-                <Image src={vector} alt="Vector icon" width={24} height={24} />
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="w-[299px] sm:w-1/2">
+              <label className="block text-[#3C3C3C] font-semibold mb-2">Choose Cuisine</label>
+              <div className="flex items-center border border-gray-300 rounded overflow-hidden">
+                <div className="p-2">
+                  <Image src={Icons} alt="Cuisine icon" width={24} height={24} />
+                </div>
+                <input type="text" className="flex-grow p-2" placeholder="Select" />
+                <div className="p-2">
+                  <Image src={vector} alt="Vector icon" width={24} height={24} />
+                </div>
               </div>
             </div>
-          </div>
 
           <div className="w-full sm:w-1/2">
             <label className="block text-[#3C3C3C] font-semibold mb-2">Pricing Category</label>
@@ -89,25 +89,20 @@ const RestaurantModal = () => {
           ></textarea>
         </div>
 
-        <div>
-          <label className="block text-[#3C3C3C] font-semibold mb-2">{t('promotionBanner')}</label>
-          <div className="border-2 border-line rounded-lg p-8 text-center">
-            <p className="text-[#1F2937]">
-              <label htmlFor="file-upload" className="text-blue-700 cursor-pointer">
-                {t('browse')}
-              </label>
-              <input
-                id="file-upload"
-                type="file"
-                className="hidden"
-                onChange={handleFileChange}
-              />
-            </p>
+          <div>
+            <label className="block text-[#3C3C3C] font-semibold mb-2">Promotions Banner</label>
+            <div className="border-2 border-line rounded-lg p-8 text-center">
+              <Image src={center} alt="Upload icon" width={70} height={44} className="mx-auto mb-4" />
+              <p className="text-[#1F2937]">
+                Drop your files here or <Link href="#" className="text-blue-700">browse</Link>
+              </p>
+              <p className="text-[#9CA3AF] text-sm mt-2">Maximum size: 50MB</p>
+            </div>
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 bg-white p-4 flex justify-end space-x-4">
-          <button className="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100" onClick={handleModal}>
+        <div className="sticky bottom-0 bg-white p-4 flex justify-end space-x-4">
+          <button className="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100" onClick={handleModalClose}>
             Cancel
           </button>
           <button className="px-4 py-2 text-white bg-primary-blue rounded-lg hover:bg-blue-600">
