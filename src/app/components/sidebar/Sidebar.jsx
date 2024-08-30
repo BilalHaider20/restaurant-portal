@@ -29,7 +29,7 @@ const Sidebar = ({ sidebarOpen }) => {
             </div>
           </div>
 
-        <div className=' px-[20px] py-2 flex gap-2 mt-[100px] mb-[50px] md:mt-[160px] md:mb-[100px]'>
+        <div className=' px-[20px] py-2 flex gap-2 mt-[100px] md:mt-[160px] '>
           <Image src={images.logout} alt="logout" />
           <span className='text-red-500'>Logout</span>
         </div>

@@ -25,6 +25,9 @@ const images = {
   search: require('./search.png'),
   mail_form: require('./mail-form.svg')
 
+
+  browse_image: require('./browse-image.png')
+
 };
 export const dashboardimages = {
   bus: require('./bus-front.png'),

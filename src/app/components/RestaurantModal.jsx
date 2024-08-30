@@ -22,8 +22,8 @@ const RestaurantModal = ({ onClose }) => {
   };
 
   return (
-    <div className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50`}>
-      <div className={`w-full max-w-3xl relative top-36 bg-[#F2F4F7] transition-transform duration-300
+    <div className={`fixed overflow-y-auto inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50`}>
+      <div className={`w-full max-w-3xl absolute top-0 bg-[#F2F4F7] transition-transform duration-300
         ${isModalOpen ? 'transform translate-x-0' : 'transform translate-x-full'}
       `}>
         <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
@@ -115,3 +115,42 @@ const RestaurantModal = ({ onClose }) => {
 };
 
 export default RestaurantModal;
+
+
+
+
+{/* <div className={`fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50`}>
+<div className={`w-full max-w-3xl relative top-36 bg-[#F2F4F7] transition-transform duration-300
+  ${isModalOpen ? 'transform translate-x-0' : 'transform translate-x-full'}
+`}>
+@@ -35,7 +35,7 @@ const RestaurantModal = ({ onClose }) => {
+    <div className="flex flex-col sm:flex-row items-center gap-4">
+      <div className="relative">
+        <Image src={profile} alt="Restaurant Profile" width={148} height={153} className="rounded-full" />
+        <button className="absolute m-l-3  left-[20px] top-[100px] bg-primary-blue text-white rounded-full px-3 py-1 flex items-center text-sm">
+          <Image src={camera} alt="Camera" width={20} height={20} className="mr-1" />
+          Add
+        </button>
+@@ -60,13 +60,23 @@ const RestaurantModal = ({ onClose }) => {
+        </div>
+      </div>
+
+      <div className="w-[191px] sm:w-1/2 ">
+        <label className="block text-[#3C3C3C] font-semibold mb-2">Pricing Category</label>
+        <div className="flex items-center space-x-6 mt-4">
+          <label className="flex items-center">
+            <input className="peer" type="radio" name="price" value="$" />
+            <span className="ml-2 peer-checked:text-primary-blue">$</span>
+          </label>
+          <label className="flex items-center">
+            <input className="peer" type="radio" name="price" value="$$" />
+            <span className="ml-2 peer-checked:text-primary-blue">$$</span>
+          </label>
+          <label className="flex items-center">
+            <input className="peer" type="radio" name="price" value="$$$" />
+            <span className="ml-2 peer-checked:text-primary-blue">$$$</span>
+          </label>
+        </div>
+
+      </div>
+    </div> */}
