@@ -23,7 +23,7 @@ const images = {
   modify: require('./modify.png'),
   trashbin: require('./trashbin.png'),
   search: require('./search.png'),
-  mail_form: require('./mail-form.svg')
+  mail_form: require('./mail-form.svg'),
 
 
   browse_image: require('./browse-image.png')
