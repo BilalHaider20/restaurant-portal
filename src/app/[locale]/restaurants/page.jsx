@@ -18,7 +18,7 @@ const Page = () => {
   const handleCloseModal = () => setIsModalOpen(false);
 
   return (
-    <div className="bg-bg-highlight w-full mx-auto p-4 h-screen overflow-y-auto">
+    <div className="bg-bg-highlight w-full mx-auto p-4 overflow-y-auto">
       <div className="flex flex-col sm:flex-row justify-between items-center">
         <h1 className="text-2xl sm:text-[32px] font-semibold">{t("restaurantListing")}</h1>
         <div className="flex flex-col sm:flex-row items-center gap-2">

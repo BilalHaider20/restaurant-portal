@@ -40,7 +40,7 @@ export const BarChart = () => {
   };
 
   return (
-    <div className="max-w-[100%] sm:min-w-[550px] rounded-lg bg-white px-3 py-4 shadow-md">
+    <div className=" rounded-lg bg-white px-3 py-4 shadow-md">
       <div className='flex justify-between items-center mb-8'>
         <h3 className="text-heading-clr font-semibold text-xl sm:text-2xl tracking-tighter">
          {tt('totalreservations')}

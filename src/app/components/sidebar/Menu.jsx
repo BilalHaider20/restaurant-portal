@@ -36,7 +36,7 @@ const Menu = ({ sidebarOpen }) => {
                 width={20}
                 height={20}
               />
-              {sidebarOpen && <span>{e.text}</span>}
+              {sidebarOpen && <span >{e.text}</span>}
             </span>
           </Link>
         </li>
