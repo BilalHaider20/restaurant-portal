@@ -5,8 +5,8 @@ export default function Page() {
     return (
         <div>
             page
-            {/* <BranchesModal/> */}
-            <RestaurantModal />
+            <BranchesModal/>
+            {/* <RestaurantModal /> */}
         </div>
         
         
