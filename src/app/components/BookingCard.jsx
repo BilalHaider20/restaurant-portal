@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const BookingCard = ({ label, totalBookings, percentageChange, iconSrc }) => {
   return (
-    <div className="bg-white flex flex-col items-start justify-center p-3 border-l-4 border-[#346CC4] rounded-lg w-full ">
+    <div className="bg-white flex flex-col items-start justify-center p-3 border-l-4 border-[#346CC4] rounded-lg w-full dark:bg-black ">
       <p className="text-sm text-gray-500">{label}</p>
       
       <div className="flex flex-row items-center w-full ">
