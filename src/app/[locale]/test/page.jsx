@@ -5,8 +5,8 @@ export default function Page() {
     return (
         <div className="relative w-full">
             page
-            <BranchesModal/>
-            {/* <RestaurantModal /> */}
+            {/* <BranchesModal/> */}
+            <RestaurantModal />
         </div>
         
         

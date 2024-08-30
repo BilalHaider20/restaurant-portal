@@ -35,7 +35,7 @@ const RestaurantModal = () => {
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <div className="relative">
             <Image src={profile} alt="Restaurant Profile" width={148} height={153} className="rounded-full" />
-            <button className="absolute bottom-0 right-0 bg-primary-blue text-white rounded-full px-3 py-1 flex items-center text-sm">
+            <button className="absolute bottom-0 right-[22px] bg-primary-blue text-white rounded-full px-3 py-1 flex items-center text-sm">
               <Image src={camera} alt="Camera" width={20} height={20} className="mr-1" />
               Add
             </button>
@@ -63,16 +63,27 @@ const RestaurantModal = () => {
           <div className="w-full sm:w-1/2">
             <label className="block text-[#3C3C3C] font-semibold mb-2">Pricing Category</label>
             <div className="flex items-center space-x-6">
-              {['$', '$$', '$$$'].map((price, index) => (
-                <button key={index} className="text-lg cursor-pointer hover:text-primary-blue">{price}</button>
-              ))}
+              <div className="flex items-center space-x-6 mt-[8px]">
+                <label className="flex items-center cursor-pointer">
+                  <input type="radio" name="price" value="$" className="peer" />
+                  <span className="ml-2 text-gray-500 peer-checked:text-blue-500">$</span>
+                </label>
+                <label className="flex items-center cursor-pointer">
+                  <input type="radio" name="price" value="$$" className="peer" />
+                  <span className="ml-2 text-gray-500 peer-checked:text-blue-500">$$</span>
+                </label>
+                <label className="flex items-center cursor-pointer">
+                  <input type="radio" name="price" value="$$$" className="peer" />
+                  <span className="ml-2 text-gray-500 peer-checked:text-blue-500">$$$</span>
+                </label>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="pt-1">
           <label className="block text-[#3C3C3C] font-semibold mb-2">Restaurant Description</label>
-          <textarea 
+          <textarea
             className="w-full bg-white border border-gray-300 rounded-lg p-4 h-32 resize-none"
             placeholder="Enter Short Description"
           ></textarea>
