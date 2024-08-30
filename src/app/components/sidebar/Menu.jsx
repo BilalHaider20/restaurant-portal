@@ -27,7 +27,7 @@ const Menu = ({ sidebarOpen }) => {
   return (
     <ul>
       {data.map((e, index) => (
-        <li className={`${current === e.text ? `bg-bg-highlight` : ``} cursor-pointer rounded-lg  text-light-text flex gap-5 items-center py-2 px-3 mt-2 `} key={index} onClick={() => setCurrent(e.text)}>
+        <li className={`${current === e.text ? `bg-bg-highlight` : ``} ${sidebarOpen ? '' : 'md:flex hidden'} cursor-pointer rounded-lg  text-light-text  gap-5 items-center py-2 px-3 mt-2  `} key={index} onClick={() => setCurrent(e.text)}>
           <Link href={e.href} passHref>
             <span className='flex gap-2'>
               <Image

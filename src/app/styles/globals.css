@@ -30,7 +30,7 @@
 }
 
 .selectForm{
-  @apply bg-bg-light border;
+  @apply border-divider-clr m-0 py-2  pr-5  px-4 block w-full text-left flex justify-between items-center rounded-lg border bg-bg-light border focus:border-primary-blue ;
 }
 .selectForm option{
   @apply bg-bg-light border;

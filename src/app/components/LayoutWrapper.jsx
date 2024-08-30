@@ -1,13 +1,29 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./sidebar/Sidebar";
 import Footer from "./Footer";
 
 const LayoutWrapper = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
+  
+  const [mobile, setMobile] = useState(window.innerWidth <= 786);
+  const [sidebarOpen, setSidebarOpen] = useState(!mobile);
+  
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setMobile(window.innerWidth <= 786);
+      setSidebarOpen(!mobile);
+    };
+
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="w-full">
