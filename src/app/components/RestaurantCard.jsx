@@ -5,7 +5,7 @@ import Tags from "../[locale]/restaurants/components/Tags";
 
 const RestaurantCard = () => {
   return (
-    <div className="relative flex flex-col sm:flex-row border border-gray-200 rounded-lg shadow-md w-full max-w-[1075px] h-auto overflow-hidden">
+    <div className="relative flex flex-col sm:flex-row border border-gray-200 rounded-lg shadow-md h-auto overflow-hidden">
       <div className="relative w-full sm:w-1/3 h-auto">
         <Image
           src={images.hotel}
