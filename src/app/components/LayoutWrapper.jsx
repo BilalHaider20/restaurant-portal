@@ -10,16 +10,17 @@ const LayoutWrapper = ({ children }) => {
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   return (
-    <div className="w-full">
+    <div>
       <Navbar toggleSidebar={toggleSidebar} />
       
-      <main className="flex w-full">
+      <div className="flex w-full">
         <Sidebar sidebarOpen={sidebarOpen} />
-        <div className="h-screen overflow-y-scroll relative w-full">
-          <div className="flex-1">{children}</div>
+        <main className="h-screen overflow-y-scroll relative w-full">
+          <div className="flex-1">{children}
           <Footer />
-        </div>
-      </main>
+          </div>
+        </main>
+      </div>
     </div>
   );
 };

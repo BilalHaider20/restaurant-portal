@@ -7,7 +7,7 @@ import ProfileBtn from './buttons/ProfileBtn'
 
 const Navbar = ({toggleSidebar}) => {
   return (
-    <div className='flex items-center justify-between px-5 py-4'>
+    <div className='flex items-center justify-between px-5 py-4 z-50'>
       <div className='flex gap-5'>
         <Image className='cursor-pointer' onClick={toggleSidebar} src={images.menu} alt='menu icon' />
         <Image src={images.logo} alt='logo' />
