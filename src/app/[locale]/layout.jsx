@@ -21,16 +21,16 @@ export default async function RootLayout({ children, params }) {
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages} >
           {/* <StoreProvider> */}
-            <Providers>
-              <LayoutWrapper>
+          {/* <Providers> */}
+            <LayoutWrapper>
               {children}
-              </LayoutWrapper>
-            </Providers>
+            </LayoutWrapper>
+          {/* </Providers> */}
           {/* </StoreProvider> */}
         </NextIntlClientProvider>
       </body>
       <PrelineScript />
-      
+
 
     </html>
   );
