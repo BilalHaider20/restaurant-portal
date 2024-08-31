@@ -9,7 +9,8 @@ import Sort from "@/app/components/buttons/Sort";
 import SearchInput from "@/app/components/SearchInput";
 import FilterDropdown from "@/app/components/buttons/FilterDropDown";
 // import { useState } from "react";
-import Users from "../branches/components/Users";
+// import Users from "../branches/components/Users";
+import Promotions from "../branches/components/Promotions";
 
 
 const Branches = () => {
@@ -40,7 +41,7 @@ const Branches = () => {
                     <FilterDropdown className=""/>
                 </div>
             </div>
-            <Users />
+            <Promotions />
         </div>
     );
 };

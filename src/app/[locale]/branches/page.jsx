@@ -7,6 +7,7 @@ import Switcher from "./components/Switcher";
 import AddBtn from "@/app/components/buttons/AddBtn";
 import BranchCard from "./components/BranchCard";
 import Users from "./components/Users";
+import Promotions from "./components/Promotions";
 
 
 const Branches = () => {
@@ -43,6 +44,10 @@ const Branches = () => {
       case  'Members':
         return (
           <Users />
+        )
+      case 'Promotions':
+        return(
+          <Promotions />
         )
   
     default:
