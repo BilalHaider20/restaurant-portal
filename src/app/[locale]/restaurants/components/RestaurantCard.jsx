@@ -14,17 +14,19 @@ const RestaurantCard = () => {
           className="object-cover h-full"
         />
         <div className="absolute top-2 right-0 bg-[#EBF5F0] text-[#2F9461] text-xs font-semibold py-1 px-2 rounded-l flex items-center">
-          <Image src={images.discount} alt="%" className="w-3 h-3 mr-1" />
+          <Image
+            src={images.discount}
+            alt="%"
+            className="w-3 h-3 mr-1"
+          />
           <span>30% Off</span>
         </div>
       </div>
       <div className="flex flex-col justify-between p-4 w-full sm:w-2/3">
         <div className="flex justify-between items-start">
-          <h2 className="text-lg sm:text-xl md:text-3xl  font-bold">
-            Arcadian Cafe
-          </h2>
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold">Arcadian Cafe</h2>
           <div className="flex space-x-2">
-            {/* <Image
+            <Image
               className="cursor-pointer"
               src={images.delete}
               alt="delete"
@@ -33,14 +35,7 @@ const RestaurantCard = () => {
               className="cursor-pointer"
               src={images.edit}
               alt="edit"
-            /> */}
-            <button className=" w-[116px] text-blue-500 p-2 flex flex-center rounded-lg mr-3 border border-blue-500">
-              <Image src={images.modify} className="mr-[12px]" alt="" /> Modify
-            </button>
-            <button className="w-[116px] text-red-500 p-2 flex flex-center rounded-lg border border-red-500">
-              <Image src={images.trashbin} className="mr-[12px]" alt="" />{" "}
-              Delete
-            </button>
+            />
           </div>
         </div>
         <div className="flex flex-col justify-between flex-grow">
@@ -62,14 +57,16 @@ const RestaurantCard = () => {
               <span className="text-[#3C3C3C] text-base md:text-lg font-medium">
                 Excellent
               </span>
-              <span className="text-gray-80 text-sm md:text-base">
-                155 Reviews
-              </span>
+              <span className="text-gray-80 text-sm md:text-base">155 Reviews</span>
             </div>
           </div>
         </div>
         <div className="absolute bottom-4 right-4 flex items-center text-xs sm:text-sm text-gray-600">
-          <Image src={images.trend} alt="" className="mr-1" />
+          <Image
+            src={images.trend}
+            alt=""
+            className="mr-1"
+          />
           <span>Booked 18 times today</span>
         </div>
       </div>
