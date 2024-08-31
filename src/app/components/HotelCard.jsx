@@ -11,7 +11,7 @@ const HotelCard = ({ name, image, description }) => {
   };
 
   return (
-    <div className="rounded-lg border border-gray-200 shadow-md overflow-hidden">
+    <div className="rounded-lg border border-gray-200 shadow-md overflow-hidden w-[356px]"> 
       <div className="bg-gray-100 p-4 text-center">
         <Image src={image} alt={name} className="w-full h-auto" />
       </div>

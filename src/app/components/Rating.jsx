@@ -23,7 +23,7 @@ const Rating = () => {
                                 alt="Trend Icon" 
                                 className="w-4 h-4 mr-1"  
                             />
-                            <span className="text-gray-80 text-[10px]">Booked 18 times today</span>
+                            <span className="text-gray-80 text-xs">Booked 18 times today</span>
                         </div>
                     </div>
                 </div>

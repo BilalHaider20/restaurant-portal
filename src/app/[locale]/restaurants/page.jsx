@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import RestaurantCard from "../../components/RestaurantCard";
+import RestaurantCard from "./components/RestaurantCard";
 import AddBtn from "../../components/buttons/AddBtn";
 import SearchInput from "@/app/components/SearchInput";
 import FilterDropDown from "../../components/buttons/FilterDropDown";
