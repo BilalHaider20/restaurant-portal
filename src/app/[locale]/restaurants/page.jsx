@@ -5,7 +5,8 @@ import RestaurantCard from "./components/RestaurantCard";
 import AddBtn from "../../components/buttons/AddBtn";
 import SearchInput from "@/app/components/SearchInput";
 import FilterDropDown from "../../components/buttons/FilterDropDown";
-import RestaurantModal from "../../components/RestaurantModal"; 
+import RestaurantModal from "../../components/RestaurantModal";
+import AddPromotionModal from "@/app/components/AddPromotionModal"; 
 
 const Page = () => {
   const t = useTranslations('restaurants');
@@ -35,6 +36,7 @@ const Page = () => {
         <RestaurantCard />
       </div>
       {isModalOpen && <RestaurantModal onClose={handleCloseModal} />}
+      {/* {isModalOpen && <AddPromotionModal onClose={handleCloseModal} />} */}
     </div>
   );
 };
