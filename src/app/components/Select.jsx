@@ -22,7 +22,7 @@ const Select = ({ label, name, options }) => {
 
     return (
         <div className="w-full space-y-1" ref={dropdownRef}>
-            <label htmlFor={name}>{label}</label>
+            <label htmlFor={name} className='text-[#3C3C3C] font-semibold'>{label}</label>
             <div className="relative">
                 <button
                     id={name}

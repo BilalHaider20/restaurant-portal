@@ -1,6 +1,7 @@
 "use client";
-import React, { useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 import { useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 import images from '../../../public/images';
 import Image from 'next/image';
 import { Controller } from 'react-hook-form';
@@ -9,14 +10,17 @@ const FileUpload = ({ control, name }) => {
     const [files, setFiles] = useState([]);
     const fileInputRef = useRef(null);
 
-    const handleFileChange = (event) => {
-        const selectedFiles = [...event.target.files];
-        setFiles(selectedFiles);
-    };
+    // Handle the drop event
+    const onDrop = useCallback((acceptedFiles) => {
+        setFiles((prevFiles) => [...prevFiles, ...acceptedFiles]);
+    }, []);
 
+    // Handle file input click
     const handleBrowseClick = () => {
         fileInputRef.current.click();
     };
+
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
     return (
         <div className="">
@@ -24,9 +28,10 @@ const FileUpload = ({ control, name }) => {
             <Controller
                 name={name}
                 control={control}
-                render={({ field }) => (
+                render={({ field: { onChange, value, ref } }) => (
                     <>
                         <div
+                            {...useDropzone({ onDrop })}
                             className="flex flex-col items-center justify-center h-48 space-y-2 w-full p-4 border border-dashed border-gray-300 rounded-md text-center"
                             onClick={handleBrowseClick}
                         >
@@ -40,11 +45,15 @@ const FileUpload = ({ control, name }) => {
                                 type="file"
                                 multiple
                                 onChange={(e) => {
-                                    handleFileChange(e);
-                                    field.onChange(e.target.files);
+                                    const selectedFiles = Array.from(e.target.files);
+                                    setFiles((prevFiles) => [...prevFiles, ...selectedFiles]);
+                                    onChange([...files, ...selectedFiles]); // Pass the files to the form
                                 }}
                                 className="hidden"
-                                ref={fileInputRef}
+                                ref={(element) => {
+                                    ref(element); // Bind ref from react-hook-form
+                                    fileInputRef.current = element; // Save ref locally
+                                }}
                             />
                         </div>
                         {files.length > 0 && (
