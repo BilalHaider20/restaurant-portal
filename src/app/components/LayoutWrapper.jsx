@@ -29,7 +29,7 @@ const LayoutWrapper = ({ children }) => {
     <div>
       <Navbar toggleSidebar={toggleSidebar} />
       
-      <div className="flex w-full mt-16">
+      <div className="flex w-full mt-[68px]">
         <Sidebar sidebarOpen={sidebarOpen} />
         <main className={`h-[calc(100vh-4rem)] overflow-y-scroll relative w-full flex-1 transition-all ease-in-out duration-300
          } 
