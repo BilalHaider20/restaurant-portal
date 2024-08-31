@@ -221,9 +221,9 @@ const RestaurantModal = ({ onClose }) => {
                 <p className="text-[#9CA3AF] text-sm mt-2">Maximum size: 50MB</p>
               </div>
             </div> */}
-            <div className="flex-grow overflow-y-auto p-4 space-y-6">
+            {/* <div className="flex-grow overflow-y-auto p-4 space-y-6">
               <FileUpload title={"Promotional Banner"} />
-            </div>
+            </div> */}
           </div>
         </div>
 
