@@ -4,7 +4,10 @@ import Image from "next/image";
 import rest_images from '../../../../public/images/restaurant'
 import RestaurantIntro from "@/app/components/RestaurantIntro";
 import Switcher from "./components/Switcher";
+import AddBtn from "@/app/components/buttons/AddBtn";
+import BranchCard from "./components/BranchCard";
 // import { useState } from "react";
+
 
 const Branches = () => {
   const rest = {
@@ -15,20 +18,38 @@ const Branches = () => {
     price: "$$$",
     cuisines: "Italian • French • Asian",
   }
+  const branches = [
+    {
+      name: 'Arcadian Cafe Packages Mall',
+      location: 'Packages Mall, Lahore',
+      hours: '11:00 am - 10:00 pm',
+      imageUrl: 'https://your-image-url.com/image.jpg', // Replace with actual image URL
+      discount: '30%',
+      features: ['Free Wifi', 'Free Wifi'],
+      rating: '8.6',
+      reviews: 155,
+      bookings: 18,
+    },
+  ];
   return (
-    <div className="bg-bg-main scrollbar-none flex flex-col space-y-5 pb-4 ">
-      <RestaurantIntro rest={rest} />  
+    <div className="bg-bg-main scrollbar-none flex flex-col space-y-5  p-4">
+      <RestaurantIntro rest={rest} />
       <div className="flex">
-      <Switcher />
+        <Switcher onChange={(selection) => console.log(selection)} className="" />
       </div>
+      <div className="flex flex-row justify-between">
+        <h2 className="text-[clamp(1rem,2vw,32px)] font-semibold">Arcadian Cafe Branches</h2>
+        <AddBtn onClick={() => {
+          console.log("Add button clicked!")
+        }} />
+      </div>
+        <div className="flex flex-col gap-4">
+          <BranchCard branch={branches[0]} />
+          <BranchCard branch={branches[0]} />
+          <BranchCard branch={branches[0]} />
+        </div>
     </div>
   );
 };
 
 export default Branches;
-{/* <button className=" w-[116px] text-blue-500 p-2 flex flex-center rounded-lg mr-3 border border-blue-500">
-<Image src={images.modify} className="mr-[12px]" alt=""/> Modify
-</button>
-<button className="w-[116px] text-red-500 p-2 flex flex-center rounded-lg border border-red-500">
-<Image src={images.trashbin} className="mr-[12px]" alt=""/> Delete
-</button> */}
