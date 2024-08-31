@@ -6,7 +6,7 @@ import RestaurantIntro from "@/app/components/RestaurantIntro";
 import Switcher from "./components/Switcher";
 import AddBtn from "@/app/components/buttons/AddBtn";
 import BranchCard from "./components/BranchCard";
-// import { useState } from "react";
+import Users from "./components/Users";
 
 
 const Branches = () => {
@@ -40,7 +40,10 @@ const Branches = () => {
       <div className="flex flex-col gap-4">
         <BranchCard branch={branches[0]} />
     </div>)
-      
+      case  'Members':
+        return (
+          <Users />
+        )
   
     default:
       break;
