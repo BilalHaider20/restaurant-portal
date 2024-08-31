@@ -5,7 +5,7 @@ import Tags from "./Tags";
 
 const RestaurantCard = () => {
   return (
-    <div className="relative h-auto flex flex-col sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden">
+    <div className="relative h-auto flex flex-col md:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden">
       <div className="relative w-full sm:w-1/3 h-auto">
         <Image
           src={images.hotel}
@@ -18,28 +18,17 @@ const RestaurantCard = () => {
           <span>30% Off</span>
         </div>
       </div>
-      <div className="flex flex-col justify-between p-4 w-full sm:w-2/3">
+      <div className="flex flex-col justify-between p-4 sm:w-2/3">
         <div className="flex justify-between items-start">
-          <h2 className="text-lg sm:text-xl md:text-3xl  font-bold">
+          <h2 className="text-lg sm:text-xl md:text-3xl font-bold">
             Arcadian Cafe
           </h2>
-          <div className="flex space-x-2">
-            {/* <Image
-              className="cursor-pointer"
-              src={images.delete}
-              alt="delete"
-            />
-            <Image
-              className="cursor-pointer"
-              src={images.edit}
-              alt="edit"
-            /> */}
-            <button className=" w-[116px] text-blue-500 p-2 flex flex-center rounded-lg mr-3 border border-blue-500">
-              <Image src={images.modify} className="mr-[12px]" alt="" /> Modify
+          <div className="flex gap-2 flex-col sm:flex-row">
+            <button className="gap-1 text-blue-500 p-2 flex items-center rounded-lg border border-blue-500">
+              <Image src={images.modify}  alt="" /> Modify
             </button>
-            <button className="w-[116px] text-red-500 p-2 flex flex-center rounded-lg border border-red-500">
-              <Image src={images.trashbin} className="mr-[12px]" alt="" />{" "}
-              Delete
+            <button className="gap-1 text-red-500 p-2 flex items-center rounded-lg border border-red-500">
+              <Image src={images.trashbin}  alt="" /> Delete
             </button>
           </div>
         </div>
@@ -55,22 +44,24 @@ const RestaurantCard = () => {
               <Tags Text="Free Wifi" />
               <Tags Text="Free Wife" />
             </div>
-            <span className="text-lg md:text-2xl font-semibold bg-[#346CC4] text-white w-12 h-8 rounded text-center">
-              8.6
-            </span>
-            <div className="flex flex-col">
-              <span className="text-[#3C3C3C] text-base md:text-lg font-medium">
-                Excellent
+            <div className="flex flex-row items-center justify-around gap-2 ">
+              <span className="text-lg md:text-2xl font-semibold bg-[#346CC4] text-white rounded text-center p-2">
+                8.6
               </span>
-              <span className="text-gray-80 text-sm md:text-base">
-                155 Reviews
-              </span>
+              <div className="flex flex-col">
+                <span className="text-[#3C3C3C] text-base md:text-lg font-medium">
+                  Excellent
+                </span>
+                <span className="text-gray-80 text-sm md:text-base">
+                  155 Reviews
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="absolute bottom-4 right-4 flex items-center text-xs sm:text-sm text-gray-600">
-          <Image src={images.trend} alt="" className="mr-1" />
-          <span>Booked 18 times today</span>
+          <div className="absolute bottom-4 right-4 flex items-center text-xs sm:text-sm text-gray-600">
+            <Image src={images.trend} alt="" className="mr-1" />
+            <span>Booked 18 times today</span>
+          </div>
         </div>
       </div>
     </div>

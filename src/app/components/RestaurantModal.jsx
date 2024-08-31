@@ -119,29 +119,7 @@ const RestaurantModal = ({ onClose }) => {
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Choose Cuisine */}
               <div className="w-[299px] sm:w-1/2">
-                {/* <div className="flex items-center border border-gray-300 rounded overflow-hidden">
-                  <div className="p-2">
-                    <Image
-                      src={Icons}
-                      alt="Cuisine icon"
-                      width={24}
-                      height={24}
-                    />
-                  </div>
-                  <input
-                    type="text"
-                    className="flex-grow p-2"
-                    placeholder="Select"
-                  />
-                  <div className="p-2">
-                    <Image
-                      src={vector}
-                      alt="Vector icon"
-                      width={24}
-                      height={24}
-                    />
-                  </div>
-                </div> */}
+                
                 <Controller
                             name="Ciusine"
                             control={control}

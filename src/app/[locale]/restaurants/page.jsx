@@ -5,15 +5,14 @@ import RestaurantCard from "./components/RestaurantCard";
 import AddBtn from "../../components/buttons/AddBtn";
 import SearchInput from "@/app/components/SearchInput";
 import FilterDropDown from "../../components/buttons/FilterDropDown";
-import RestaurantModal from "../../components/RestaurantModal";
-import AddPromotionModal from "@/app/components/AddPromotionModal"; 
+import RestaurantModal from "../../components/RestaurantModal"; 
 
 const Page = () => {
   const t = useTranslations('restaurants');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
-    console.log("Open modal clicked");
+    // console.log("Open modal clicked");
     setIsModalOpen(true);
   };
   
@@ -36,7 +35,6 @@ const Page = () => {
         <RestaurantCard />
       </div>
       {isModalOpen && <RestaurantModal onClose={handleCloseModal} />}
-      {/* {isModalOpen && <AddPromotionModal onClose={handleCloseModal} />} */}
     </div>
   );
 };
