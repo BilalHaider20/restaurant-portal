@@ -1,13 +1,9 @@
 import { useState } from 'react';
 
-export default function Switcher({ onChange }) {
-    const [active, setActive] = useState('Branches');
+export default function Switcher({ activeTab,setactiveTab }) {
 
     const handleClick = (selection) => {
-        setActive(selection);
-        if (onChange) {
-            onChange(selection);
-        }
+        setactiveTab(selection);
     };
 
     return (
@@ -15,19 +11,19 @@ export default function Switcher({ onChange }) {
             <div className="flex gap-7 text-sm font-medium z-20">
                 <button
                     onClick={() => handleClick('Branches')}
-                    className={`text-${active === 'Branches' ? 'white' : 'gray-80'} transition-all delay-100`}
+                    className={`text-${activeTab === 'Branches' ? 'white' : 'gray-80'} transition-all delay-100`}
                 >
                     Branches
                 </button>
                 <button
                     onClick={() => handleClick('Promotions')}
-                    className={`text-${active === 'Promotions' ? 'white' : 'gray-80'} transition-all delay-100`}
+                    className={`text-${activeTab === 'Promotions' ? 'white' : 'gray-80'} transition-all delay-100`}
                 >
                     Promotions
                 </button>
                 <button
                     onClick={() => handleClick('Members')}
-                    className={`text-${active === 'Members' ? 'white' : 'gray-80'} transition-all delay-100`}
+                    className={`text-${activeTab === 'Members' ? 'white' : 'gray-80'} transition-all delay-100`}
                 >
                     Members
                 </button>
@@ -35,8 +31,8 @@ export default function Switcher({ onChange }) {
             <div
                 className={`absolute z-10 bottom-0 w-[95px] h-full bg-[#346CC4] rounded-full flex items-center justify-center pointer-events-none transition-left duration-300 ease-in-out`}
                 style={{
-                    left: `calc(${active === 'Branches' ? '0.2rem' 
-                        : active === 'Promotions' ? '100px' : '200px'} - 0.3rem)`
+                    left: `calc(${activeTab === 'Branches' ? '0.2rem' 
+                        : activeTab === 'Promotions' ? '100px' : '200px'} - 0.3rem)`
                 }}
             >
             </div>

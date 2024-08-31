@@ -6,32 +6,29 @@ import Tags from "../../restaurants/components/Tags";
 const BranchCard = ({ branch }) => {
   return (
     <div className="relative  flex flex-col sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden">
-      <div className="">
+      {/* <div className=""> */}
         <Image
           src={images.branch}
           alt=""
           // layout="responsive"
-          // className="object-cover w-[237px] h-[182px]"
-          height={700}
-          width={250}
+          className="object-cover min-w-[340px] "
+          height={150}
+          width={100}
         />
-        {/* <div className="absolute top-2 right-0 bg-[#EBF5F0] text-[#2F9461] text-xs font-semibold py-1 px-2 rounded-l flex items-center">
-          <Image src={images.discount} alt="%" className="w-3 h-3 mr-1" />
-          <span>30% Off</span>
-        </div> */}
-      </div>
+        
+      {/* </div> */}
       <div className="flex flex-col justify-between p-4 w-full">
         <div className="flex justify-between items-start">
-          <h2 className="text-lg sm:text-xl md:text-3xl  font-bold">
+          <h2 className="text-lg sm:text-xl md:text-3xl font-bold">
             Arcadian Cafe
           </h2>
-          <div className="flex space-x-2 flex-col sm:flex-row">
+          <div className="flex gap-2 flex-col md:flex-row">
 
-            <button className=" w-[116px] text-blue-500 p-2 flex flex-center rounded-lg mr-3 border border-blue-500">
-              <Image src={images.modify} className="mr-[12px]" alt="" /> Modify
+            <button className=" text-blue-500 p-2 flex flex-center rounded-lg border border-blue-500">
+              <Image src={images.modify}  alt="" /> Modify
             </button>
-            <button className="w-[116px] text-red-500 p-2 flex flex-center rounded-lg border border-red-500">
-              <Image src={images.trashbin} className="mr-[12px]" alt="" />{" "}
+            <button className=" text-red-500 p-2 flex flex-center rounded-lg border border-red-500">
+              <Image src={images.trashbin} alt="" />
               Delete
             </button>
 
@@ -50,10 +47,11 @@ const BranchCard = ({ branch }) => {
               <Tags Text="Free Wifi" />
               <Tags Text="Free Wife" />
             </div>
+            <div className="flex gap-2">
             <span className="text-lg md:text-2xl font-semibold bg-[#346CC4] text-white w-12 h-8 rounded text-center">
               8.6
             </span>
-            <div className="flex">
+            <div className="flex flex-col ">
               <span className="text-[#3C3C3C] text-base md:text-lg font-medium">
                 Excellent
               </span>
@@ -61,6 +59,7 @@ const BranchCard = ({ branch }) => {
                 155 Reviews
               </span>
 
+            </div>
             </div>
           </div>
         </div>

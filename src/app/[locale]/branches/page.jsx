@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React,{useState} from "react";
 import Image from "next/image";
 import rest_images from '../../../../public/images/restaurant'
 import RestaurantIntro from "@/app/components/RestaurantIntro";
@@ -10,6 +10,7 @@ import BranchCard from "./components/BranchCard";
 
 
 const Branches = () => {
+  const [activeTab, setactiveTab] = useState('Branches');
   const rest = {
     reviews: 4,
     image: rest_images.rest_image,
@@ -31,11 +32,26 @@ const Branches = () => {
       bookings: 18,
     },
   ];
+
+  const renderTab = () => {
+  switch (activeTab) {
+    case 'Branches':
+      return (
+      <div className="flex flex-col gap-4">
+        <BranchCard branch={branches[0]} />
+    </div>)
+      
+  
+    default:
+      break;
+  }
+}
+
   return (
     <div className="bg-bg-main scrollbar-none flex flex-col space-y-5  p-4">
       <RestaurantIntro rest={rest} />
       <div className="flex">
-        <Switcher onChange={(selection) => console.log(selection)} className="" />
+        <Switcher className="" activeTab={activeTab} setactiveTab={setactiveTab} />
       </div>
       <div className="flex flex-row justify-between">
         <h2 className="text-[clamp(1rem,2vw,32px)] font-semibold">Arcadian Cafe Branches</h2>
@@ -43,11 +59,11 @@ const Branches = () => {
           console.log("Add button clicked!")
         }} />
       </div>
-        <div className="flex flex-col gap-4">
-          <BranchCard branch={branches[0]} />
-          <BranchCard branch={branches[0]} />
-          <BranchCard branch={branches[0]} />
-        </div>
+
+      {
+        renderTab()
+      }
+        
     </div>
   );
 };
