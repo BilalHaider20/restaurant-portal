@@ -1,12 +1,9 @@
 "use client"
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
-import RestaurantCard from "./components/RestaurantCard";
-import AddBtn from "../../components/buttons/AddBtn";
-import SearchInput from "@/app/components/SearchInput";
-import FilterDropDown from "../../components/buttons/FilterDropDown";
-import RestaurantModal from "../../components/RestaurantModal";
-import AddPromotionModal from "@/app/components/AddPromotionModal"; 
+import RestaurantCard from "../../components/restaurants/RestaurantCard";
+import TabLayout from "../../components/common/Common Layout/TabLayout";
+import RestaurantModal from "../../components/restaurants/Restaurant Modal/RestaurantModal";
 
 const Page = () => {
   const t = useTranslations('restaurants');
@@ -21,14 +18,9 @@ const Page = () => {
 
   return (
     <div className="bg-bg-highlight overflow-y-auto p-4 sm:p-6">
-      <div className="flex flex-col sm:flex-row justify-between items-center">
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-0">{t("restaurantListing")}</h1>
-        <div className="flex flex-col sm:flex-row items-center gap-2">
-          <SearchInput placeholder={"restaurants"} width="100%" smWidth="200px" height="44px" />
-          <FilterDropDown />
-          <AddBtn onClick={handleOpenModal} />
-        </div>
-      </div>
+      <TabLayout title={t('restaurantListing')} onClick={handleOpenModal} 
+        btntext={'add_new'} inputPlaceholder={'restaurants'}  />
+      
       <div className="flex flex-col gap-4 mt-4">
         <RestaurantCard />
         <RestaurantCard />
@@ -36,7 +28,7 @@ const Page = () => {
         <RestaurantCard />
       </div>
       {isModalOpen && <RestaurantModal onClose={handleCloseModal} />}
-      {/* {isModalOpen && <AddPromotionModal onClose={handleCloseModal} />} */}
+
     </div>
   );
 };

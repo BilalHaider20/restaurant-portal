@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import SearchInput from "./SearchInput"; 
+import SearchInput from "./common/SearchField/SearchInput"; 
 import BookingCard from "./BookingCard";
 import BookBadge from "../../../public/images/listing/book-badge.png"
 import SaveBadge from "../../../public/images/listing/save-badge.png"
@@ -32,7 +32,7 @@ const onQueryChange = (query) => {
               Lorem ipsum dolor sit amet
             </p>
           </div>
-          <SearchInput  onQueryChange={(e)=>{onQueryChange(e.target.value)}}/>
+          <SearchInput  placeholder={'restaurants'} onQueryChange={(e)=>{onQueryChange(e.target.value)}}/>
         </div>
         <div className="flex flex-col lg:flex-row gap-3 ">
           <BookingCard

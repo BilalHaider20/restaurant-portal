@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import images from '../../../../../public/images'
-import Tags from '../../restaurants/components/Tags'
+import Tags from '../../../components/restaurants/Tags'
 import Rating from '@/app/components/Rating'
 
 const RestaurantCard = ({info}) => {

@@ -18,9 +18,9 @@
         "branches": "Branches"
     },
     "dashboard":{
-
         "totalreservations": "Total Reservations",
         "recentbooking": "Recent Bookings",
+        "booking": "Bookings",
         "cafedropdown":{
             "Arcadian Cafe": "Arcadian Cafe",
             "Burger Lab": "Burger Lab",
@@ -64,6 +64,7 @@
     },
     "Tab_Header":{
        "button":{
+        "add_new":"Add New",
         "add_new_branch": "Add New Branch",
         "add_new_user": "Add New User",
         "add_new_promotion": "Add New Promotion"
