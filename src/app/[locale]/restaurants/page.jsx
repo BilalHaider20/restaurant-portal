@@ -24,7 +24,7 @@ const Page = () => {
       <div className="flex flex-col sm:flex-row justify-between items-center">
         <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-0">{t("restaurantListing")}</h1>
         <div className="flex flex-col sm:flex-row items-center gap-2">
-          <SearchInput width="100%" smWidth="200px" height="44px" />
+          <SearchInput placeholder={"restaurants"} width="100%" smWidth="200px" height="44px" />
           <FilterDropDown />
           <AddBtn onClick={handleOpenModal} />
         </div>

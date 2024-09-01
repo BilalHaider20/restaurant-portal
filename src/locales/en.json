@@ -49,7 +49,10 @@
         "restaurantListing": "Restaurant Listing"
     },
     "SearchInput": {
-        "searchPlaceholder": "Search Restaurants"
+        "restaurants": "Search Restaurants",
+        "branches": "Search Branches",
+        "user": "Search User",
+        "promotion":"Search Promotions"
     },
     "FilterDropdown": {
         "filter": "Filter",
@@ -59,7 +62,12 @@
         "asian": "Asian",
         "mexican": "Mexican"
     },
-    "AddBtn":{
-        "add" : "Add New"
+    "Tab_Header":{
+       "button":{
+        "add_new_branch": "Add New Branch",
+        "add_new_user": "Add New User",
+        "add_new_promotion": "Add New Promotion"
+       }
     }
+    
 }

@@ -1,13 +1,12 @@
 "use client"
 import React,{useState} from "react";
-import Image from "next/image";
 import rest_images from '../../../../public/images/restaurant'
 import RestaurantIntro from "@/app/components/RestaurantIntro";
 import Switcher from "./components/Switcher";
-import AddBtn from "@/app/components/buttons/AddBtn";
 import BranchCard from "./components/BranchCard";
 import Users from "./components/Users";
 import Promotions from "./components/Promotions";
+import TabLayout from "./components/TabLayout";
 
 
 const Branches = () => {
@@ -38,16 +37,27 @@ const Branches = () => {
   switch (activeTab) {
     case 'Branches':
       return (
-      <div className="flex flex-col gap-4">
+        <>
+        <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"}  />
+        <div className="flex flex-col gap-4">
         <BranchCard branch={branches[0]} />
-    </div>)
+        <BranchCard branch={branches[0]} />
+        <BranchCard branch={branches[0]} />
+        </div>
+    </>)
       case  'Members':
         return (
+          <>
+          <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_user"} inputPlaceholder={"user"}  />
           <Users />
+          </>
         )
       case 'Promotions':
         return(
+          <>
+          <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_promotion"} inputPlaceholder={"promotion"}  />
           <Promotions />
+          </>
         )
   
     default:
@@ -56,16 +66,10 @@ const Branches = () => {
 }
 
   return (
-    <div className="bg-bg-main scrollbar-none flex flex-col space-y-5  p-4">
+    <div className="bg-bg-main scrollbar-none flex flex-col space-y-5 p-6">
       <RestaurantIntro rest={rest} />
       <div className="flex">
         <Switcher className="" activeTab={activeTab} setactiveTab={setactiveTab} />
-      </div>
-      <div className="flex flex-row justify-between">
-        <h2 className="text-[clamp(1rem,2vw,32px)] font-semibold">Arcadian Cafe Branches</h2>
-        <AddBtn onClick={() => {
-          console.log("Add button clicked!")
-        }} />
       </div>
 
       {
