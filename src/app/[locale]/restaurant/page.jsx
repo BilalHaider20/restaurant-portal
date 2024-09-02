@@ -5,7 +5,7 @@ import images from '../../../../public/images'
 import WelcomeStats from '@/app/components/WelcomeStats'
 import RestaurantCard from './components/restaurantCard'
 import RestaurantIntro from '@/app/components/RestaurantIntro'
-import FilterDropdown from '@/app/components/buttons/FilterDropDown'
+import FilterDropdown from '@/app/components/common/dropdowns/FilterDropDown'
 import { useTranslations } from 'next-intl'
 
 const Page = () => {

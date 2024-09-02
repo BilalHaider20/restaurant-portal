@@ -18,9 +18,9 @@
         "branches": "Branches"
     },
     "dashboard":{
-
         "totalreservations": "Total Reservations",
         "recentbooking": "Recent Bookings",
+        "booking": "Bookings",
         "cafedropdown":{
             "Arcadian Cafe": "Arcadian Cafe",
             "Burger Lab": "Burger Lab",
@@ -49,7 +49,11 @@
         "restaurantListing": "Restaurant Listing"
     },
     "SearchInput": {
-        "searchPlaceholder": "Search Restaurants"
+        "restaurants": "Search Restaurants",
+        "branches": "Search Branches",
+        "user": "Search User",
+        "promotion":"Search Promotions",
+        "food_items": "Search Food Items"
     },
     "FilterDropdown": {
         "filter": "Filter",
@@ -59,7 +63,33 @@
         "asian": "Asian",
         "mexican": "Mexican"
     },
+    "Tab_Header":{
+       "button":{
+        "add_new":"Add New",
+        "add_new_branch": "Add New Branch",
+        "add_new_user": "Add New User",
+        "add_new_promotion": "Add New Promotion",
+        "make_reservation": "Make Reservation",
+        "add_new_food_item": "Add New Food Item"
+       }
+    },
+    
     "AddBtn":{
         "add" : "Add New"
+    },
+    "BranchesModal": {
+        "edit":"Edit",
+        "branchName": "Branch Name",
+        "phoneNumber": "Phone Number",
+        "emailAddress": "Email Address",
+        "branchCity": "Branch City",
+        "branchCountry": "Branch Country",
+        "chooseDay": "Choose Day",
+        "openingHours": "Opening Hours",
+        "closingHours": "Closing Hours",
+        "selectFacilities": "Select Facilities",
+        "selectPayment": "Select Payment Methods" ,
+        "add": "Add",
+        "cancel": "Cancel"        
     }
 }

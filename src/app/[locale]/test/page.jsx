@@ -1,14 +1,11 @@
-import BranchesModal from "@/app/components/BranchesModal"
-import RestaurantModal from "@/app/components/RestaurantModal"
+import BranchesModal from "@/app/components/restaurants/branches/Branches/BranchesModal"
 
-export default function Page() {
-    return (
-        <div className="relative w-full ">
-            page
-            <BranchesModal/>
-            {/* <RestaurantModal /> */}
-        </div>
-        
-        
-    )
+const page = () => {
+  return (
+    <div>
+        <BranchesModal />
+    </div>
+  )
 }
+
+export default page

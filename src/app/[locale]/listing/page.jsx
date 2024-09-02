@@ -36,7 +36,7 @@ const Listing = () => {
     },
   ];
   return (
-    <div className="bg-bg-highlight">
+    <div className="bg-bg-highlight pb-5">
     <WelcomeStats
       userName="Sir Bilal"
       firstblock={"Total Sales"}

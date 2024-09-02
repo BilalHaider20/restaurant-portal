@@ -1,7 +1,7 @@
 import React from 'react'
-import { BarChart } from './components/BarChart'
-import TotalReservations from './components/TotalReservationStats'
-import RecentBooking from './components/RecentBooking'
+import { BarChart } from '@/app/components/dashboard/BarChart'
+import TotalReservations from '../../components/dashboard/TotalReservationStats'
+import RecentBooking from '../../components/dashboard/RecentBooking'
 import WelcomeStats from '@/app/components/WelcomeStats'
 
 

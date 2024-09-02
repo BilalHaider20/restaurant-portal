@@ -1,12 +1,27 @@
+"use client"
 import React from "react";
-import SearchInput from "./SearchInput"; 
+import SearchInput from "./common/SearchField/SearchInput"; 
 import BookingCard from "./BookingCard";
 import BookBadge from "../../../public/images/listing/book-badge.png"
 import SaveBadge from "../../../public/images/listing/save-badge.png"
 import DollarBadge from "../../../public/images/listing/badge-dollar-sign.png"
-
+import { getAirports } from "../services/apiMethods";
 
 const WelcomeStats = ({ userName,firstblock, totalSales, totalSavings, expenses, salesChange, savingsChange, expensesChange }) => {
+
+const onQueryChange = (query) => {
+
+
+  getAirports(query).then((res) => {
+    console.log(res.data);
+  }).catch((err) => {
+    console.log(err);
+  }); 
+
+}
+
+
+
   return (
     <div className="flex-grow p-5 bg-[#F6F9FD] dark:bg-primary-bg-dark">
       <div className="flex flex-col gap-4">
@@ -17,7 +32,7 @@ const WelcomeStats = ({ userName,firstblock, totalSales, totalSavings, expenses,
               Lorem ipsum dolor sit amet
             </p>
           </div>
-          <SearchInput />
+          <SearchInput  placeholder={'restaurants'} onQueryChange={(e)=>{onQueryChange(e.target.value)}}/>
         </div>
         <div className="flex flex-col lg:flex-row gap-3 ">
           <BookingCard

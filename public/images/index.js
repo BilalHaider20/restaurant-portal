@@ -24,9 +24,11 @@ const images = {
   trashbin: require('./trashbin.png'),
   search: require('./search.png'),
   mail_form: require('./mail-form.svg'),
+  branch: require('./branches/branch.png'),
 
-
-  browse_image: require('./browse-image.png')
+  browse_image: require('./browse-image.png'),
+  profile: require('./profile.png'),
+  camera:require('./camera.png'),
 
 };
 export const dashboardimages = {
