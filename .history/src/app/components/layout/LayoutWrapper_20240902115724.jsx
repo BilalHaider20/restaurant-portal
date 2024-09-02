@@ -47,11 +47,3 @@ const LayoutWrapper = ({ children }) => {
         <main className={`h-[calc(100vh-4rem)] overflow-y-scroll relative w-full flex-1 transition-all ease-in-out duration-300`}>
           <div className="flex-1">{children}
           <Footer />
-          </div>
-        </main>
-      </div>
-    </div>
-  );
-};
-
-export default LayoutWrapper;

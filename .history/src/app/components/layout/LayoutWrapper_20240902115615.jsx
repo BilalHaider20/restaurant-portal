@@ -6,8 +6,9 @@ import Sidebar from "./sidebar/Sidebar";
 
 const LayoutWrapper = ({ children }) => {
   const [mobile, setMobile] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(
+    typeof window !== "undefined" ? JSON.parse(localStorage.getItem("sidebarOpen")) ?? !mobile : !mobile
+  );
 
   const toggleSidebar = () => {
     const newSidebarOpen = !sidebarOpen;
@@ -18,13 +19,13 @@ const LayoutWrapper = ({ children }) => {
   };
 
   useEffect(() => {
-    setIsMounted(true); // Ensure the component is mounted before checking window properties
-
     const handleResize = () => {
       const isMobile = window.innerWidth <= 786;
       setMobile(isMobile);
-      const storedSidebarOpen = JSON.parse(localStorage.getItem("sidebarOpen"));
-      setSidebarOpen(storedSidebarOpen ?? !isMobile);
+      if (typeof window !== "undefined") {
+        const storedSidebarOpen = JSON.parse(localStorage.getItem("sidebarOpen"));
+        setSidebarOpen(storedSidebarOpen ?? !isMobile);
+      }
     };
 
     handleResize();
@@ -32,11 +33,6 @@ const LayoutWrapper = ({ children }) => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  if (!isMounted) {
-    // Avoid rendering anything that depends on window or localStorage until the component is mounted
-    return null;
-  }
 
   return (
     <div>
