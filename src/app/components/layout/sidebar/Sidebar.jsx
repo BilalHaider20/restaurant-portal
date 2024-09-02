@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 
 const Sidebar = ({ sidebarOpen }) => {
   const t = useTranslations('sidebar');
-
+  
   return (
     <div className={`sticky h-[calc(100vh-4rem)] dark:bg-secondary-bg-dark overflow-y-scroll scrollbar-none scrollbar-thumb-rounded block border-r-0 ${sidebarOpen ? 'md:w-[289px] w-full' : 'md:flex hidden'} py-[12px] px-[20px] flex flex-col justify-between`}>
       <div>

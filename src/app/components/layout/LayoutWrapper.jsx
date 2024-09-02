@@ -6,7 +6,7 @@ import Sidebar from "./sidebar/Sidebar";
 
 const LayoutWrapper = ({ children }) => {
   
-  const [mobile, setMobile] = useState(window.innerWidth <= 786);
+  const [mobile, setMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(!mobile);
   
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
@@ -17,13 +17,8 @@ const LayoutWrapper = ({ children }) => {
       setSidebarOpen(!mobile);
     };
 
-    handleResize(); // Set initial state
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    handleResize(); 
+  }, [mobile]);
 
   return (
     <div>
