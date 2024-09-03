@@ -25,13 +25,10 @@ const images = {
   search: require('./search.png'),
   mail_form: require('./mail-form.svg'),
   branch: require('./branches/branch.png'),
-<<<<<<< Updated upstream
   emailbox: require('./emailbox.png'),
 
-=======
   alert_triangle: require('./alert-triangle.png'),
   
->>>>>>> Stashed changes
   browse_image: require('./browse-image.png'),
   profile: require('./profile.png'),
   camera:require('./camera.png'),
