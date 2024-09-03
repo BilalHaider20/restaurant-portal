@@ -3,9 +3,13 @@ import Image from "next/image";
 import images from "../../../public/images/index";
 import Tags from "../[locale]/restaurants/components/Tags";
 
-const RestaurantCard = () => {
+const RestaurantCard = ({onCardClick}) => {
   return (
+<<<<<<< Updated upstream:src/app/components/RestaurantCard.jsx
     <div className="relative flex flex-col sm:flex-row border border-gray-200 rounded-lg shadow-md w-full max-w-[1075px] h-auto overflow-hidden">
+=======
+    <div onClick={onCardClick} className="relative h-auto flex flex-col sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden">
+>>>>>>> Stashed changes:src/app/components/restaurants/RestaurantCard.jsx
       <div className="relative w-full sm:w-1/3 h-auto">
         <Image
           src={images.hotel}

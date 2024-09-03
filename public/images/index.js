@@ -25,8 +25,16 @@ const images = {
   search: require('./search.png'),
   mail_form: require('./mail-form.svg'),
 
+<<<<<<< Updated upstream
 
   browse_image: require('./browse-image.png')
+=======
+  browse_image: require('./browse-image.png'),
+  profile: require('./profile.png'),
+  camera:require('./camera.png'),
+  key: require('./key.png'),
+  eye: require('./login/Trailing.svg'),
+>>>>>>> Stashed changes
 
 };
 export const dashboardimages = {
@@ -37,5 +45,6 @@ export const dashboardimages = {
   mic: require('./mic-2.png'),
   tour: require('./palmtree.png'),
   tv: require('./tv.png'),
+  
 };
 export default images;

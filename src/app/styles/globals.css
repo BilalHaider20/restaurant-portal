@@ -47,3 +47,6 @@
 body::-webkit-scrollbar {
   width: 5px;               /* width of the entire scrollbar */
 }
+input:focus {
+  background-color: white; /* Example focus border color */
+}
