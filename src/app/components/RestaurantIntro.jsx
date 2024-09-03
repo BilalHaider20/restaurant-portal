@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import images from '../../../public/images'
+import rest_images from '../../../public/images/restaurant/index'
+import images from '../../../public/images/index'
 
 const RestaurantIntro = ({ rest }) => {
     const maxStars = 5
@@ -10,7 +11,7 @@ const RestaurantIntro = ({ rest }) => {
     return (
         <div className='flex flex-col lg:flex-row px-5 gap-4'>
             <div className=' flex flex-col justify-between md:flex-[0.15]'>
-                <Image src={rest.image} alt='restaurant image' 
+                <Image src={rest_images.rest_image} alt='restaurant image' 
                 width={200}
                 style={{maxWidth: '200px'}}
                 />
