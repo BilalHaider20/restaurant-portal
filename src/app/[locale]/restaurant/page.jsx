@@ -1,12 +1,15 @@
 import React from 'react'
-import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import rest_images from '../../../../public/images/restaurant'
-import images from '../../../../public/images'
+
+//Components
+
 import WelcomeStats from '@/app/components/WelcomeStats'
 import RestaurantCard from './components/restaurantCard'
 import RestaurantIntro from '@/app/components/RestaurantIntro'
-import FilterDropdown from '@/app/components/common/dropdowns/FilterDropDown'
-import { useTranslations } from 'next-intl'
+import FoodFilterMenu from '@/app/components/branch/FoodFilterMenu'
+
+
 
 const Page = () => {
     const t = useTranslations('restaurant')
@@ -78,7 +81,7 @@ const Page = () => {
 
             <div className='px-5 flex justify-between'>
                 <h2 className='font-semibold text-2xl text-heading-clr' >{rest.name} {t('branches')}</h2>
-                <FilterDropdown />
+                <FoodFilterMenu />
 
             </div>
             <div className='px-5 flex flex-wrap gap-4 mt-0 justify-center'>
