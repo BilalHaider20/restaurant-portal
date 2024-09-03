@@ -8,7 +8,7 @@ import Switch from '../components/Switch'
 import Users from '@/app/components/restaurants/branches/Members/Users'
 import Promotions from '@/app/components/restaurants/branches/Promotions/Promotions'
 import AddPromotionModal from '@/app/components/restaurants/branches/Promotions/AddPromotionModal'
-
+import BranchesModal from '@/app/components/restaurants/branches/Branches/BranchesModal'
 
 const Page = () => {
 
@@ -18,6 +18,17 @@ const Page = () => {
   const handleOpenModal = () => {
     console.log('btn click')
     setIsModalOpen(true);
+  };
+  const [isBranchesModalOpen, setIsBranchesModalOpen] = useState(false);
+
+
+  const handleOpenBranchesModal = () => {
+    console.log('Add Branch button clicked');
+    setIsBranchesModalOpen(true);
+  };
+
+  const handleCloseBranchesModal = () => {
+    setIsBranchesModalOpen(false);
   };
   const rest = {
     reviews: 4,
@@ -101,7 +112,8 @@ const Page = () => {
       case 'Floors':
         return (
           <>
-            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} />
+            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
+            {isBranchesModalOpen && <BranchesModal onClose={handleCloseBranchesModal} />}
           </>
         )
       case 'Menu':
@@ -139,7 +151,7 @@ const Page = () => {
   }
 
   return (
-    <div className='px-5 py-5 bg-bg-main space-y-10'>
+    <div className='px-5 py-5 bg-bg-main relative'>
       <BranchIntro rest={rest} />
       <div className="flex">
         <Switch className="" activeTab={activeTab} setactiveTab={setactiveTab} />

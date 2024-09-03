@@ -23,7 +23,7 @@ export default function Switch({ activeTab, setactiveTab }) {
     
 
     return (
-        <div className="relative bg-[#EFF0F1] py-2 px-4 rounded-full border border-[#E6E6E6] text-gray-80 flex w-full items-center md:w-[35%]">
+        <div className="relative bg-[#EFF0F1] my-6 py-2 px-4 rounded-full border border-[#E6E6E6] text-gray-80 flex w-full items-center md:w-[35%]">
             <div className="flex justify-between gap-7 text-sm z-20 w-full  ">
                 <button
                     onClick={() => handleClick('Floors')}
