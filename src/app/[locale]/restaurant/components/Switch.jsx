@@ -11,7 +11,7 @@ export default function Switch({ activeTab, setactiveTab }) {
     useEffect(() => {
         const updateIndicatorPosition = () => {
             
-        setIndicatorPosition(activeTab === 'Floors' ? '0.5rem': activeTab === "Menu" ? '25%' : activeTab === 'Promotions' ? '50%' : 'calc(75% + 1.75rem)');
+        setIndicatorPosition(activeTab === 'Floors' ? '0.5rem': activeTab === "Menu" ? '18%' : activeTab === 'Promotions' ? '40%' : activeTab === 'Members' ? '60%' : '80%');
         };
 
         updateIndicatorPosition();
@@ -48,6 +48,12 @@ export default function Switch({ activeTab, setactiveTab }) {
                     className={`text-${activeTab === 'Members' ? 'white' : 'gray-80'}    transition-all delay-100  text-xs md:text-base `}
                 >
                     Members
+                </button>
+                <button
+                    onClick={() => handleClick('Reviews')}
+                    className={`text-${activeTab === 'Reviews' ? 'white' : 'gray-80'}    transition-all delay-100  text-xs md:text-base `}
+                >
+                    Reviews
                 </button>
             </div>
             <div

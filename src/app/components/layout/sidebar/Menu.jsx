@@ -16,7 +16,7 @@ const Menu = ({ sidebarOpen }) => {
     // { text: t('reports'), icon: images.reports, href: '/en/dashboard' },
     // { text: t('my_bookings'), icon: images.my_bookings, href: '/en/dashboard' },
     // { text: t('invoices'), icon: images.invoice, href: '/en/dashboard' },
-    // { text: t('users'), icon: images.users, href: '/en/dashboard' },
+     { text: t('users'), icon: images.users, href: '/en/users' },
     // { text: t('departments'), icon: images.departments, href: '/en/dashboard' },
     // { text: t('privacy'), icon: images.privacy, href: '/en/dashboard' },
     // { text: t('terms'), icon: images.newspaper, href: '/en/dashboard' }
