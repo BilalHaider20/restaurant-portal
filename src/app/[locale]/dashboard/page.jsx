@@ -18,9 +18,9 @@ const page = () => {
       savingsChange="3.45%"
       expensesChange="11.67%"
       />
-       <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 p-4">
-  <TotalReservations />
-  <BarChart />
+    <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 px-5">
+      <TotalReservations />
+      <BarChart />
     </div>
       <RecentBooking />
     </div>

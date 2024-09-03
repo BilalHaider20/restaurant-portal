@@ -9,16 +9,16 @@ import { getAirports } from "../services/apiMethods";
 
 const WelcomeStats = ({ userName,firstblock, totalSales, totalSavings, expenses, salesChange, savingsChange, expensesChange }) => {
 
-const onQueryChange = (query) => {
+// const onQueryChange = (query) => {
 
 
-  getAirports(query).then((res) => {
-    console.log(res.data);
-  }).catch((err) => {
-    console.log(err);
-  }); 
+//   getAirports(query).then((res) => {
+//     console.log(res.data);
+//   }).catch((err) => {
+//     console.log(err);
+//   }); 
 
-}
+// }
 
 
 
@@ -32,7 +32,9 @@ const onQueryChange = (query) => {
               Lorem ipsum dolor sit amet
             </p>
           </div>
-          <SearchInput  placeholder={'restaurants'} onQueryChange={(e)=>{onQueryChange(e.target.value)}}/>
+          <SearchInput  placeholder={'restaurants'}
+          //  onQueryChange={(e)=>{onQueryChange(e.target.value)}}
+           />
         </div>
         <div className="flex flex-col lg:flex-row gap-3 ">
           <BookingCard
