@@ -132,6 +132,13 @@ const Page = () => {
             {isModalOpen && <AddPromotionModal onClose={handleCloseModal} />}
           </>
         )
+      case 'Reviews':
+        return(
+          <>
+           <TabLayout title={"User Reviews"} btntext={"user_reviews"} inputPlaceholder={"reviews"} />
+          Reviews component here
+          </>
+        )
 
       default:
         break;

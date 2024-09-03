@@ -31,6 +31,7 @@ const images = {
   profile: require('./profile.png'),
   camera:require('./camera.png'),
   key: require('./key.png'),
+  chicken : require('./branches/chicken.png')
 
 };
 export const dashboardimages = {
