@@ -29,26 +29,26 @@ const Page = () => {
                     src={images.logo}
                     alt="Logo"
                 />
-                <div className="ml-12 mb-6">
-                    <h2 className="font-semibold text-2xl">Bookme Restaurant Portal</h2>
+                <div className="mb-6">
+                    <h2 className="font-semibold  text-base sm:text-lg md:text-2xl">Bookme Restaurant Portal</h2>
                     <p className="text-sm text-[#3c3c3c]">
                         Please provide details below to log in to your account
                     </p>
                 </div>
-                <div className="space-y-6 ml-12">
+                <div className="space-y-6 ">
                     <div>
-                        <label className="block text-sm font-medium text-[#3c3c3c] mb-2">
+                        <label className="block text-xs md:text-sm font-medium text-[#3c3c3c] mb-2">
                             Email Address
                         </label>
-                        <div className="relative">
+                        <div className="relative ">
                             <Image
-                                className="absolute top-1/2 transform -translate-y-1/2 left-3"
+                                className="absolute top-1/2 transform -translate-y-1/2 "
                                 src={images.emailbox}
                                 alt="Email Icon"
                             />
                             <input
                                 type="text"
-                                className="w-[536px] pl-16 p-4 border border-gray-300 rounded-md"
+                                className="w-full  p-4 border border-gray-300 rounded-md pl-12"
                                 placeholder="Enter Email Address"
                             />
                         </div>
@@ -57,7 +57,7 @@ const Page = () => {
                         <label className="block text-sm font-medium text-[#3c3c3c] mb-2">
                             Password
                         </label>
-                        <div className="relative  ">
+                        <div className="relative flex gap-2 items-center ">
                             <Image
                                 className="absolute top-1/2 transform -translate-y-1/2 left-3"
                                 src={images.key}
@@ -65,11 +65,11 @@ const Page = () => {
                             />
                             <input
                                 type={showPassword ? "text" : "password"}
-                                className="w-[536px] pl-16 p-4 border border-gray-300 rounded-md bg-white"
+                                className="w-full  p-4 border border-gray-300 rounded-md bg-white pl-12"
                                 placeholder="Enter Password"
                             />
                             <div 
-                                className="absolute top-1/2 transform -translate-y-1/2 right-16 cursor-pointer"
+                                className="absolute top-1/2 transform -translate-y-1/2 right-4 cursor-pointer"
                                 onClick={handleToggle}
                             >
                                 {showPassword ? <Icon icon={eyeOff} size={25} /> : <Icon icon={eye} size={25} />}
@@ -81,11 +81,11 @@ const Page = () => {
                             <input type="checkbox" className="mr-2" />
                             Remember me
                         </label>
-                        <a href="#" className="text-[#346CC4] mr-[45px]">
+                        <a href="#" className="text-[#346CC4] ">
                             Forgot Password?
                         </a>
                     </div>
-                    <button className="w-[536px] bg-[#346CC4] text-white py-3 rounded-md hover:bg-[#2d5ca7]" onClick={handleSignin}>
+                    <button className="w-full bg-[#346CC4] text-white py-3 rounded-md hover:bg-[#2d5ca7]" onClick={handleSignin}>
                         Sign In
                     </button>
                 </div>
