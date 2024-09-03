@@ -32,6 +32,8 @@ const images = {
   camera:require('./camera.png'),
   key: require('./key.png'),
   chicken : require('./branches/chicken.png')
+  delete: require('./delete.svg'),
+  plus_button: require('./plus-button.svg'),
 
 };
 export const dashboardimages = {
