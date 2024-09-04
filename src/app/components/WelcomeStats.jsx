@@ -2,9 +2,9 @@
 import React from "react";
 import SearchInput from "./common/SearchField/SearchInput"; 
 import BookingCard from "./BookingCard";
-import BookBadge from "../../../public/images/listing/book-badge.png"
-import SaveBadge from "../../../public/images/listing/save-badge.png"
-import DollarBadge from "../../../public/images/listing/badge-dollar-sign.png"
+import BookBadge from "../../../public/images/listing/book-badge.svg"
+import SaveBadge from "../../../public/images/listing/save-badge.svg"
+import DollarBadge from "../../../public/images/listing/badge-dollar-sign.svg"
 import { getAirports } from "../services/apiMethods";
 
 const WelcomeStats = ({ userName,firstblock, totalSales, totalSavings, expenses, salesChange, savingsChange, expensesChange }) => {
