@@ -1,7 +1,7 @@
 import React from 'react'
 import AddBtn from "../buttons/AddBtn";
 // import FilterDropdown from '../dropdowns/FilterDropDown';
-import FoodFilterMenu from '@/app/components/branch/FoodFilterMenu'
+import FoodFilterMenu from '@/app/components/restaurants/details/Branch/FoodFilterMenu'
 import Sort from '../dropdowns/Sort';
 import SearchInput from '@/app/components/common/SearchField/SearchInput';
 const TabLayout = (props) => {
