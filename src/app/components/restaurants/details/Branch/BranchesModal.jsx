@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm, Controller, useFieldArray } from "react-hook-form";
 import PhoneInput from 'react-phone-input-2';
 import "react-phone-input-2/lib/style.css";
@@ -13,6 +13,22 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const BranchesModal = ({ onClose }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsModalOpen(true);
+        }, 300); 
+
+        return () => clearTimeout(timer)
+
+        
+      }, []);
+    
+      const handleModalClose = () => {
+        setIsModalOpen(false);
+        setTimeout(onClose, 300);
+      };
     const {
         control,
         handleSubmit,
@@ -67,7 +83,6 @@ const BranchesModal = ({ onClose }) => {
     }
 
     const t = useTranslations('BranchesModal');
-    const [isModalOpen, setIsModalOpen] = useState(true);
 
     const cityOptions = [
         { value: 'lahore', label: 'Lahore' },
@@ -83,19 +98,19 @@ const BranchesModal = ({ onClose }) => {
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50">
-            <div className={`w-full overflow-y-scroll max-w-3xl h-screen bg-[#F2F4F7] flex flex-col justify-between transition-transform duration-300${isModalOpen ? 'transform translate-x-0' : 'transform translate-x-full'} md:w-[778px]`}>
+            <div className={`w-full overflow-y-scroll max-w-3xl h-screen bg-[#F2F4F7] flex flex-col transition-transform duration-300 ${isModalOpen ? "translate-x-0" : "translate-x-full"} md:w-[778px]`}>
                 <div className='w-full flex justify-between py-3 px-5 bg-bg-light '>
                     <h2 className='font-semibold text-lg text-heading-clr '>{t('edit')} Arcadian Cafe Packages Mall</h2>
-                    <button type='button' onClick={onClose}>
+                    <button type='button' onClick={handleModalClose}>
                         <Image src={images.cross} alt="x" />
                     </button>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)} className=' ' >
+                <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col h-full justfiy-between ' >
                     <div className='m-5 bg-bg-light p-3 space-y-5'>
                         <Controller
                             name="name"
                             control={control}
-                            rules={{ required: "Please enter branch name" }}
+                            rules={{ required: t('requiredField') }}
                             render={({ field }) => (
                                 <Input
                                     label={t('branchName')}
@@ -111,7 +126,7 @@ const BranchesModal = ({ onClose }) => {
                         <Controller
                                 name="phone"
                                 control={control}
-                                rules={{ required: "Please enter phone number" }}
+                                rules={{ required: t('requiredField') }}
                                 render={({ field }) => (
                                     <div className="space-y-1 relative w-full">
                                         <label className='m-0' htmlFor="phone">{t('phoneNumber')}</label>
@@ -129,7 +144,7 @@ const BranchesModal = ({ onClose }) => {
                             <Controller
                                 name="email"
                                 control={control}
-                                rules={{ required: "Please enter branch email" }}
+                                rules={{ required: t('requiredField') }}
                                 render={({ field }) => (
                                     <Input
                                         label={t('emailAddress')}
@@ -147,6 +162,7 @@ const BranchesModal = ({ onClose }) => {
                             <Controller
                                 name="city"
                                 control={control}
+                                rules={{ required: t('requiredField') }}
                                 render={({ field }) => (
                                     <DropDownComponent
                                         label={t('branchCity')}
@@ -154,12 +170,14 @@ const BranchesModal = ({ onClose }) => {
                                         options={cityOptions}
                                         value={field.value}
                                         onChange={field.onChange}
+                                        error={errors.city?.message}
                                     />
                                 )}
                             />
                             <Controller
                                 name="country"
                                 control={control}
+                                rules={{ required: t('requiredField') }}
                                 render={({ field }) => (
                                     <DropDownComponent
                                         label={t('branchCountry')}
@@ -167,6 +185,7 @@ const BranchesModal = ({ onClose }) => {
                                         options={countryOptions}
                                         value={field.value}
                                         onChange={field.onChange}
+                                        error={errors.country?.message}
                                     />
                                 )}
                             />
@@ -180,8 +199,8 @@ const BranchesModal = ({ onClose }) => {
                             />
                         ))}
                     </div>
-                    <div className='bg-bg-light px-4 py-2 flex justify-end gap-3'>
-                        <button type="button" className="px-4 py-2 text-gray-600 bg-bg-light border border-gray-300 rounded-lg hover:bg-gray-100" onClick={onClose}>
+                    <div className='bg-bg-light px-4 mt-auto py-2 flex justify-end gap-3'>
+                        <button onClick={handleModalClose} type="button" className="px-4 py-2 text-gray-600 bg-bg-light border border-gray-300 rounded-lg hover:bg-gray-100">
                             {t('cancel')}
                         </button>
                         <button type="submit" className="px-4 py-2 text-white bg-primary-blue rounded-lg hover:bg-blue-600">

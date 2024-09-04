@@ -2,11 +2,14 @@
 import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import rest_images from '@/../public/images/restaurant'
+
+//Components
 import RestaurantIntro from "@/app/components/RestaurantIntro";
 import Switcher from "@/app/components/common/Tabswitch/Switcher";
 import BranchCard from "@/app/components/restaurants/details/Branch/BranchCard";
 import Users from "@/app/components/restaurants/details/Members/Users";
 import Promotions from "@/app/components/restaurants/details/Promotions/Promotions";
+import floor from "@/app/components/restaurants/details/Floor/Floor";
 import TabLayout from "@/app/components/common/Common Layout/TabLayout";
 import AddPromotionModal from "@/app/components/restaurants/details/Promotions/AddPromotionModal";
 import BranchesModal from "@/app/components/restaurants/details/Branch/BranchesModal";
@@ -15,6 +18,7 @@ import { branches } from "@/app/utils/restaurants/branches/branchesData";
 const Branches = () => {
   const [activeTab, setactiveTab] = useState('Branches');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); 
   const { id } = useParams();
   const restaurantBranches = branches[id];
   const handleOpenModal = () => {
@@ -28,6 +32,11 @@ const Branches = () => {
   const handleOpenBranchesModal = () => {
     setBranchesModalOpen(true)
   }
+
+  const filteredBranches = restaurantBranches?.filter((branch) =>
+    branch.name.toLowerCase().includes(searchQuery.toLowerCase()) 
+  );
+
   // const rest = {
   //   reviews: 4,
   //   image: rest_images.rest_image,
@@ -59,12 +68,11 @@ const Branches = () => {
       case 'Branches':
         return (
           <>
-            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
+            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} onSearch={setSearchQuery}  />
             <div className="flex flex-col gap-4">
-              {restaurantBranches.map((branch, index) => (   
+            {filteredBranches.map((branch, index) => (
                 <BranchCard key={index} id={index} branch={branch} />
-              ))
-              }
+              ))}
               {branchesModalOpen && <BranchesModal onClose={handleBranchesCloseModal} />}
             </div>
           </>)
@@ -83,6 +91,7 @@ const Branches = () => {
             <Users />
           </>
         )
+      
 
 
       default:

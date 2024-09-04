@@ -3,11 +3,25 @@ import Image from 'next/image';
 import images from '../../../../../public/images/index';
 import nav_images from '../../../../../public/images/navbar'
 import Menu from './Menu';
+import { Convert } from 'easy-currencies';
 import { useTranslations } from 'next-intl';
+import {  useAppSelector } from '@/lib/hooks';
+import { useState, useEffect } from 'react';
 
 const Sidebar = ({ sidebarOpen }) => {
   const t = useTranslations('sidebar');
-  
+  const {cur} = useAppSelector((state) => state.cur);
+  const temp_amount = 1.80
+  const [amount, setAmount] = useState()
+
+  useEffect(() => {
+    const convert = async () => {
+      const result = await Convert(temp_amount).from("USD").to(cur)
+      setAmount(result.toFixed(2));
+    };
+
+    convert();
+  }, [cur])
   return (
     <div className={`sticky h-[calc(100vh-4rem)] dark:bg-secondary-bg-dark overflow-y-scroll scrollbar-none scrollbar-thumb-rounded block border-r-0 ${sidebarOpen ? 'md:w-[289px] w-full' : 'md:flex hidden'} py-[12px] px-[20px] flex flex-col justify-between`}>
       <div>
@@ -27,7 +41,7 @@ const Sidebar = ({ sidebarOpen }) => {
                   {t('balance')}
                 </span>
                 <span className="font-base text-dark-text text-base">
-                  PKR 510
+                  {cur} {amount}
                 </span>
               </div>
             </div>

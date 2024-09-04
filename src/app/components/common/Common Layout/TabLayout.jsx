@@ -17,7 +17,10 @@ const TabLayout = (props) => {
         <div className='flex justify-between md:items-center '>
         <Sort />
         <div className='flex flex-col-reverse md:flex-row items-end  md:items-center md:gap-2'>
-        <SearchInput placeholder={props.inputPlaceholder} />
+        <SearchInput 
+              placeholder={props.inputPlaceholder} 
+              onQueryChange={(e) => props.onSearch(e.target.value)} // Pass the search query to parent
+            />
        < FoodFilterMenu />
         </div>
         </div>

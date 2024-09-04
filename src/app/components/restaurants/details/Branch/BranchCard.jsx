@@ -15,7 +15,7 @@ const BranchCard = ({ branch, id }) => {
     router.push(`${locale}/details`)
   }
   return (
-    <div onClick={handleClick} className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden">
+    <div onClick={handleClick} className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden cursor-pointer">
         <Image
           src={images.branch}
           alt="Restaurant Logo"
@@ -29,14 +29,13 @@ const BranchCard = ({ branch, id }) => {
         <div className="flex justify-between flex-row">
           <div>
             <h2 className="text-base md:text-xl  font-medium">
-              Arcadian Cafe
+              {branch.name}
             </h2>
             <div className="flex flex-col">
               <div className="flex justify-start items-center  text-gray-80 text-sm lg:text-base">
               <LuMapPin className="text-gray-80 text-sm lg:text-base" />
               <div className="flex flex-wrap">
-              <p>Packages Mall,</p>
-              <p>Lahore</p>
+              <p>{branch.location}</p>
               </div>
               </div>
               <p className="text-gray-80 font-normal text-sm md:text-base">$$$</p>

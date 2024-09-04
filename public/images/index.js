@@ -18,6 +18,7 @@ const images = {
   cross: require('./x.svg'),
   delete: require('./listing/Delete.svg'),
   edit: require('./listing/Edit.svg'),
+  location: require('./location.png'),
   clock: require('./clock.png'),
   modify: require('./modify.png'),
   trashbin: require('./trashbin.png'),

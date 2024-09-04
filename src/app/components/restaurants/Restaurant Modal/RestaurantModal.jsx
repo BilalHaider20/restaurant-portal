@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import FileUpload from "../../common/FormElements/ImageUpload";
 import images from "../../../../../public/images";
-import { Controller,useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import DropDownComponent from "../../common/dropdowns/DropDownComponent";
 
 
@@ -22,7 +22,7 @@ const RestaurantModal = ({ onClose }) => {
     control,
     handleSubmit,
     formState: { errors },
-} = useForm();
+  } = useForm();
 
   useEffect(() => {
     setIsModalOpen(true);
@@ -116,14 +116,14 @@ const RestaurantModal = ({ onClose }) => {
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Choose Cuisine */}
               <div className="w-[299px] sm:w-1/2">
-                
+
                 <Controller
-                            name="Ciusine"
-                            control={control}
-                            render={({ field }) => (
-                                <DropDownComponent label="Choose Cuisine" name="Cuisine" options={cuisineOptions} value={field.value} onChange={field.onChange} />
-                            )}
-                        />
+                  name="Ciusine"
+                  control={control}
+                  render={({ field }) => (
+                    <DropDownComponent label="Choose Cuisine" name="Cuisine" options={cuisineOptions} value={field.value} onChange={field.onChange} />
+                  )}
+                />
               </div>
 
               {/* Pricing Category */}
@@ -184,7 +184,7 @@ const RestaurantModal = ({ onClose }) => {
 
             {/* Promotions Banner */}
             <div className="flex-grow overflow-y-auto p-4 space-y-6">
-              <FileUpload  />
+              <FileUpload />
             </div>
           </div>
         </div>

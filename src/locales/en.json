@@ -90,6 +90,7 @@
         "selectFacilities": "Select Facilities",
         "selectPayment": "Select Payment Methods" ,
         "add": "Add",
-        "cancel": "Cancel"        
+        "cancel": "Cancel",
+        "requiredField": "This is a required field"      
     }
 }
