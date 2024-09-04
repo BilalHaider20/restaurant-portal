@@ -27,7 +27,7 @@ const RestaurantCard = (props) => {
     <div className="flex justify-between flex-row">
       <div>
         <h2 className="text-base md:text-xl  font-medium">
-          Arcadian Cafe
+          {props.name}
         </h2>
         <div className="flex flex-col">
           <div className="flex justify-start items-center  text-gray-80 text-sm lg:text-base">
@@ -37,7 +37,7 @@ const RestaurantCard = (props) => {
           <p>Lahore</p>
           </div>
           </div>
-          <p className="text-gray-80 font-normal text-sm md:text-base">$$$</p>
+          <p className="text-gray-80 font-normal text-sm md:text-base">{props.price}</p>
         </div>
       </div>
       <div className="flex flex-col lg:flex-row gap-2 justify-start ">

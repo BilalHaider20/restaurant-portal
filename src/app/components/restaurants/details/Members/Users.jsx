@@ -47,7 +47,7 @@ const Users = () => {
                   onRoleChange={(newRole) => handleRoleChange(index, newRole)} 
                 />
               </td>
-              <td className="py-2 px-4 flex space-x-2">
+              <td className="py-2 px-4 flex space-x-2 ">
                 <button className="text-red-500 hover:text-red-700">
                   <Image 
                   src={images.trashbin}

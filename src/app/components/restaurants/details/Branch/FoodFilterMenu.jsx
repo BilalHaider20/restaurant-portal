@@ -6,10 +6,10 @@ import Image from "next/image";
 import images from "../../../../../../public/images/index"
 //Components
 
-import CuisineButton from "./filter/CuisineButton";
+import FilterButton from "../../../common/filters/FilterButton";
 import PriceRangeSlider from "./filter/PriceRangeSlider";
 import FoodCategoryButton from "./filter/FoodCategoryButton";
-import Button from "./filter/Button";
+import Button from "../../../common/filters/Button";
 
 const FilterDropdown = () => {
 
@@ -85,7 +85,7 @@ const FilterDropdown = () => {
 
                                 <div className="flex flex-row space-x-2 p-4 justify-start">
                                     {cuisines.map((cuisine) => (
-                                        <CuisineButton key={cuisine} name={cuisine} />
+                                        <FilterButton key={cuisine} name={cuisine} />
                                     ))}
                                 </div>
 
