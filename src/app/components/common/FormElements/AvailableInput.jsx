@@ -93,7 +93,7 @@ const AvailableInput = ({ day, index, control }) => {
             </div>
             <div>
                 {isOpen && (
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <div className='flex w-[2/4] flex-1 items-center justify-center mt-2 gap-2'>
                         <Controller
                                 name={`availability.${index}.times.start`}
