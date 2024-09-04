@@ -1,10 +1,9 @@
 "use client";
 // DeleteDialog.js
-import React from 'react';
+import React, { useState } from 'react';
 import { TriangleAlert } from 'lucide-react';
 
-const DeleteDialog = () => {
-  if (!isOpen) return null;
+const DeleteDialog = ({onClose}) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -28,7 +27,9 @@ const DeleteDialog = () => {
           <button onClick={() => alert("cancel")} className="w-full md:w-full text-[#F34141] px-4 py-2 border border-[#F34141] rounded-lg">
             Cancel
           </button>
-          <button onClick={() => alert("Delete")} className="w-full md:full bg-[#F34141] text-white px-4 py-2 rounded-lg">
+          <button onClick={() => {
+              alert("Delete");
+              onClose(); }}  className="w-full md:full bg-[#F34141] text-white px-4 py-2 rounded-lg" >
             Delete
           </button>
         </div>
