@@ -17,8 +17,8 @@ const TabLayout = (props) => {
         <div className='flex justify-between md:items-center '>
         <Sort />
         <div className='flex flex-col-reverse md:flex-row items-end  md:items-center md:gap-2'>
-       <FoodFilterMenu />
         <SearchInput placeholder={props.inputPlaceholder} />
+       < FoodFilterMenu />
         </div>
         </div>
 
