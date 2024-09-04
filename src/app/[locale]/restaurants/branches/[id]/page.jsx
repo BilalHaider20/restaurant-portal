@@ -72,9 +72,6 @@ const Branches = () => {
             {isModalOpen['user'] && <AddUserModal onClose={()=>handleCloseModal('user')} />}
           </>
         )
-      
-
-
       default:
         break;
     }

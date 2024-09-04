@@ -7,6 +7,7 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
     const dropdownRef = useRef(null);
 
 
+
     // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -33,6 +34,9 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
         onChange(value); 
     };
 
+
+    
+
     return (
         <div className="w-full space-y-1" ref={dropdownRef}>
             <label htmlFor={name} className="text-[#3C3C3C] font-semibold">{label}</label>
@@ -43,6 +47,7 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
                     onClick={handleButtonClick}
                     className="selectForm"
                     disabled={disabled}
+                
                 >
                     {selected ? options.find((option) => option.value === selected)?.label : <span className="text-light-text">Select an option</span>}
                     <svg

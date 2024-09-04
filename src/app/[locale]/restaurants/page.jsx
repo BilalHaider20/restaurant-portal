@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import RestaurantCard from "../../components/restaurants/RestaurantCard";
@@ -8,9 +8,7 @@ import { getRestaurants } from "@/app/services/apiMethods";
 const Page = () => {
   const t = useTranslations('restaurants');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [data,setdata] = useState([]);
-  const [error,seterror] = useState(null);
-  const [loading,setloading] = useState(true);
+  const [data, setData] = useState(initialRestaurants);
   
   useEffect(() => {
     getRestaurantsFunction();
@@ -33,12 +31,15 @@ const Page = () => {
 
   
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
- 
-  
+  const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
+
+  const addRestaurant = (newRestaurant) => {
+    console.log(newRestaurant)
+    console.log(data)
+    setData((prevData) => [...prevData, newRestaurant]);
+    console.log(data)
+  };
 
   return (
     <div className="bg-bg-highlight overflow-y-auto p-4 sm:p-6">
@@ -52,8 +53,7 @@ const Page = () => {
           ))
         }
       </div>
-      {isModalOpen && <RestaurantModal onClose={handleCloseModal} />}
-
+      {isModalOpen && <RestaurantModal onClose={handleCloseModal} onAdd={addRestaurant} />}
     </div>
   );
 };
