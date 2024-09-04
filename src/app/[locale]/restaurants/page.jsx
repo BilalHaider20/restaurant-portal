@@ -17,7 +17,14 @@ const Page = () => {
   
   useEffect(() => {
     loginFunction();
-    getData()
+  //   getRestaurants().then((res) => {
+  //     console.log(res.data);
+  //     setdata(res.data);
+  //     setloading(false);
+  // }).catch((err) => {
+  //   console.log(err);
+  //   seterror(err);
+  // });
   }, []);
 
   const getData = async () => {
