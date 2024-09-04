@@ -196,3 +196,4 @@ const BranchesModal = ({ onClose }) => {
 }
 
 export default BranchesModal;
+

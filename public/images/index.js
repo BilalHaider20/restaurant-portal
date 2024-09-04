@@ -33,10 +33,15 @@ const images = {
   profile: require('./profile.png'),
   camera:require('./camera.png'),
   key: require('./key.png'),
+<<<<<<< Updated upstream
   chicken : require('./branches/chicken.png'),
   delete: require('./delete.svg'),
   plus_button: require('./plus-button.svg'),
   dot_menu: require('./dot-menu.svg')
+=======
+  delete: require('./delete.svg'),
+  plus_button: require('./plus-button.svg'),
+>>>>>>> Stashed changes
 
 };
 export const dashboardimages = {

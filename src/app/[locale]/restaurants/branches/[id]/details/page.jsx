@@ -10,6 +10,7 @@ import Promotions from '@/app/components/restaurants/branches/Promotions/Promoti
 import AddPromotionModal from '@/app/components/restaurants/branches/Promotions/AddPromotionModal'
 import BranchesModal from '@/app/components/restaurants/branches/Branches/BranchesModal'
 
+
 const Page = () => {
 
   const [activeTab, setactiveTab] = useState("Floors");
@@ -112,6 +113,8 @@ const Page = () => {
       case 'Floors':
         return (
           <>
+            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
+            {isBranchesModalOpen && <BranchesModal onClose={handleCloseBranchesModal} />}
             <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
             {isBranchesModalOpen && <BranchesModal onClose={handleCloseBranchesModal} />}
           </>
