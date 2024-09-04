@@ -1,20 +1,49 @@
 "use client"
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Optionally use these if needed
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import images from '../../../../public/images';
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { setToken } from '@/lib/features/auth/authSlice';
+import { login } from '@/app/services/apiMethods';
+import { useAppSelector } from '@/lib/hooks';
 
 const Page = () => {
     const router = useRouter();
+    const dispatch = useDispatch();
+    const [email, setEmail] = useState('');
+    const [password, setpassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const [error,setError] = useState(null);
 
-    const handleSignin = (e) => {
+    const token = useAppSelector((state) => state.auth.token);
+    
+    const handleSignin =async (e) => {
         e.preventDefault();
-        router.push('/en/dashboard');
+        try {
+            const response = await login(
+                {
+                    email,
+                    password
+                }
+            );
+            const token = response.data.Token; 
+            
+            dispatch(setToken(token));
+
+
+            const locale = router.locale || 'en'|| 'ar';
+            router.push(`/${locale}/dashboard`);
+            
+            
+        } catch (error) {
+            console.log('login failed', error);
+            setError(error);
+        }
     };
 
     const handleToggle = () => {
@@ -47,9 +76,11 @@ const Page = () => {
                                 alt="Email Icon"
                             />
                             <input
-                                type="text"
+                                type="email"
                                 className="w-full  p-4 border border-gray-300 rounded-md pl-12"
                                 placeholder="Enter Email Address"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                     </div>
@@ -67,6 +98,8 @@ const Page = () => {
                                 type={showPassword ? "text" : "password"}
                                 className="w-full  p-4 border border-gray-300 rounded-md bg-white pl-12"
                                 placeholder="Enter Password"
+                                value={password}
+                                onChange={(e) => setpassword(e.target.value)}
                             />
                             <div 
                                 className="absolute top-1/2 transform -translate-y-1/2 right-4 cursor-pointer"
@@ -88,6 +121,7 @@ const Page = () => {
                     <button className="w-full bg-[#346CC4] text-white py-3 rounded-md hover:bg-[#2d5ca7]" onClick={handleSignin}>
                         Sign In
                     </button>
+                    {error && <p className="text-red-500 text-sm">{error.response.data}</p>}
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "./storage";
 import langReducer from './features/lang/langSlice';
 import currencyReducer from './features/currency/currencySlice';
+import authSliceReducer from './features/auth/authSlice';
 import {  FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, } from 'redux-persist'
 
 import { combineReducers } from 'redux';
@@ -16,6 +17,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   lang: langReducer,
   cur: currencyReducer,
+  auth: authSliceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
