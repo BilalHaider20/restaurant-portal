@@ -34,8 +34,7 @@ const Branches = () => {
   }
 
   const filteredBranches = restaurantBranches?.filter((branch) =>
-    branch.name.toLowerCase().includes(searchQuery.toLowerCase()) || // Filter by branch name
-    branch.location.toLowerCase().includes(searchQuery.toLowerCase()) // Optionally filter by location or other properties
+    branch.name.toLowerCase().includes(searchQuery.toLowerCase()) 
   );
 
   // const rest = {

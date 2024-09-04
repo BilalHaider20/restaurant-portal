@@ -12,7 +12,7 @@ export const branches = {
         bookings: 18,
       },
       {
-        name: 'nishat Mall',
+        name: 'Arcadian Cafe Emporium Mall',
         location: 'Emporium Mall, Lahore',
         hours: '11:00 am - 11:00 pm',
         imageUrl: 'https://your-image-url.com/arcadian-cafe-emporium-mall.jpg', // Replace with actual image URL
