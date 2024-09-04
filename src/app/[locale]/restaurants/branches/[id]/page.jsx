@@ -20,7 +20,14 @@ const Branches = () => {
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
-  const handleCloseModal = () => setIsModalOpen(false);
+  
+  const [branchesModalOpen, setBranchesModalOpen] = useState(false);
+  const handleBranchesCloseModal = () => {
+    setBranchesModalOpen(false)
+  }
+  const handleOpenBranchesModal = () => {
+    setBranchesModalOpen(true)
+  }
   // const rest = {
   //   reviews: 4,
   //   image: rest_images.rest_image,
@@ -52,13 +59,13 @@ const Branches = () => {
       case 'Branches':
         return (
           <>
-            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} />
+            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
             <div className="flex flex-col gap-4">
               {restaurantBranches.map((branch, index) => (   
                 <BranchCard key={index} id={index} branch={branch} />
               ))
               }
-              {/* {isModalOpen && <BranchesModal />} */}
+              {branchesModalOpen && <BranchesModal onClose={handleBranchesCloseModal} />}
             </div>
           </>)
       case 'Promotions':

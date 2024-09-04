@@ -9,10 +9,10 @@ import { useRouter } from "next/navigation";
 import { redirect } from "next/navigation";
 const BranchCard = ({ branch, id }) => {
   const router = useRouter();
-  const locale = router.locale || 'en'|| 'ar';
+  const locale = router.locale
 
   const handleClick = () => {
-    router.push(`/en/restaurant/details`)
+    router.push(`${locale}/details`)
   }
   return (
     <div onClick={handleClick} className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden">
