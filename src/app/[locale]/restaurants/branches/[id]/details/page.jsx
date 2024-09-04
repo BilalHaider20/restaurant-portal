@@ -7,6 +7,7 @@ import MenuItem from '@/app/[locale]/restaurant/components/MenuItem'
 import Switch from '@/app/[locale]/restaurant/components/Switch'
 import Users from '@/app/components/restaurants/details/Members/Users'
 import Promotions from '@/app/components/restaurants/details/Promotions/Promotions'
+import Floor from '@/app/components/restaurants/details/Floor/Floor'
 import Reviews from '@/app/components/restaurants/details/Branch/reviews/Reviews'
 import AddPromotionModal from '@/app/components/restaurants/details/Promotions/AddPromotionModal'
 import BranchesModal from '@/app/components/restaurants/details/Branch/BranchesModal'
@@ -123,8 +124,9 @@ const Page = () => {
       case 'Floors':
         return (
           <>
-            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
+            <TabLayout title={"Floor Details"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
             {isBranchesModalOpen && <BranchesModal onClose={handleCloseBranchesModal} />}
+            <Floor />
           </>
         )
       case 'Menu':
@@ -162,7 +164,6 @@ const Page = () => {
           <Reviews users = {users}/>
           </>
         )
-
       default:
         break;
     }

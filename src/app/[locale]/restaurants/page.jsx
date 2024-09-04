@@ -65,7 +65,7 @@ const Page = () => {
       <div className="flex flex-col gap-4 mt-4">
         {
           restaurants.map((restaurant) => (
-            <RestaurantCard key={restaurant.id} id={restaurant.id} {...restaurant}  />
+            <RestaurantCard key={restaurant.id} id={restaurant.id} {...restaurant} className="cursor-pointer" />
           ))
         }
       </div>
