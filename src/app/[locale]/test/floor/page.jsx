@@ -1,5 +1,5 @@
 import React from 'react';
-import Floors from './floor';
+import Floors from './floor1';
 
 const page = () => {
   return <Floors />;
