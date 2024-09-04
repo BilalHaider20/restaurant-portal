@@ -91,5 +91,14 @@
         "selectPayment": "Select Payment Methods" ,
         "add": "Add",
         "cancel": "Cancel"        
+    },
+    "loginPage":{
+        "bookmeLogin":"Bookme Restaurant Portal",
+        "provideDetails":"Please provide details below to log in to your account",
+        "email" : "Email Address",
+        "password":"Password",
+        "remember" : "Remember me",
+        "forgot":"Forgot Password?",
+        "signin": "Sign In"
     }
 }

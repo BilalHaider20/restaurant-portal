@@ -7,8 +7,10 @@ import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import images from '../../../../public/images';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 const Page = () => {
+  const t = ('')
     const router = useRouter();
     const [showPassword, setShowPassword] = useState(false);
 
@@ -30,15 +32,14 @@ const Page = () => {
                     alt="Logo"
                 />
                 <div className="ml-12 mb-6">
-                    <h2 className="font-semibold text-2xl">Bookme Restaurant Portal</h2>
-                    <p className="text-sm text-[#3c3c3c]">
-                        Please provide details below to log in to your account
+                    <h2 className="font-semibold text-2xl">{t('bookmeLogin')}</h2>
+                    <p className="text-sm text-[#3c3c3c]">{t('provideDetails')}
                     </p>
                 </div>
                 <div className="space-y-6 ml-12">
                     <div>
                         <label className="block text-sm font-medium text-[#3c3c3c] mb-2">
-                            Email Address
+                            {t('email')}
                         </label>
                         <div className="relative">
                             <Image
@@ -55,7 +56,7 @@ const Page = () => {
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-[#3c3c3c] mb-2">
-                            Password
+                            {t('password')}
                         </label>
                         <div className="relative  ">
                             <Image
@@ -79,14 +80,14 @@ const Page = () => {
                     <div className="flex items-center justify-between text-sm">
                         <label className="flex items-center">
                             <input type="checkbox" className="mr-2" />
-                            Remember me
+                            {t('remember')}
                         </label>
                         <a href="#" className="text-[#346CC4] mr-[45px]">
-                            Forgot Password?
+                          {t('forgot')}
                         </a>
                     </div>
                     <button className="w-[536px] bg-[#346CC4] text-white py-3 rounded-md hover:bg-[#2d5ca7]" onClick={handleSignin}>
-                        Sign In
+                        {t('signin')}
                     </button>
                 </div>
             </div>
