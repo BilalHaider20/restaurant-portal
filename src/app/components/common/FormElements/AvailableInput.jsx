@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Controller, useFieldArray } from 'react-hook-form';
 import DropDownComponent from '../dropdowns/DropDownComponent';
 import images from '../../../../../public/images';
-
+import nav_images from '../../../../../public/images/navbar'
 import Image from 'next/image';
 
 const AvailableInput = ({ day, index, control }) => {
@@ -23,10 +23,18 @@ const AvailableInput = ({ day, index, control }) => {
     };
 
     const handleClick = () => {
+        console.log('here');
         if (isChecked) {
             setIsOpen(true);
         }
     };
+    const close = () => {
+        console.log(isOpen);
+        setIsOpen(!isOpen)
+        console.log(isOpen);
+        console.log("Close clicked");
+
+    }
 
     const timeOptions = [
         { value: '12:00 am', label: '12:00 am' },
@@ -58,25 +66,31 @@ const AvailableInput = ({ day, index, control }) => {
     return (
         <div
             className={`border border-divider-clr rounded-lg py-2 px-3 ${isChecked ? 'cursor-pointer' : 'cursor-default'}`}
-            onClick={handleClick}
         >
-            <label className="inline-flex items-center cursor-pointer">
-                <Controller
-                    name={`availability.${index}.day`}
-                    control={control}
-                    render={({ field }) => (
-                        <input
-                            type="checkbox"
-                            value={day}
-                            className="sr-only peer"
-                            checked={isChecked}
-                            onChange={handleCheckboxChange}
-                        />
-                    )}
-                />
-                <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span className="ms-3 font-medium text-dark-text">{day}</span>
-            </label>
+            <div className='flex justify-between items-center'>
+                <label className="inline-flex items-center cursor-pointer" onClick={handleClick}>
+                    <Controller
+                        name={`availability.${index}.day`}
+                        control={control}
+                        render={({ field }) => (
+                            <input
+                                type="checkbox"
+                                value={day}
+                                className="sr-only peer"
+                                checked={isChecked}
+                                onChange={handleCheckboxChange}
+                            />
+                        )}
+                    />
+                    <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                    <span className="ms-3 font-medium text-dark-text">{day}</span>
+                </label>
+                <div onClick={close}>
+                    {isChecked && <Image src={nav_images.arrow}  className={`transform transition-transform ${
+                    isOpen ? 'rotate-180' : ''}`}
+                    alt='arrow' />}
+                </div>
+            </div>
             <div>
                 {isOpen && (
                     <div className="grid grid-cols-2 gap-4">
