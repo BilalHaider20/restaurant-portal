@@ -3,16 +3,26 @@ import { useState } from 'react'
 import BranchIntro from '../../../../restaurant/components/BranchIntro'
 import rest_images from '../../../../../../../public/images/restaurant'
 import TabLayout from '@/app/components/common/Common Layout/TabLayout'
-import MenuItem from '../../../../restaurant/components/MenuItem'
-import Switch from '../../../../restaurant/components/Switch'
-import Users from '@/app/components/restaurants/branches/Members/Users'
-import Promotions from '@/app/components/restaurants/branches/Promotions/Promotions'
-import AddPromotionModal from '@/app/components/restaurants/branches/Promotions/AddPromotionModal'
-import BranchesModal from '@/app/components/restaurants/branches/Branches/BranchesModal'
-
+import MenuItem from '@/app/[locale]/restaurant/components/MenuItem' 
+import Switch from '@/app/[locale]/restaurant/components/Switch'
+import Users from '@/app/components/restaurants/details/Members/Users'
+import Promotions from '@/app/components/restaurants/details/Promotions/Promotions'
+import Reviews from '@/app/components/restaurants/details/Branch/reviews/Reviews'
+import AddPromotionModal from '@/app/components/restaurants/details/Promotions/AddPromotionModal'
+import BranchesModal from '@/app/components/restaurants/details/Branch/BranchesModal'
 
 const Page = () => {
+  const users = Array(100).fill({
+    date:'31 Auguest 2024',
+    name: 'Basel AbdulMajid',
+    email: 'basel@bookme.pk',
+    role: 'Restaurant Manager',
+    reference: 'TAB-1234567890',
+    comments: 'It was Great',
+    rating:3,
+    
 
+  });
   const [activeTab, setactiveTab] = useState("Floors");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -149,7 +159,7 @@ const Page = () => {
         return(
           <>
            <TabLayout title={"User Reviews"} btntext={"user_reviews"} inputPlaceholder={"reviews"} />
-          Reviews component here
+          <Reviews users = {users}/>
           </>
         )
 

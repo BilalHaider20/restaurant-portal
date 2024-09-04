@@ -4,12 +4,12 @@ import { useParams } from "next/navigation";
 import rest_images from '@/../public/images/restaurant'
 import RestaurantIntro from "@/app/components/RestaurantIntro";
 import Switcher from "@/app/components/common/Tabswitch/Switcher";
-import BranchCard from "@/app/components/restaurants/branches/Branches/BranchCard";
-import Users from "@/app/components/restaurants/branches/Members/Users";
-import Promotions from "@/app/components/restaurants/branches/Promotions/Promotions";
+import BranchCard from "@/app/components/restaurants/details/Branch/BranchCard";
+import Users from "@/app/components/restaurants/details/Members/Users";
+import Promotions from "@/app/components/restaurants/details/Promotions/Promotions";
 import TabLayout from "@/app/components/common/Common Layout/TabLayout";
-import AddPromotionModal from "@/app/components/restaurants/branches/Promotions/AddPromotionModal";
-import BranchesModal from "@/app/components/restaurants/branches/Branches/BranchesModal";
+import AddPromotionModal from "@/app/components/restaurants/details/Promotions/AddPromotionModal";
+import BranchesModal from "@/app/components/restaurants/details/Branch/BranchesModal";
 import { branches } from "@/app/utils/restaurants/branches/branchesData";
 
 const Branches = () => {

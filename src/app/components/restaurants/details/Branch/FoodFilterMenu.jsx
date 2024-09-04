@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { RxCross2 } from "react-icons/rx";
 import Image from "next/image";
-import images from "../../../../public/images/index";
-
+import images from "../../../../../../public/images/index"
 //Components
 
 import CuisineButton from "./filter/CuisineButton";
