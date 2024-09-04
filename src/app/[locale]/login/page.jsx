@@ -59,7 +59,7 @@ const Page = () => {
                         </label>
                         <div className="relative flex gap-2 items-center ">
                             <Image
-                                className="absolute top-1/2 transform -translate-y-1/2 left-3"
+                                className="absolute top-1/2 transform -translate-y-1/2 "
                                 src={images.key}
                                 alt="Password Icon"
                             />
