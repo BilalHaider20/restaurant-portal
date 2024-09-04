@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { persistReducer } from "redux-persist";
 import storage from "./storage";
+import langReducer from './features/lang/langSlice';
 import {  FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, } from 'redux-persist'
 import { combineReducers } from 'redux';
 
@@ -8,9 +9,10 @@ const persistConfig = {
   timeout: 500,
   key: "root",
   storage,
-  whitelist: [],
+  whitelist: ["lang"],
 };
 const rootReducer = combineReducers({
+  lang: langReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

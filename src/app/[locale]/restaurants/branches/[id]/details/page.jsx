@@ -125,8 +125,6 @@ const Page = () => {
           <>
             <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
             {isBranchesModalOpen && <BranchesModal onClose={handleCloseBranchesModal} />}
-            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
-            {isBranchesModalOpen && <BranchesModal onClose={handleCloseBranchesModal} />}
           </>
         )
       case 'Menu':
