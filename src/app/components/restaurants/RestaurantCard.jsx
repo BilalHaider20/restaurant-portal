@@ -13,7 +13,7 @@ const RestaurantCard = (props) => {
     router.push(`/${locale}/restaurants/branches/${props.id}`);
   };
   return (
-    <div className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden" onClick={handleCardClick}>
+    <div className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden cursor-pointer" onClick={handleCardClick}>
     <Image
       src={rest_images.rest_image}
       alt="Restaurant Logo"

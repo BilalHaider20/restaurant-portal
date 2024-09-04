@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { EllipsisVertical, ChevronDown } from 'lucide-react';
 
-const FloorTable = () => {
+const Floor= () => {
   const initialFloorData = [
     { id: 34568, dateCreated: '31 August 2024', title: 'Ground Floor', details: 'Riaz Plaza, Liberty Chowk, Round About, Gulberg III, Lahore', status: 'Active' },
     { id: 34569, dateCreated: '31 August 2024', title: 'First Floor', details: 'Riaz Plaza, Liberty Chowk, Round About, Gulberg III, Lahore', status: 'Inactive' },
@@ -22,7 +22,7 @@ const FloorTable = () => {
       newData[index].status = newData[index].status === 'Active' ? 'Inactive' : 'Active';
       return newData;
     });
-    setOpenDropdownIndex(null); // Close dropdown after selection
+    setOpenDropdownIndex(null); 
   };
 
   return (
@@ -72,4 +72,4 @@ const FloorTable = () => {
   );
 };
 
-export default FloorTable;
+export default Floor;

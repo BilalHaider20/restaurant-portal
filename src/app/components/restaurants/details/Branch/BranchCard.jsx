@@ -15,7 +15,7 @@ const BranchCard = ({ branch, id }) => {
     router.push(`${locale}/details`)
   }
   return (
-    <div onClick={handleClick} className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden">
+    <div onClick={handleClick} className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden cursor-pointer">
         <Image
           src={images.branch}
           alt="Restaurant Logo"

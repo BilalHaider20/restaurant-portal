@@ -2,11 +2,14 @@
 import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import rest_images from '@/../public/images/restaurant'
+
+//Components
 import RestaurantIntro from "@/app/components/RestaurantIntro";
 import Switcher from "@/app/components/common/Tabswitch/Switcher";
 import BranchCard from "@/app/components/restaurants/details/Branch/BranchCard";
 import Users from "@/app/components/restaurants/details/Members/Users";
 import Promotions from "@/app/components/restaurants/details/Promotions/Promotions";
+import floor from "@/app/components/restaurants/details/Floor/Floor";
 import TabLayout from "@/app/components/common/Common Layout/TabLayout";
 import AddPromotionModal from "@/app/components/restaurants/details/Promotions/AddPromotionModal";
 import BranchesModal from "@/app/components/restaurants/details/Branch/BranchesModal";
@@ -83,6 +86,7 @@ const Branches = () => {
             <Users />
           </>
         )
+      
 
 
       default:
