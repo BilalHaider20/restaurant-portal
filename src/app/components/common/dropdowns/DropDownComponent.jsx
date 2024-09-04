@@ -34,21 +34,11 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
         onChange(value); 
     };
 
-    const handleButtonClick = () => {
-        if (!disabled) {
-            setOpen(!open);
-        }
-    };
 
-    const handleOptionSelect = (value) => {
-        setSelected(value); // Update the selected value locally
-        setOpen(false); // Close the dropdown
-        onChange(value); 
-    };
+    
 
     return (
         <div className="w-full space-y-1" ref={dropdownRef}>
-            <label htmlFor={name} className="text-[#3C3C3C] font-semibold">{label}</label>
             <label htmlFor={name} className="text-[#3C3C3C] font-semibold">{label}</label>
             <div className="relative">
                 <button
@@ -57,11 +47,8 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
                     onClick={handleButtonClick}
                     className="selectForm"
                     disabled={disabled}
-                    onClick={handleButtonClick}
-                    className="selectForm"
-                    disabled={disabled}
+                
                 >
-                    {selected ? options.find((option) => option.value === selected)?.label : <span className="text-light-text">Select an option</span>}
                     {selected ? options.find((option) => option.value === selected)?.label : <span className="text-light-text">Select an option</span>}
                     <svg
                         className={`w-4 h-4 transform ${open ? 'rotate-180' : 'rotate-0'}`}
@@ -74,12 +61,10 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
                     </svg>
                 </button>
                 {open && !disabled && (
-                {open && !disabled && (
                     <div className="absolute mt-1 w-full bg-white shadow-lg rounded-md z-10">
                         {options.map((option) => (
                             <div
                                 key={option.value}
-                                onClick={() => handleOptionSelect(option.value)}
                                 onClick={() => handleOptionSelect(option.value)}
                                 className="cursor-pointer px-4 py-2 hover:bg-gray-100"
                             >
