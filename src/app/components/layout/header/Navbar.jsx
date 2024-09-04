@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Dropdown from './components/Currencydropdown'
 import LoginBtn from './components/LoginBtn'
 import ProfileBtn from './components/ProfileBtn'
+import LangDropdown from '../../common/dropdowns/LangDropdown'
 
 const Navbar = ({toggleSidebar}) => {
   return (
@@ -23,7 +24,8 @@ const Navbar = ({toggleSidebar}) => {
           </div>
         </div>
         <Dropdown />
-        <LoginBtn />
+        {/* <LoginBtn /> */}
+        <LangDropdown />
         <ProfileBtn />        
       </div>
     </div>

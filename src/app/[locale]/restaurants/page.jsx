@@ -16,9 +16,15 @@ const Page = () => {
   const [loading,setloading] = useState(true);
   
   useEffect(() => {
-    // loginFunction();
-    // getData()
-    // console.log(data);
+    loginFunction();
+  //   getRestaurants().then((res) => {
+  //     console.log(res.data);
+  //     setdata(res.data);
+  //     setloading(false);
+  // }).catch((err) => {
+  //   console.log(err);
+  //   seterror(err);
+  // });
   }, []);
 
   const getData = async () => {
