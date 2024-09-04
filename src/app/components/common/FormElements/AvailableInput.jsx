@@ -12,14 +12,20 @@ const AvailableInput = ({ day, index, control }) => {
     const [currentStartTime, setCurrentStartTime] = useState('12:00 am');
     const [currentEndTime, setCurrentEndTime] = useState('01:00 am');
 
-    const { fields: timeFields, append: appendTime, remove: removeTime } = useFieldArray({
+    const { fields: timeFields, append: appendTime, remove: removeTime, replace: replaceTime } = useFieldArray({
         control,
         name: `availability.${index}.times`,  // Create a field array for the times of each day
     });
 
     const handleCheckboxChange = () => {
         setIsChecked(!isChecked);
-        setIsOpen(false);
+
+        if (!isChecked) {
+            setIsOpen(true); // Open the time inputs when checked
+        } else {
+            setIsOpen(false); // Close time inputs and remove all times when unchecked
+            replaceTime([]);  // Remove all times associated with the day
+        }
     };
 
     const handleClick = () => {
@@ -68,23 +74,32 @@ const AvailableInput = ({ day, index, control }) => {
             className={`border border-divider-clr rounded-lg py-2 px-3 ${isChecked ? 'cursor-pointer' : 'cursor-default'}`}
         >
             <div className='flex justify-between items-center'>
-                <label className="inline-flex items-center cursor-pointer" onClick={handleClick}>
-                    <Controller
-                        name={`availability.${index}.day`}
-                        control={control}
-                        render={({ field }) => (
-                            <input
-                                type="checkbox"
-                                value={day}
-                                className="sr-only peer"
-                                checked={isChecked}
-                                onChange={handleCheckboxChange}
-                            />
+                <div className='flex gap-1'>
+                    <label className="inline-flex items-center cursor-pointer" onClick={handleClick}>
+                        <Controller
+                            name={`availability.${index}.day`}
+                            control={control}
+                            render={({ field }) => (
+                                <input
+                                    type="checkbox"
+                                    value={day}
+                                    className="sr-only peer"
+                                    checked={isChecked}
+                                    onChange={handleCheckboxChange}
+                                />
+                            )}
+                        />
+                        <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <span className="ms-3 font-medium text-dark-text">{day}</span>
+                    </label>
+                    { isChecked && !(isOpen) && (<div>
+                        {timeFields.map((time, timeIndex) => 
+                            <span className='text-sm' key={timeIndex}>
+                                • {time.start} - {time.end}
+                            </span>
                         )}
-                    />
-                    <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                    <span className="ms-3 font-medium text-dark-text">{day}</span>
-                </label>
+                    </div>)}
+                </div>
                 <div onClick={close}>
                     {isChecked && <Image src={nav_images.arrow}  className={`transform transition-transform ${
                     isOpen ? 'rotate-180' : ''}`}

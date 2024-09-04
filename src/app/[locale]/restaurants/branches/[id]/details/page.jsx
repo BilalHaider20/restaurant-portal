@@ -42,6 +42,17 @@ const Page = () => {
   const handleCloseBranchesModal = () => {
     setIsBranchesModalOpen(false);
   };
+  const [isBranchesModalOpen, setIsBranchesModalOpen] = useState(false);
+
+
+  const handleOpenBranchesModal = () => {
+    console.log('Add Branch button clicked');
+    setIsBranchesModalOpen(true);
+  };
+
+  const handleCloseBranchesModal = () => {
+    setIsBranchesModalOpen(false);
+  };
   const rest = {
     reviews: 4,
     image: rest_images.branch,
