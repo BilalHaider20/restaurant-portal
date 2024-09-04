@@ -4,7 +4,8 @@ import Image from 'next/image';
 import images from '../../../../../public/images/navbar';
 // import { useAppDispatch, useAppSelector } from '../lib/hooks';
 // import { setLanguage } from '../lib/features/lang/langSlice';
-
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { setLanguage } from '@/lib/features/lang/langSlice';
 
 const options = [
     { lang: "English", code: "en", iconCode: "GB" },
@@ -14,25 +15,24 @@ const options = [
 
 const LangDropdown = () => {
 
-    // const dispatch = useAppDispatch()
-    // const {lang} = useAppSelector((state) => state.lang);
+    const dispatch = useAppDispatch()
+    const {lang} = useAppSelector((state) => state.lang);
 
-    // const currentLang = useAppSelector((state) => state.lang);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(options[0]);
 
-    // useEffect(() => {
-    //     const selected = options.find(option => option.code === lang);
-    //     if (selected) {
-    //         setSelectedOption(selected);
-    //     }
-    // }, [lang]);
+    useEffect(() => {
+        const selected = options.find(option => option.code === lang);
+        if (selected) {
+            setSelectedOption(selected);
+        }
+    }, [lang]);
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 
     const handleOptionClick = (option) => {
         setSelectedOption(option);
-        // dispatch(setLanguage(option.code));
+        dispatch(setLanguage(option.code));
         setIsOpen(false);
     };
 
