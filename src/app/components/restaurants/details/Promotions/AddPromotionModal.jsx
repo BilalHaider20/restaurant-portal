@@ -11,9 +11,14 @@ const AddPromotionModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    setIsModalOpen(true);
-    return () => setIsModalOpen(false);
-  }, []);
+    const timer = setTimeout(() => {
+        setIsModalOpen(true);
+    }, 100); 
+
+    return () => clearTimeout(timer);
+
+    
+      }, []);
 
   const handleModalClose = () => {
     setIsModalOpen(false);

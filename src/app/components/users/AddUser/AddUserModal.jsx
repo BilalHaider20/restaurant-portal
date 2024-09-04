@@ -27,7 +27,7 @@ const AddUserModal = ({ onClose }) => {
 
         {/* Modal Body */}
         <div className="overflow-y-auto p-4 flex-grow">
-          <div className="bg-white rounded-lg m-4 p-4 space-y-4">
+          <div className="bg-white rounded-lg  p-4 space-y-4">
             {/* Toggle Choose Existing Members */}
             <div className="flex justify-between items-center cursor-pointer" onClick={() => setShowExisting(!showExisting)}>
               <h2 className="text-2xl font-medium">Choose From Existing Members</h2>

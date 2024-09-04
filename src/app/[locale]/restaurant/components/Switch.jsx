@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 export default function Switch({ activeTab, setactiveTab }) {
-    const [indicatorPosition, setIndicatorPosition] = useState("0%");
+    const [indicatorPosition, setIndicatorPosition] = useState("-1%");
 
     const handleClick = (selection) => {
         setactiveTab(selection);
@@ -11,7 +11,7 @@ export default function Switch({ activeTab, setactiveTab }) {
     useEffect(() => {
         const updateIndicatorPosition = () => {
             
-        setIndicatorPosition(activeTab === 'Floors' ? '0.5rem': activeTab === "Menu" ? '18%' : activeTab === 'Promotions' ? '40%' : activeTab === 'Members' ? '60%' : '80%');
+        setIndicatorPosition(activeTab === 'Floors' ? '-1%' : activeTab === 'Menu' ? '15%' : activeTab === 'Promotions' ? '35%' : activeTab === 'Members' ? '58%' : '80%');
         };
 
         updateIndicatorPosition();
@@ -23,43 +23,43 @@ export default function Switch({ activeTab, setactiveTab }) {
     
 
     return (
-        <div className="relative bg-[#EFF0F1] my-6 py-2 px-4 rounded-full border border-[#E6E6E6] text-gray-80 flex w-full items-center md:w-[35%]">
-            <div className="flex justify-between gap-7 text-sm z-20 w-full  ">
+        <div className="relative bg-[#EFF0F1] px-4 py-2 rounded-full border border-[#E6E6E6] text-gray-80 w-fit flex items-center">
+            <div className="flex justify-between  gap-8 text-sm z-20 w-full  ">
                 <button
                     onClick={() => handleClick('Floors')}
-                    className={`text-${activeTab === 'Floors' ? 'white' : 'gray-80'}   transition-all delay-100  text-xs md:text-base`}
+                    className={`text-${activeTab === 'Floors' ? 'white' : 'gray-80'}   transition-all delay-100  text-xs md:text-sm lg:text-base xl:text-lg`}
                 >
                     Floors
                 </button>
                 <button
                     onClick={() => handleClick('Menu')}
-                    className={`text-${activeTab === 'Menu' ? 'white' : 'gray-80'}    transition-all delay-100  text-xs md:text-base`}
+                    className={`text-${activeTab === 'Menu' ? 'white' : 'gray-80'}    transition-all delay-100  text-xs md:text-sm lg:text-base xl:text-lg`}
                 >
                     Menu
                 </button>
                 <button
                     onClick={() => handleClick('Promotions')}
-                    className={`text-${activeTab === 'Promotions' ? 'white' : 'gray-80'}    transition-all delay-100  text-xs md:text-base`}
+                    className={`text-${activeTab === 'Promotions' ? 'white' : 'gray-80'}    transition-all delay-100  text-xs md:text-sm lg:text-base xl:text-lg`}
                 >
                     Promotions
                 </button>
                 <button
                     onClick={() => handleClick('Members')}
-                    className={`text-${activeTab === 'Members' ? 'white' : 'gray-80'}    transition-all delay-100  text-xs md:text-base `}
+                    className={`text-${activeTab === 'Members' ? 'white' : 'gray-80'}    transition-all delay-100  text-xs md:text-sm lg:text-base xl:text-lg `}
                 >
                     Members
                 </button>
                 <button
                     onClick={() => handleClick('Reviews')}
-                    className={`text-${activeTab === 'Reviews' ? 'white' : 'gray-80'}    transition-all delay-100  text-xs md:text-base `}
+                    className={`text-${activeTab === 'Reviews' ? 'white' : 'gray-80'}    transition-all delay-100 text-xs md:text-sm lg:text-base xl:text-lg `}
                 >
                     Reviews
                 </button>
             </div>
             <div
-                className={`absolute z-10 bottom-0 w-[21%] h-full bg-[#346CC4] rounded-full flex items-center justify-center pointer-events-none transition-left duration-300 ease-in-out`}
+                className={`absolute z-10 bottom-0 w-1/5 h-full bg-[#346CC4] rounded-full flex items-center justify-center pointer-events-none transition-left duration-300 ease-in-out`}
                 style={{
-                    left: `calc(${indicatorPosition} - 0.5rem)`,
+                    left: indicatorPosition,
                 }}
             >
             </div>
