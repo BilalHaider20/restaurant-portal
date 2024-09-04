@@ -200,7 +200,7 @@ const BranchesModal = ({ onClose }) => {
                         ))}
                     </div>
                     <div className='bg-bg-light px-4 mt-auto py-2 flex justify-end gap-3'>
-                        <button onClick={handleModalClose} type="button" className="px-4 py-2 text-gray-600 bg-bg-light border border-gray-300 rounded-lg hover:bg-gray-100" onClick={onClose}>
+                        <button onClick={handleModalClose} type="button" className="px-4 py-2 text-gray-600 bg-bg-light border border-gray-300 rounded-lg hover:bg-gray-100">
                             {t('cancel')}
                         </button>
                         <button type="submit" className="px-4 py-2 text-white bg-primary-blue rounded-lg hover:bg-blue-600">
