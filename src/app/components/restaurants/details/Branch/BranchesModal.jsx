@@ -95,7 +95,7 @@ const BranchesModal = ({ onClose }) => {
                         <Controller
                             name="name"
                             control={control}
-                            rules={{ required: "Please enter branch name" }}
+                            rules={{ required: t('requiredField') }}
                             render={({ field }) => (
                                 <Input
                                     label={t('branchName')}
@@ -111,7 +111,7 @@ const BranchesModal = ({ onClose }) => {
                         <Controller
                                 name="phone"
                                 control={control}
-                                rules={{ required: "Please enter phone number" }}
+                                rules={{ required: t('requiredField') }}
                                 render={({ field }) => (
                                     <div className="space-y-1 relative w-full">
                                         <label className='m-0' htmlFor="phone">{t('phoneNumber')}</label>
@@ -129,7 +129,7 @@ const BranchesModal = ({ onClose }) => {
                             <Controller
                                 name="email"
                                 control={control}
-                                rules={{ required: "Please enter branch email" }}
+                                rules={{ required: t('requiredField') }}
                                 render={({ field }) => (
                                     <Input
                                         label={t('emailAddress')}
@@ -147,6 +147,7 @@ const BranchesModal = ({ onClose }) => {
                             <Controller
                                 name="city"
                                 control={control}
+                                rules={{ required: t('requiredField') }}
                                 render={({ field }) => (
                                     <DropDownComponent
                                         label={t('branchCity')}
@@ -154,12 +155,14 @@ const BranchesModal = ({ onClose }) => {
                                         options={cityOptions}
                                         value={field.value}
                                         onChange={field.onChange}
+                                        error={errors.city?.message}
                                     />
                                 )}
                             />
                             <Controller
                                 name="country"
                                 control={control}
+                                rules={{ required: t('requiredField') }}
                                 render={({ field }) => (
                                     <DropDownComponent
                                         label={t('branchCountry')}
@@ -167,6 +170,7 @@ const BranchesModal = ({ onClose }) => {
                                         options={countryOptions}
                                         value={field.value}
                                         onChange={field.onChange}
+                                        error={errors.country?.message}
                                     />
                                 )}
                             />

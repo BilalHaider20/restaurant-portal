@@ -19,7 +19,9 @@ const LangDropdown = () => {
     const {lang} = useAppSelector((state) => state.lang);
 
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(options[0]);
+    const [selectedOption, setSelectedOption] = useState(
+        options.find(option => option.code === lang) || options[0]
+    );
 
     useEffect(() => {
         const selected = options.find(option => option.code === lang);

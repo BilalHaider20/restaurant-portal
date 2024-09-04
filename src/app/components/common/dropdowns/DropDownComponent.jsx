@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 
-const DropDownComponent = ({ label, name, options, defaultSelected, disabled = false, onChange }) => {
+const DropDownComponent = ({ label, name, options, defaultSelected, error, disabled = false, onChange }) => {
     const [selected, setSelected] = useState(defaultSelected);
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -68,6 +68,7 @@ const DropDownComponent = ({ label, name, options, defaultSelected, disabled = f
                         ))}
                     </div>
                 )}
+                {error && <p className="text-red-500" role="alert">{error}</p>}
             </div>
         </div>
     );

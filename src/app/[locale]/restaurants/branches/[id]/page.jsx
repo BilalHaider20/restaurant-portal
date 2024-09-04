@@ -15,6 +15,7 @@ import { branches } from "@/app/utils/restaurants/branches/branchesData";
 const Branches = () => {
   const [activeTab, setactiveTab] = useState('Branches');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); 
   const { id } = useParams();
   const restaurantBranches = branches[id];
   const handleOpenModal = () => {
@@ -28,6 +29,12 @@ const Branches = () => {
   const handleOpenBranchesModal = () => {
     setBranchesModalOpen(true)
   }
+
+  const filteredBranches = restaurantBranches?.filter((branch) =>
+    branch.name.toLowerCase().includes(searchQuery.toLowerCase()) || // Filter by branch name
+    branch.location.toLowerCase().includes(searchQuery.toLowerCase()) // Optionally filter by location or other properties
+  );
+
   // const rest = {
   //   reviews: 4,
   //   image: rest_images.rest_image,
@@ -59,12 +66,11 @@ const Branches = () => {
       case 'Branches':
         return (
           <>
-            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
+            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} onSearch={setSearchQuery}  />
             <div className="flex flex-col gap-4">
-              {restaurantBranches.map((branch, index) => (   
+            {filteredBranches.map((branch, index) => (
                 <BranchCard key={index} id={index} branch={branch} />
-              ))
-              }
+              ))}
               {branchesModalOpen && <BranchesModal onClose={handleBranchesCloseModal} />}
             </div>
           </>)
