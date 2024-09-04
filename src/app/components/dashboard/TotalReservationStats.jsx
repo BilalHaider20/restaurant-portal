@@ -8,7 +8,7 @@ const TotalReservations = () => {
   const tt = useTranslations('dashboard.IntervalDropDown');
   const DropdownOptions = [`${tt("Last Week")}`, `${tt("Last Month")}`,`${tt("Last Year")}`];
   return (
-    <div className="bg-white rounded-lg py-3 shadow-md min-w-[300px] sm:min-w-[472px] px-2">
+    <div className="bg-white rounded-lg py-3 shadow-md min-w-[300px] sm:min-w-[472px] px-4">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-heading-clr font-semibold text-xl sm:text-2xl tracking-tighter">
           {t('totalreservations')}

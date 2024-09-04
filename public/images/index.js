@@ -36,6 +36,7 @@ const images = {
   chicken : require('./branches/chicken.png'),
   delete: require('./delete.svg'),
   plus_button: require('./plus-button.svg'),
+  dot_menu: require('./dot-menu.svg')
 
 };
 export const dashboardimages = {

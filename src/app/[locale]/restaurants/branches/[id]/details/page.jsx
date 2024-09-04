@@ -1,14 +1,15 @@
 "use client"
 import { useState } from 'react'
-import BranchIntro from '../components/BranchIntro'
-import rest_images from '../../../../../public/images/restaurant'
+import BranchIntro from '../../../../restaurant/components/BranchIntro'
+import rest_images from '../../../../../../../public/images/restaurant'
 import TabLayout from '@/app/components/common/Common Layout/TabLayout'
-import MenuItem from '../components/MenuItem'
-import Switch from '../components/Switch'
+import MenuItem from '../../../../restaurant/components/MenuItem'
+import Switch from '../../../../restaurant/components/Switch'
 import Users from '@/app/components/restaurants/branches/Members/Users'
 import Promotions from '@/app/components/restaurants/branches/Promotions/Promotions'
 import AddPromotionModal from '@/app/components/restaurants/branches/Promotions/AddPromotionModal'
 import BranchesModal from '@/app/components/restaurants/branches/Branches/BranchesModal'
+
 
 const Page = () => {
 
@@ -114,6 +115,8 @@ const Page = () => {
           <>
             <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
             {isBranchesModalOpen && <BranchesModal onClose={handleCloseBranchesModal} />}
+            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
+            {isBranchesModalOpen && <BranchesModal onClose={handleCloseBranchesModal} />}
           </>
         )
       case 'Menu':
@@ -158,7 +161,7 @@ const Page = () => {
   }
 
   return (
-    <div className='px-5 py-5 bg-bg-main relative'>
+    <div className={`px-5 py-5 bg-bg-main relative`}>
       <BranchIntro rest={rest} />
       <div className="flex">
         <Switch className="" activeTab={activeTab} setactiveTab={setactiveTab} />

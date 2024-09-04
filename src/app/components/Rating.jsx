@@ -2,12 +2,13 @@ import React from 'react';
 import Image from 'next/image';
 import images from '../../../public/images/index';
 
+
 const Rating = () => {
     return (
         <div className="flex flex-col mt-4 w-full">
             <div className="flex gap-2 items-center">
-                <div className='bg-[#346CC4] w-[50px] h-[32px] rounded flex items-center justify-center'>
-                <span className="text-[14px] font-semibold  text-white rounded ">
+                <div className='bg-[#346CC4] w-[50px] min-h-12 rounded flex items-center justify-center'>
+                <span className="text-base md:text-lg font-semibold  text-white rounded ">
                     8.6
                 </span>
                 </div>
@@ -29,6 +30,7 @@ const Rating = () => {
                 </div>
             </div>
         </div>
+      
     );
 }
 

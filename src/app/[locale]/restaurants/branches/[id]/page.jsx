@@ -11,6 +11,7 @@ import TabLayout from "@/app/components/common/Common Layout/TabLayout";
 import AddPromotionModal from "@/app/components/restaurants/branches/Promotions/AddPromotionModal";
 import BranchesModal from "@/app/components/restaurants/branches/Branches/BranchesModal";
 import { branches } from "@/app/utils/restaurants/branches/branchesData";
+
 const Branches = () => {
   const [activeTab, setactiveTab] = useState('Branches');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,7 +20,14 @@ const Branches = () => {
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
-  const handleCloseModal = () => setIsModalOpen(false);
+  
+  const [branchesModalOpen, setBranchesModalOpen] = useState(false);
+  const handleBranchesCloseModal = () => {
+    setBranchesModalOpen(false)
+  }
+  const handleOpenBranchesModal = () => {
+    setBranchesModalOpen(true)
+  }
   // const rest = {
   //   reviews: 4,
   //   image: rest_images.rest_image,
@@ -51,13 +59,13 @@ const Branches = () => {
       case 'Branches':
         return (
           <>
-            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} />
+            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
             <div className="flex flex-col gap-4">
               {restaurantBranches.map((branch, index) => (   
-                <BranchCard key={index} branch={branch} />
+                <BranchCard key={index} id={index} branch={branch} />
               ))
               }
-              {/* {isModalOpen && <BranchesModal />} */}
+              {branchesModalOpen && <BranchesModal onClose={handleBranchesCloseModal} />}
             </div>
           </>)
       case 'Promotions':
