@@ -158,7 +158,7 @@ const Page = () => {
   }
 
   return (
-    <div className='px-5 py-5 bg-bg-main relative'>
+    <div className={`px-5 py-5 bg-bg-main relative`}>
       <BranchIntro rest={rest} />
       <div className="flex">
         <Switch className="" activeTab={activeTab} setactiveTab={setactiveTab} />

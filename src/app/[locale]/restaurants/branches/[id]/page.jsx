@@ -11,6 +11,7 @@ import TabLayout from "@/app/components/common/Common Layout/TabLayout";
 import AddPromotionModal from "@/app/components/restaurants/branches/Promotions/AddPromotionModal";
 import BranchesModal from "@/app/components/restaurants/branches/Branches/BranchesModal";
 import { branches } from "@/app/utils/restaurants/branches/branchesData";
+
 const Branches = () => {
   const [activeTab, setactiveTab] = useState('Branches');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,7 +55,7 @@ const Branches = () => {
             <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} />
             <div className="flex flex-col gap-4">
               {restaurantBranches.map((branch, index) => (   
-                <BranchCard key={index} branch={branch} />
+                <BranchCard key={index} id={index} branch={branch} />
               ))
               }
               {/* {isModalOpen && <BranchesModal />} */}

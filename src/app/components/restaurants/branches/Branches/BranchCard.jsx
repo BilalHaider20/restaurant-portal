@@ -5,11 +5,17 @@ import Tags from "../../Tags";
 
 import { LuFileEdit,LuTrash2,LuMapPin  } from "react-icons/lu";
 import Rate from "@/app/components/Rating";
+import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
+const BranchCard = ({ branch, id }) => {
+  const router = useRouter();
+  const locale = router.locale || 'en'|| 'ar';
 
-
-const BranchCard = ({ branch }) => {
+  const handleClick = () => {
+    router.push(`/en/restaurant/details`)
+  }
   return (
-    <div className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden">
+    <div onClick={handleClick} className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden">
         <Image
           src={images.branch}
           alt="Restaurant Logo"
