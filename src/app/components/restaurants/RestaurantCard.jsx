@@ -27,7 +27,6 @@ const RestaurantCard = (props) => {
       <div>
         <h2 className="text-base md:text-xl  font-medium">
           {props.name}
-          {props.name}
         </h2>
         <div className="flex flex-col">
           <div className="flex justify-start items-center  text-gray-80 text-sm lg:text-base">

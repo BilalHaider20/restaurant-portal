@@ -11,9 +11,10 @@ import Input from "@/app/components/common/FormElements/Input";
 import { useTranslations } from "next-intl";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ImageUpload from '@/app/components/common/FormElements/ImageUpload';
 
 const BranchesModal = ({ onClose }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     control,
     handleSubmit,
@@ -35,13 +36,13 @@ const BranchesModal = ({ onClose }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-        setIsModalOpen(true);
-    }, 100); 
+      setIsModalOpen(true);
+    }, 100);
 
     return () => clearTimeout(timer);
 
-    
-      }, []);
+
+  }, []);
 
   const handleModalClose = () => {
     setIsModalOpen(false);
@@ -83,7 +84,7 @@ const BranchesModal = ({ onClose }) => {
   };
 
   const t = useTranslations("BranchesModal");
-  
+
 
   const cityOptions = [
     { value: "lahore", label: "Lahore" },
@@ -95,6 +96,17 @@ const BranchesModal = ({ onClose }) => {
     { value: "pakistan", label: "Pakistan" },
     { value: "india", label: "India" },
     { value: "bangladesh", label: "Bangladesh" },
+  ];
+
+  const facilitiesOptions = [
+    { value: 'option 1', label: 'Option 1' },
+    { value: 'option 2', label: 'Option 2' },
+    { value: 'option 3', label: 'Option 3' },
+  ];
+  const paymentOptions = [
+    { value: 'option 1', label: 'Option 1' },
+    { value: 'option 2', label: 'Option 2' },
+    { value: 'option 3', label: 'Option 3' },
   ];
 
   return (
@@ -205,20 +217,41 @@ const BranchesModal = ({ onClose }) => {
               />
             </div>
             {fields.map((item, index) => (
-                        <AvailableInput
-                            key={index}
-                            day={item.day}
-                            control={control}
-                            index={index}
-                        />
-                    ))}
+              <AvailableInput
+                key={index}
+                day={item.day}
+                control={control}
+                index={index}
+              />
+            ))}
+                      <div className='flex flex-col gap-3 md:flex-row'>
+            <Controller
+              name="facilities"
+              control={control}
+              render={({ field }) => (
+                <DropDownComponent label={t("selectFacilities")} name="facilities" options={facilitiesOptions} value={field.value} onChange={field.onChange} />
+              )}
+            />
+            <Controller
+              name="payment-methods"
+              control={control}
+              render={({ field }) => (
+                <DropDownComponent label={t("selectPayment")} name="payment-methods" options={paymentOptions} value={field.value} onChange={field.onChange} />
+              )}
+            />
           </div>
+          <div>
+            <label htmlFor="gallery" className='text-[#3C3C3C] font-semibold'>Add Gallery</label>
+            <ImageUpload control={control} name="gallery" />
+          </div>
+          </div>
+
         </form>
 
         {/* Modal Footer */}
         <div className="bg-white p-4 flex justify-end space-x-4">
-          <button className="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100" 
-          onClick={handleModalClose}
+          <button className="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100"
+            onClick={handleModalClose}
           >
             Cancel
           </button>
