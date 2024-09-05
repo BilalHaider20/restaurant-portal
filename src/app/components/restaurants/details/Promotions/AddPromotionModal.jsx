@@ -85,7 +85,7 @@ const AddPromotionModal = ({ onClose }) => {
         <div className="bg-white p-4 flex justify-end space-x-4">
           <button
             className="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100"
-            onClick={handleModalClose}
+           onClick={handleModalClose}
           >
             Cancel
           </button>

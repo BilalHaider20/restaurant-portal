@@ -12,7 +12,9 @@
         "terms": "Terms and Conditions",
         "login": "Login",
         "credit": "Credit",
-        "balance": "Total Balance"
+        "balance": "Total Balance",
+        "amenities":"Amenities",
+        "permissions":"Permissions"
     },
     "restaurant": {
         "branches": "Branches"
@@ -102,6 +104,15 @@
         "any": "Any",
         "cancel": "Cancel",
         "requiredField": "This is a required field"      
+    },
+    "loginPage":{
+        "bookmeLogin":"Bookme Restaurant Portal",
+        "provideDetails":"Please provide details below to log in to your account",
+        "email" : "Email Address",
+        "password":"Password",
+        "remember" : "Remember me",
+        "forgot":"Forgot Password?",
+        "signin": "Sign In"
     },
     "slots": {
         "slots": "Slots",

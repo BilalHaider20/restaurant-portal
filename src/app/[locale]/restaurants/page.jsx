@@ -11,8 +11,8 @@ const Page = () => {
   const t = useTranslations('restaurants');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
-  const [loading, setloading] = useState([]);
-  
+  const [error, setError] = useState(false);
+  const [loading, setloading] = useState(true);
   useEffect(() => {
     getRestaurantsFunction();
     
@@ -28,7 +28,7 @@ const Page = () => {
       console.log(data);
     } catch (error) {
       console.log(error);
-      seterror(error);
+      setError(error);
     }
 }
 

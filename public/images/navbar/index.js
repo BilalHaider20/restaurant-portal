@@ -16,7 +16,9 @@ const images = {
     arrow: require('./arrow.svg'),
     restaurant: require('./restaurant.svg'),
     wallet: require('./wallet.svg'),
-    logout: require("./logout.svg")
+    logout: require("./logout.svg"),
+    file_chart_coloumn: require('./file-chart-column.svg'),
+    workflow: require('./workflow.svg'),
 };
 
 export default images;
