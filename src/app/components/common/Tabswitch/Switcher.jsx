@@ -21,7 +21,7 @@ export default function Switcher({ activeTab, setactiveTab }) {
 
     return (
         <div className="relative bg-[#EFF0F1] py-2 px-4 rounded-full border border-[#E6E6E6] text-gray-80 w-fit flex items-center">
-            <div className="flex gap-7 text-sm font-medium z-20">
+            <div className="flex justify-between gap-5 text-sm z-20 w-full">
                 <button
                     onClick={() => handleClick('Branches')}
                     className={`text-${activeTab === 'Branches' ? 'white' : 'gray-80'} transition-all delay-100 text-xs md:text-sm lg:text-base xl:text-lg`}

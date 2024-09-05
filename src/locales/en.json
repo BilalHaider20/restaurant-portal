@@ -92,6 +92,15 @@
         "add": "Add",
         "cancel": "Cancel"        
     },
+    "UserFilter" : {
+        "filter" :"Filter",
+        "restaurant_manager" : "Restaurant Manager",
+        "branch_manager" : "Branch Manager",
+        "staff" : "Staff",
+        "any": "Any",
+        "cancel": "Cancel",
+        "requiredField": "This is a required field"      
+    },
     "loginPage":{
         "bookmeLogin":"Bookme Restaurant Portal",
         "provideDetails":"Please provide details below to log in to your account",

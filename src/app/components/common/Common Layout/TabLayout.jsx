@@ -1,7 +1,7 @@
 import React from 'react'
 import AddBtn from "../buttons/AddBtn";
 // import FilterDropdown from '../dropdowns/FilterDropDown';
-import FoodFilterMenu from '@/app/components/branch/FoodFilterMenu'
+import FoodFilterMenu from '@/app/components/restaurants/details/Branch/FoodFilterMenu'
 import Sort from '../dropdowns/Sort';
 import SearchInput from '@/app/components/common/SearchField/SearchInput';
 const TabLayout = (props) => {
@@ -17,7 +17,10 @@ const TabLayout = (props) => {
         <div className='flex justify-between md:items-center '>
         <Sort />
         <div className='flex flex-col-reverse md:flex-row items-end  md:items-center md:gap-2'>
-        <SearchInput placeholder={props.inputPlaceholder} />
+        <SearchInput 
+              placeholder={props.inputPlaceholder} 
+              onQueryChange={(e) => props.onSearch(e.target.value)} // Pass the search query to parent
+            />
        < FoodFilterMenu />
         </div>
         </div>

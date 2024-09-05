@@ -9,6 +9,6 @@ import api from './api';
 // export const updateUserProfile = (data) => api.put('/user/profile', data);
 // export const login = (credentials) => api.post('/auth/login', credentials);
 // More methods as needed
-export const getRestaurants = () => api.get('/portal/api/restaurants');
+export const getRestaurants = () => api.get('http://restaurants-uat.bookmepk.com/portal/api/restaurants');
 
 export const login = (params) => axios.post('http://restaurants-uat.bookmepk.com/auth/api/login', params);

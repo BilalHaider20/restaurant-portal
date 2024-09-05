@@ -3,11 +3,33 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./header/Navbar";
 import Footer from "./footer/Footer";
 import Sidebar from "./sidebar/Sidebar";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useAppSelector } from "@/lib/hooks";
 
 const LayoutWrapper = ({ children }) => {
   const [mobile, setMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const { lang } = useAppSelector((state) => state.lang);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const locale = searchParams.get('locale');
+  useEffect(() => {
+    if (lang !== locale) {
+      // Remove the old locale from pathname
+      const localePattern = /^\/[a-z]{2}/; // Assuming locale is a two-letter language code
+      const updatedPathname = pathname.replace(localePattern, '');
+
+      // Construct the new path with the updated locale
+      const newPath = `/${lang}${updatedPathname}`;
+      const queryParams = new URLSearchParams(searchParams.toString()).toString();
+      const fullPath = queryParams ? `${newPath}?${queryParams}` : newPath;
+
+      router.push(fullPath);
+    }
+  }, [lang, locale, pathname, searchParams, router]);
 
   const toggleSidebar = () => {
     const newSidebarOpen = !sidebarOpen;
