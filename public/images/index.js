@@ -26,7 +26,7 @@ const images = {
   emailbox: require('./emailbox.png'),
 
   alert_triangle: require('./alert-triangle.png'),
-  
+
   browse_image: require('./browse-image.png'),
   profile: require('./profile.png'),
   camera:require('./camera.png'),

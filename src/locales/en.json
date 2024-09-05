@@ -12,7 +12,9 @@
         "terms": "Terms and Conditions",
         "login": "Login",
         "credit": "Credit",
-        "balance": "Total Balance"
+        "balance": "Total Balance",
+        "amenities":"Amenities",
+        "permissions":"Permissions"
     },
     "restaurant": {
         "branches": "Branches"
