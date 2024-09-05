@@ -28,6 +28,7 @@ export default async function RootLayout({ children, params }) {
               {children}
             </LayoutWrapper>
           {/* </Providers> */}
+          
           </StoreProvider>
         </NextIntlClientProvider>
       </body>
