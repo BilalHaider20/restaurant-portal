@@ -47,3 +47,11 @@
 body::-webkit-scrollbar {
   width: 5px;               /* width of the entire scrollbar */
 }
+
+.colStyle{
+  @apply text-center h-[80px] text-sm border border-[#E6E6E6];
+}
+
+.colStyle.colHead{
+  @apply h-[50px] bg-[#E6E6E6] text-base font-normal;
+}

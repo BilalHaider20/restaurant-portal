@@ -53,7 +53,8 @@
         "branches": "Search Branches",
         "user": "Search User",
         "promotion":"Search Promotions",
-        "food_items": "Search Food Items"
+        "food_items": "Search Food Items",
+        "slots": "Search Slots"
     },
     "FilterDropdown": {
         "filter": "Filter",
@@ -70,7 +71,8 @@
         "add_new_user": "Add New User",
         "add_new_promotion": "Add New Promotion",
         "make_reservation": "Make Reservation",
-        "add_new_food_item": "Add New Food Item"
+        "add_new_food_item": "Add New Food Item",
+        "add_new_slot": "Add New Slot"
        }
     },
     
@@ -100,5 +102,23 @@
         "any": "Any",
         "cancel": "Cancel",
         "requiredField": "This is a required field"      
+    },
+    "slots": {
+        "slots": "Slots",
+        "table": {
+            "title": "Slot Title",
+            "type": "Slot Type",
+            "days": "Slot Days",
+            "opening_time": "Opening Time",
+            "closing_time": "Closing Time",
+            "duration" : "Slot Duration",
+            "actions": "Actions"
+        },
+        "form": {
+            "edit": "Edit",
+            "type": "Slot Type",
+            "title": "Slot Title",
+            "duration":"Slot Duration"        
+        }
     }
 }

@@ -224,8 +224,7 @@ const BranchesModal = ({ onClose }) => {
                 index={index}
               />
             ))}
-          </div>
-          <div className='flex flex-col gap-3 md:flex-row'>
+                      <div className='flex flex-col gap-3 md:flex-row'>
             <Controller
               name="facilities"
               control={control}
@@ -245,6 +244,8 @@ const BranchesModal = ({ onClose }) => {
             <label htmlFor="gallery" className='text-[#3C3C3C] font-semibold'>Add Gallery</label>
             <ImageUpload control={control} name="gallery" />
           </div>
+          </div>
+
         </form>
 
         {/* Modal Footer */}
