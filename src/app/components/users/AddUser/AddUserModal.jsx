@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import ExistingMembers from "./Modal/ExistingMembers";
 import AddNewMember from "./Modal/AddNewMember";
 import images from '../../../../../public/images/index'
@@ -9,14 +9,30 @@ const AddUserModal = ({ onClose }) => {
   const [showExisting, setShowExisting] = useState(true);
   const [showNewMember, setShowNewMember] = useState(true);
   const [Profile, setProfile] = useState(images.profile);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+        setIsModalOpen(true);
+    }, 100); 
+
+    return () => clearTimeout(timer);
+
+    
+      }, []);
 
   const handleModalClose = () => {
+    setIsModalOpen(false);
     setTimeout(onClose, 300);
   };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50">
-      <div className="w-full max-w-3xl h-screen bg-[#F2F4F7] flex flex-col justify-between transition-transform duration-300 translate-x-0">
+      <div
+        className={`w-full max-w-3xl h-screen bg-[#F2F4F7] dark:bg-primary-bg-dark flex flex-col justify-between transition-transform duration-300
+          ${isModalOpen ? 'translate-x-0' : 'translate-x-full'}
+        `}
+      >
         {/* Modal Header */}
         <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
           <h2 className="text-xl sm:text-2xl">Add a New User</h2>
@@ -30,7 +46,7 @@ const AddUserModal = ({ onClose }) => {
           <div className="bg-white rounded-lg  p-4 space-y-4">
             {/* Toggle Choose Existing Members */}
             <div className="flex justify-between items-center cursor-pointer" onClick={() => setShowExisting(!showExisting)}>
-              <h2 className="text-2xl font-medium">Choose From Existing Members</h2>
+              <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium">Choose From Existing Members</h2>
               <span>{showExisting ?  <ChevronUp /> : <ChevronDown/>}</span>
             </div>
             {showExisting && <ExistingMembers />}
