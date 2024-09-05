@@ -56,7 +56,9 @@
         "user": "Search User",
         "promotion":"Search Promotions",
         "food_items": "Search Food Items",
+        "roles_permissions":"Search Roles,Permissions"
         "slots": "Search Slots"
+
     },
     "FilterDropdown": {
         "filter": "Filter",
@@ -74,7 +76,9 @@
         "add_new_promotion": "Add New Promotion",
         "make_reservation": "Make Reservation",
         "add_new_food_item": "Add New Food Item",
+        "permission" : "Permissions And Roles"
         "add_new_slot": "Add New Slot"
+
        }
     },
     
@@ -132,4 +136,7 @@
             "duration":"Slot Duration"        
         }
     }
+
+    
+
 }
