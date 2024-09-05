@@ -1,3 +1,4 @@
+
 "use client"
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -6,7 +7,6 @@ import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import images from '../../../../public/images';
 import { useRouter } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setToken } from '@/lib/features/auth/authSlice';
@@ -14,7 +14,6 @@ import { login } from '@/app/services/apiMethods';
 import { useAppSelector } from '@/lib/hooks';
 
 const Page = () => {
-  const t = ('')
     const router = useRouter();
     const isArabic = router.locale === 'ar'; 
     const dispatch = useDispatch();
@@ -59,9 +58,6 @@ const Page = () => {
                     src={images.logo}
                     alt="Logo"
                 />
-                <div className="ml-12 mb-6">
-                    <h2 className="font-semibold text-2xl">{t('bookmeLogin')}</h2>
-                    <p className="text-sm text-[#3c3c3c]">{t('provideDetails')}
                 <div className="mb-6">
                     <h2 className="font-semibold  text-base sm:text-lg md:text-2xl">Bookme Restaurant Portal</h2>
                     <p className="text-sm text-[#3c3c3c]">
@@ -70,8 +66,6 @@ const Page = () => {
                 </div>
                 <div className="space-y-6 ">
                     <div>
-                        <label className="block text-sm font-medium text-[#3c3c3c] mb-2">
-                            {t('email')}
                         <label className="block text-xs md:text-sm font-medium text-[#3c3c3c] mb-2">
                             Email Address
                         </label>
@@ -92,7 +86,7 @@ const Page = () => {
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-[#3c3c3c] mb-2">
-                            {t('password')}
+                            Password
                         </label>
                         <div className="relative flex gap-2 items-center ">
                             <Image
@@ -113,16 +107,12 @@ const Page = () => {
                     <div className="flex items-center justify-between text-sm">
                         <label className="flex items-center">
                             <input type="checkbox" className="mr-2" />
-                            {t('remember')}
+                            Remember me
                         </label>
-                        <a href="#" className="text-[#346CC4] mr-[45px]">
-                          {t('forgot')}
                         <a href="#" className="text-[#346CC4] ">
                             Forgot Password?
                         </a>
                     </div>
-                    <button className="w-[536px] bg-[#346CC4] text-white py-3 rounded-md hover:bg-[#2d5ca7]" onClick={handleSignin}>
-                        {t('signin')}
                     <button className="w-full bg-[#346CC4] text-white py-3 rounded-md hover:bg-[#2d5ca7]" onClick={handleSignin}>
                         Sign In
                     </button>
