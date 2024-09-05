@@ -1,25 +1,20 @@
 "use client";
-import React, { useState,useEffect } from "react";
+import React, { useEffect, useRef, useState} from "react";
 import ExistingMembers from "./Modal/ExistingMembers";
 import AddNewMember from "./Modal/AddNewMember";
 import images from '../../../../../public/images/index'
-import { ChevronUp,ChevronDown } from 'lucide-react';
+import { ChevronUp,ChevronDown, X } from 'lucide-react';
 
 const AddUserModal = ({ onClose }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [showExisting, setShowExisting] = useState(true);
   const [showNewMember, setShowNewMember] = useState(true);
   const [Profile, setProfile] = useState(images.profile);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-        setIsModalOpen(true);
-    }, 100); 
-
-    return () => clearTimeout(timer);
-
-    
-      }, []);
+    setIsModalOpen(true);
+    return () => setIsModalOpen(false);
+  }, []);
 
   const handleModalClose = () => {
     setIsModalOpen(false);
@@ -29,20 +24,21 @@ const AddUserModal = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50">
       <div
-        className={`w-full max-w-3xl h-screen bg-[#F2F4F7] dark:bg-primary-bg-dark flex flex-col justify-between transition-transform duration-300
-          ${isModalOpen ? 'translate-x-0' : 'translate-x-full'}
+        className={`w-full max-w-3xl h-screen bg-[#F2F4F7] flex flex-col justify-between transition-transform duration-300
+          ${isModalOpen ? "translate-x-0" : "translate-x-full"}
         `}
       >
+      <div className="w-full max-w-3xl h-screen bg-[#F2F4F7] flex flex-col justify-between transition-transform duration-300 translate-x-0">
         {/* Modal Header */}
-        <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
+        <div className="font-semibold text-[#15223C] bg-white w-full p-4 flex justify-between items-center">
           <h2 className="text-xl sm:text-2xl">Add a New User</h2>
           <button className="text-xl" onClick={handleModalClose}>
-            &times;
+            <X />
           </button>
         </div>
 
         {/* Modal Body */}
-        <div className="overflow-y-auto p-4 flex-grow">
+        <div className="overflow-y-auto p-4 flex-grow ">
           <div className="bg-white rounded-lg  p-4 space-y-4">
             {/* Toggle Choose Existing Members */}
             <div className="flex justify-between items-center cursor-pointer" onClick={() => setShowExisting(!showExisting)}>
@@ -50,16 +46,16 @@ const AddUserModal = ({ onClose }) => {
               <span>{showExisting ?  <ChevronUp /> : <ChevronDown/>}</span>
             </div>
             {showExisting && <ExistingMembers />}
-
-            <div className="my-4 border-t border-gray-300" />
+          </div>
 
             {/* Toggle Add A New Member */}
+            <div className="bg-white rounded-lg  p-4 space-y-4 mt-4">
             <div className="flex justify-between items-center cursor-pointer" onClick={() => setShowNewMember(!showNewMember)}>
               <h2 className="text-2xl font-medium">Add A New Member</h2>
               <span>{showNewMember ? <ChevronUp /> : <ChevronDown/>}</span>
             </div>
             {showNewMember && <AddNewMember setProfile={setProfile} />}
-          </div>
+            </div>
         </div>
 
         {/* Modal Footer */}
@@ -74,6 +70,7 @@ const AddUserModal = ({ onClose }) => {
             Add
           </button>
         </div>
+      </div>
       </div>
     </div>
   );

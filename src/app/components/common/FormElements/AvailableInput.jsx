@@ -74,6 +74,7 @@ const AvailableInput = ({ day, index, control }) => {
             className={`border border-divider-clr rounded-lg py-2 px-3 ${isChecked ? 'cursor-pointer' : 'cursor-default'}`}
         >
             <div className='flex justify-between items-center'>
+                
                 <div className='flex gap-1'>
                     <label className="inline-flex items-center cursor-pointer" onClick={handleClick}>
                         <Controller

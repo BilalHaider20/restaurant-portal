@@ -57,6 +57,8 @@
         "promotion":"Search Promotions",
         "food_items": "Search Food Items",
         "roles_permissions":"Search Roles,Permissions"
+        "slots": "Search Slots"
+
     },
     "FilterDropdown": {
         "filter": "Filter",
@@ -75,6 +77,8 @@
         "make_reservation": "Make Reservation",
         "add_new_food_item": "Add New Food Item",
         "permission" : "Permissions And Roles"
+        "add_new_slot": "Add New Slot"
+
        }
     },
     
@@ -113,6 +117,24 @@
         "remember" : "Remember me",
         "forgot":"Forgot Password?",
         "signin": "Sign In"
+    },
+    "slots": {
+        "slots": "Slots",
+        "table": {
+            "title": "Slot Title",
+            "type": "Slot Type",
+            "days": "Slot Days",
+            "opening_time": "Opening Time",
+            "closing_time": "Closing Time",
+            "duration" : "Slot Duration",
+            "actions": "Actions"
+        },
+        "form": {
+            "edit": "Edit",
+            "type": "Slot Type",
+            "title": "Slot Title",
+            "duration":"Slot Duration"        
+        }
     }
 
     
