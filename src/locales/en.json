@@ -55,7 +55,8 @@
         "branches": "Search Branches",
         "user": "Search User",
         "promotion":"Search Promotions",
-        "food_items": "Search Food Items"
+        "food_items": "Search Food Items",
+        "amenities": "Search Amenties"
     },
     "FilterDropdown": {
         "filter": "Filter",
