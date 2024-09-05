@@ -5,6 +5,7 @@ import RestaurantCard from "../../components/restaurants/RestaurantCard";
 import TabLayout from "../../components/common/Common Layout/TabLayout";
 import RestaurantModal from "../../components/restaurants/Restaurant Modal/RestaurantModal";
 import { getRestaurants } from "@/app/services/apiMethods";
+
 const Page = () => {
   const t = useTranslations('restaurants');
   const [isModalOpen, setIsModalOpen] = useState(false);

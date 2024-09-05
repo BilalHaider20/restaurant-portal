@@ -6,23 +6,18 @@ import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import images from '../../../../public/images';
 import { useRouter } from 'next/navigation';
-import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { setToken } from '@/lib/features/auth/authSlice';
+import { setToken,setUser,setPermissions } from '@/lib/features/auth/authSlice';
 import { login } from '@/app/services/apiMethods';
-import { useAppSelector } from '@/lib/hooks';
+import { useAppDispatch } from '@/lib/hooks';
 
 const Page = () => {
     const router = useRouter();
     const isArabic = router.locale === 'ar'; 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [error,setError] = useState(null);
-
-    const token = useAppSelector((state) => state.auth.token);
-    
     const handleSignin =async (e) => {
         e.preventDefault();
         try {
@@ -32,15 +27,16 @@ const Page = () => {
                     password
                 }
             );
-            const token = response.data.Token; 
+           
+            const {Token,User,Permissions} = response.data;
+            dispatch(setToken(Token));
+            dispatch(setUser(User));
+            dispatch(setPermissions(Permissions));   
+       
+            console.log("sucessfully logged in");
             
-            dispatch(setToken(token));
-
-
             const locale = router.locale || 'en'|| 'ar';
             router.push(`/${locale}/dashboard`);
-            
-            
         } catch (error) {
             console.log('login failed', error);
             setError(error);
@@ -51,9 +47,9 @@ const Page = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-white text-[#3c3c3c] px-4 sm:px-6 lg:px-8">
-            <div className="w-full h-[943px] max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-[#F6F9FD] p-6 rounded-lg relative">
+            <div className="w-full  max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl bg-[#F6F9FD] p-6 rounded-lg relative">
                 <Image
-                    className="w-[192px] h-[60px] ml-12 mt-28 mb-8"
+                    className="w-[192px] h-24 "
                     src={images.logo}
                     alt="Logo"
                 />

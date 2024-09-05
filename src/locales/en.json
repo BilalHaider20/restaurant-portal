@@ -74,9 +74,6 @@
        }
     },
     
-    "AddBtn":{
-        "add" : "Add New"
-    },
     "BranchesModal": {
         "edit":"Edit",
         "branchName": "Branch Name",
