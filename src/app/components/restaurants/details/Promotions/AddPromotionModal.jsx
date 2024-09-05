@@ -20,11 +20,10 @@ const AddPromotionModal = ({ onClose }) => {
     
       }, []);
 
-  // const handleModalClose = () => {
-  //   onClose();
-  //   setIsModalOpen(false);
-  //   setTimeout(onClose, 300);
-  // };
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setTimeout(onClose, 300);
+  };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50">
@@ -36,7 +35,7 @@ const AddPromotionModal = ({ onClose }) => {
         {/* Modal Header */}
         <div className="font-semibold text-[#15223C] bg-white w-full p-4 flex justify-between items-center">
           <h2 className="text-xl sm:text-2xl">Add A New Promotion</h2>
-          <button className="text-xl" onClick={onClose}>
+          <button className="text-xl" onClick={handleModalClose}>
             &times;
           </button>
         </div>
@@ -86,7 +85,7 @@ const AddPromotionModal = ({ onClose }) => {
         <div className="bg-white p-4 flex justify-end space-x-4">
           <button
             className="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-100"
-            onClick={handleModalClose}
+           onClick={handleModalClose}
           >
             Cancel
           </button>

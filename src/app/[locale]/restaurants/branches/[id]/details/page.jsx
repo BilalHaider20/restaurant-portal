@@ -32,18 +32,7 @@ const Page = () => {
     setIsModalOpen(true);
   };
   const [isBranchesModalOpen, setIsBranchesModalOpen] = useState(false);
-
-
-  const handleOpenBranchesModal = () => {
-    console.log('Add Branch button clicked');
-    setIsBranchesModalOpen(true);
-  };
-
-  const handleCloseBranchesModal = () => {
-    setIsBranchesModalOpen(false);
-  };
-  const [isBranchesModalOpen, setIsBranchesModalOpen] = useState(false);
-
+  
 
   const handleOpenBranchesModal = () => {
     console.log('Add Branch button clicked');
@@ -92,42 +81,8 @@ const Page = () => {
       image: rest_images.food,
       desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
       price: 1840
-    },
-    {
-      name: "Chicken Chilli Dry",
-      cuisine: "Asian",
-      image: rest_images.food,
-      desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
-      price: 1840
-    },
-    {
-      name: "Chicken Chilli Dry",
-      cuisine: "Asian",
-      image: rest_images.food,
-      desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
-      price: 1840
-    },
-    {
-      name: "Chicken Chilli Dry",
-      cuisine: "Asian",
-      image: rest_images.food,
-      desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
-      price: 1840
-    },
-    {
-      name: "Chicken Chilli Dry",
-      cuisine: "Asian",
-      image: rest_images.food,
-      desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
-      price: 1840
-    },
-    {
-      name: "Chicken Chilli Dry",
-      cuisine: "Asian",
-      image: rest_images.food,
-      desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
-      price: 1840
-    },
+    }
+    
   ]
 
   const renderTab = () => {
