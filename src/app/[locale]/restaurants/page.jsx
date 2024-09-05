@@ -8,8 +8,9 @@ import { getRestaurants } from "@/app/services/apiMethods";
 const Page = () => {
   const t = useTranslations('restaurants');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [data, setData] = useState(initialRestaurants);
-  
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(false);
+  const [loading, setloading] = useState(true);
   useEffect(() => {
     getRestaurantsFunction();
     
@@ -20,11 +21,11 @@ const Page = () => {
     try {
       const response = await getRestaurants();
       console.log(response.data);
-      setdata(response.data);
+      setData(response.data);
       setloading(false);
     } catch (error) {
       console.log(error);
-      seterror(error);
+      setError(error);
     }
 }
 
