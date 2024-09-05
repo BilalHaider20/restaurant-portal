@@ -1,5 +1,5 @@
 import React from "react";
-import FloorPlan from "./Konva";
+import FloorPlan from "./Konva/index";
 
 const page = () => {
   return (

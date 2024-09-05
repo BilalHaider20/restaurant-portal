@@ -48,7 +48,7 @@ const Branches = () => {
       case 'Branches':
         return (
           <>
-            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onSearch={setSearchQuery}  onClick={()=>handleOpenModal('branches')} />
+            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_floor"} inputPlaceholder={"branches"} onSearch={setSearchQuery}  onClick={()=>handleOpenModal('branches')} />
             <div className="flex flex-col gap-4">
             {filteredBranches.map((branch, index) => (
                 <BranchCard key={index} id={index} branch={branch} />
