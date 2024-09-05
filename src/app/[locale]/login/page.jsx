@@ -14,6 +14,7 @@ import { useAppSelector } from '@/lib/hooks';
 
 const Page = () => {
     const router = useRouter();
+    const isArabic = router.locale === 'ar'; 
     const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
@@ -46,9 +47,7 @@ const Page = () => {
         }
     };
 
-    const handleToggle = () => {
-        setShowPassword(!showPassword);
-    };
+    
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-white text-[#3c3c3c] px-4 sm:px-6 lg:px-8">
@@ -77,7 +76,7 @@ const Page = () => {
                             />
                             <input
                                 type="email"
-                                className="w-full  p-4 border border-gray-300 rounded-md pl-12"
+                                className="w-full  p-4 border border-gray-300 rounded-md pl-12 pr-12"
                                 placeholder="Enter Email Address"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -96,17 +95,12 @@ const Page = () => {
                             />
                             <input
                                 type={showPassword ? "text" : "password"}
-                                className="w-full  p-4 border border-gray-300 rounded-md bg-white pl-12"
+                                className="w-full  p-4 border border-gray-300 rounded-md bg-white pl-12 pr-12"
                                 placeholder="Enter Password"
                                 value={password}
                                 onChange={(e) => setpassword(e.target.value)}
                             />
-                            <div 
-                                className="absolute top-1/2 transform -translate-y-1/2 right-4 cursor-pointer"
-                                onClick={handleToggle}
-                            >
-                                {showPassword ? <Icon icon={eyeOff} size={25} /> : <Icon icon={eye} size={25} />}
-                            </div>
+                            
                         </div>
                     </div>
                     <div className="flex items-center justify-between text-sm">
