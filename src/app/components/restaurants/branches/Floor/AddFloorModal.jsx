@@ -11,7 +11,7 @@ const AddUserModal = ({ onClose }) => {
   const router = useRouter();
   const handleNextBtn = (e) => {
     e.preventDefault()
-    router.push("/en/restaurants/branches/undefined/details/floor")
+    router.push("/en/floor")
   }
 
   useEffect(() => {
