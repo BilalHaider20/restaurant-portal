@@ -34,17 +34,7 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
         onChange(value); 
     };
 
-    const handleButtonClick = () => {
-        if (!disabled) {
-            setOpen(!open);
-        }
-    };
 
-    const handleOptionSelect = (value) => {
-        setSelected(value); // Update the selected value locally
-        setOpen(false); // Close the dropdown
-        onChange(value); 
-    };
 
     return (
         <div className="w-full space-y-1" ref={dropdownRef}>
@@ -54,9 +44,6 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
                 <button
                     id={name}
                     type="button"
-                    onClick={handleButtonClick}
-                    className="selectForm"
-                    disabled={disabled}
                     onClick={handleButtonClick}
                     className="selectForm"
                     disabled={disabled}
@@ -74,12 +61,10 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
                     </svg>
                 </button>
                 {open && !disabled && (
-                {open && !disabled && (
                     <div className="absolute mt-1 w-full bg-white shadow-lg rounded-md z-10">
                         {options.map((option) => (
                             <div
                                 key={option.value}
-                                onClick={() => handleOptionSelect(option.value)}
                                 onClick={() => handleOptionSelect(option.value)}
                                 className="cursor-pointer px-4 py-2 hover:bg-gray-100"
                             >
