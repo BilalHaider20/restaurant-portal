@@ -39,7 +39,6 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
     return (
         <div className="w-full space-y-1" ref={dropdownRef}>
             <label htmlFor={name} className="text-[#3C3C3C] font-semibold">{label}</label>
-            <label htmlFor={name} className="text-[#3C3C3C] font-semibold">{label}</label>
             <div className="relative">
                 <button
                     id={name}
@@ -48,7 +47,6 @@ const DropDownComponent = ({ label, name, options, defaultSelected, error, disab
                     className="selectForm"
                     disabled={disabled}
                 >
-                    {selected ? options.find((option) => option.value === selected)?.label : <span className="text-light-text">Select an option</span>}
                     {selected ? options.find((option) => option.value === selected)?.label : <span className="text-light-text">Select an option</span>}
                     <svg
                         className={`w-4 h-4 transform ${open ? 'rotate-180' : 'rotate-0'}`}

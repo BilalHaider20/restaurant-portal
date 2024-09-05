@@ -1,11 +1,10 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import FileUpload from "../../common/FormElements/ImageUpload";
 import images from "../../../../../public/images";
 import { Controller, useForm } from "react-hook-form";
 import DropDownComponent from "../../common/dropdowns/DropDownComponent";
-
 
 const cuisineOptions = [
   { value: 'gujarati', label: 'Gujarati cuisine' },
@@ -16,11 +15,12 @@ const cuisineOptions = [
   { value: 'sindhi', label: 'Sindhi cuisine' },
 ];
 
-const RestaurantModal = ({ onClose }) => {
+const RestaurantModal = ({ onClose, onAdd }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     control,
     handleSubmit,
+    register,
     formState: { errors },
   } = useForm();
 
@@ -34,7 +34,7 @@ const RestaurantModal = ({ onClose }) => {
     setTimeout(onClose, 300);
   };
 
-  const [Profile, setProfile] = useState(images.profile)
+  const [profileImage, setProfileImage] = useState(images.profile);
   const fileInputRef = useRef(null);
 
   const handleClick = () => {
@@ -44,10 +44,18 @@ const RestaurantModal = ({ onClose }) => {
   const handleFileChange = (event) => {
     const files = event.target.files;
     if (files.length > 0) {
-      // Handle the file upload logic here
-      console.log('Selected file:', files[0]);
-      setProfile(URL.createObjectURL(files[0]));
+      setProfileImage(URL.createObjectURL(files[0]));
     }
+  };
+
+  const onSubmit = (data) => {
+    const newRestaurant = {
+      id: Date.now(), // Unique ID for the new restaurant
+      ...data,
+      image: profileImage,
+    };
+    onAdd(newRestaurant);
+    handleModalClose();
   };
 
   return (
@@ -72,7 +80,7 @@ const RestaurantModal = ({ onClose }) => {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <div className="relative">
                 <Image
-                  src={Profile}
+                  src={profileImage}
                   alt="Restaurant Profile"
                   width={148}
                   height={153}
@@ -106,24 +114,32 @@ const RestaurantModal = ({ onClose }) => {
                 </label>
                 <input
                   type="text"
+                  {...register("name", { required: "Restaurant name is required" })}
                   className="border border-gray-300 w-full p-2 rounded"
                   placeholder="Enter Restaurant Name"
                 />
+                {errors.name && <p className="text-red-500">{errors.name.message}</p>}
               </div>
             </div>
 
             {/* Cuisine and Pricing Section */}
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Choose Cuisine */}
-              <div className="w-[299px] sm:w-1/2">
-
+              <div className="w-full sm:w-1/2">
                 <Controller
-                  name="Ciusine"
+                  name="cuisine"
                   control={control}
+                  rules={{ required: "Cuisine selection is required" }}
                   render={({ field }) => (
-                    <DropDownComponent label="Choose Cuisine" name="Cuisine" options={cuisineOptions} value={field.value} onChange={field.onChange} />
+                    <DropDownComponent
+                      label="Choose Cuisine"
+                      options={cuisineOptions}
+                      value={field.value}
+                      onChange={field.onChange}
+                    />
                   )}
                 />
+                {errors.cuisine && <p className="text-red-500">{errors.cuisine.message}</p>}
               </div>
 
               {/* Pricing Category */}
@@ -133,41 +149,22 @@ const RestaurantModal = ({ onClose }) => {
                 </label>
                 <div className="flex items-center space-x-6">
                   <div className="flex items-center space-x-6 mt-[8px]">
-                    <label className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        name="price"
-                        value="$"
-                        className="peer"
-                      />
-                      <span className="ml-2 text-gray-500 peer-checked:text-blue-500">
-                        $
-                      </span>
-                    </label>
-                    <label className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        name="price"
-                        value="$$"
-                        className="peer"
-                      />
-                      <span className="ml-2 text-gray-500 peer-checked:text-blue-500">
-                        $$
-                      </span>
-                    </label>
-                    <label className="flex items-center cursor-pointer">
-                      <input
-                        type="radio"
-                        name="price"
-                        value="$$$"
-                        className="peer"
-                      />
-                      <span className="ml-2 text-gray-500 peer-checked:text-blue-500">
-                        $$$
-                      </span>
-                    </label>
+                    {["$", "$$", "$$$"].map((price) => (
+                      <label key={price} className="flex items-center cursor-pointer">
+                        <input
+                          type="radio"
+                          value={price}
+                          {...register("price", { required: "Pricing category is required" })}
+                          className="peer"
+                        />
+                        <span className="ml-2 text-gray-500 peer-checked:text-blue-500">
+                          {price}
+                        </span>
+                      </label>
+                    ))}
                   </div>
                 </div>
+                {errors.price && <p className="text-red-500">{errors.price.message}</p>}
               </div>
             </div>
 
@@ -177,6 +174,7 @@ const RestaurantModal = ({ onClose }) => {
                 Restaurant Description
               </label>
               <textarea
+                {...register("description")}
                 className="w-full bg-white border border-gray-300 rounded-lg p-4 h-32 resize-none"
                 placeholder="Enter Short Description"
               ></textarea>
@@ -197,7 +195,10 @@ const RestaurantModal = ({ onClose }) => {
           >
             Cancel
           </button>
-          <button className="px-4 py-2 text-white bg-primary-blue rounded-lg hover:bg-blue-600">
+          <button
+            className="px-4 py-2 text-white bg-primary-blue rounded-lg hover:bg-blue-600"
+            onClick={handleSubmit(onSubmit)}
+          >
             Add
           </button>
         </div>
