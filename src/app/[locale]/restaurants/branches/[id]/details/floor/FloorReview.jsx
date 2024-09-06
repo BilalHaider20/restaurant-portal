@@ -1,15 +1,25 @@
-import React from "react";
+"use client"
+import React, {useState} from "react";
 import FloorPlan from "./Konva/index";
 import { MdArrowBackIos } from "react-icons/md";
 import Button from "@/app/components/common/filters/Button";
+import Modal from "./Modal";
 
 const FloorReview = ({ onBack }) => {
-  const handlePublishBtn = () => {
-    alert("Publish button clicked")
-  }
   const handleSaveBtn = () => {
     alert("Save button clicked")
   }
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handlePublishNow = () => {
+    console.log('Published!');
+    setIsModalOpen(false);
+  };
+
+  const handleScheduleLater = () => {
+    console.log('Scheduled for later!');
+    setIsModalOpen(false);
+  };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       {/* Navbar */}
@@ -36,8 +46,14 @@ const FloorReview = ({ onBack }) => {
         />
         <Button
           text="Publish"
-          onClick={handlePublishBtn}
+          onClick={() => setIsModalOpen(true)}
         />
+        <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onScheduleLater={handleScheduleLater}
+        onPublishNow={handlePublishNow}
+      />
       </div>
     </div>
   );

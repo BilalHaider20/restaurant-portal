@@ -14,9 +14,10 @@ const ToolIcon = ({ icon, onClick }) => (
 
 const ToolsPanel = ({ onSelectTool }) => {
     return (
-        <div className='w-[80px] border-r-divider-clr p-3'
+        <div className='w-[200px] border border-r-divider-clr p-3'
         >
-            <ToolIcon icon={lineImage} onClick={() => onSelectTool('line')} />
+            <h2>Select Tools</h2>
+            <ToolIcon icon={lineImage} onClick={() => onSelectTool('line')} className="border border-divider-clr rounded-md bg-white"/>
             <ToolIcon icon={stairsImage} onClick={() => onSelectTool('stairs')} />
             <ToolIcon icon={doorImage} onClick={() => onSelectTool('door')} />
             <ToolIcon icon={grassImage} onClick={() => onSelectTool('grass')} />

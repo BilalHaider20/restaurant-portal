@@ -14,53 +14,54 @@ const InspectorPanel = ({ selectedShape, shapes, onLineLengthChange, onArcUpdate
     };
 
     return (
-        <div style={{ padding: '10px', color: 'grey', background: '#f7f7f7', borderLeft: '1px solid #ddd' }}>
-            <h3>Inspector</h3>
+        <div className="p-4 text-gray-700 bg-gray-100 border-l border-gray-300">
+            <h3 className="text-lg font-semibold">Properties</h3>
             {selectedShape && (
-                <div style={{ 
-                    border: '1px solid #ccc', 
-                    borderRadius: '5px', 
-                    padding: '10px',
-                    marginTop: '10px'
-                }}>
+                <div className="border border-gray-300 rounded-lg p-4 mt-2">
                     <div>
-                        <h4>Coordinates</h4>
-                        <label>
-                            X:
-                            <input
-                                type="number"
-                                name="x"
-                                value={coordinates.x}
-                                onChange={onCoordinateChange}
-                                style={{ marginLeft: '5px', width: '50px' }}
-                            />
-                        </label>
-                        <label style={{ marginLeft: '10px' }}>
-                            Y:
-                            <input
-                                type="number"
-                                name="y"
-                                value={coordinates.y}
-                                onChange={onCoordinateChange}
-                                style={{ marginLeft: '5px', width: '50px' }}
-                            />
-                        </label>
+                        <h4 className="text-md font-semibold">Coordinates</h4>
+                        <div className="flex items-center">
+                            <label className="mr-2">
+                                X:
+                                <input
+                                    type="number"
+                                    name="x"
+                                    value={coordinates.x}
+                                    onChange={onCoordinateChange}
+                                    className="ml-2 w-16 border border-gray-300 rounded p-1"
+                                />
+                            </label>
+                            <label className="ml-4">
+                                Y:
+                                <input
+                                    type="number"
+                                    name="y"
+                                    value={coordinates.y}
+                                    onChange={onCoordinateChange}
+                                    className="ml-2 w-16 border border-gray-300 rounded p-1"
+                                />
+                            </label>
+                        </div>
                     </div>
                     
-                    <div style={{ marginTop: '20px' }}>
-                        <h4>Rotation</h4>
-                        <button onClick={() => onRotateRight(selectedShape)}>Rotate Right 90°</button>
+                    <div className="mt-4">
+                        <h4 className="text-md font-semibold">Rotation</h4>
+                        <button
+                            onClick={() => onRotateRight(selectedShape)}
+                            className="mt-2 px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+                        >
+                            Rotate 90°
+                        </button>
                     </div>
 
-                    <div style={{ marginTop: '20px' }}>
-                        <h4>Scale Factor</h4>
+                    <div className="mt-4">
+                        <h4 className="text-md font-semibold">Scale</h4>
                         <label>
-                            Scale:
                             <input
                                 type="number"
                                 value={scaleFactor}
                                 onChange={handleScaleFactorChange}
-                                style={{ width: '60px', marginLeft: '5px', marginRight: '5px' }}
+                                className="w-16 border border-gray-300 rounded p-1 ml-2"
                                 step="0.1"
                                 min="0.1"
                             />
@@ -68,8 +69,8 @@ const InspectorPanel = ({ selectedShape, shapes, onLineLengthChange, onArcUpdate
                     </div>
                     
                     {shape && shape.type === 'line' && (
-                        <div style={{ marginTop: '20px' }}>
-                            <h4>Line Properties</h4>
+                        <div className="mt-4">
+                            <h4 className="text-md font-semibold">Line Properties</h4>
                             <LineLengthInput
                                 initialLength={Math.sqrt(
                                     Math.pow(shape.points[2] - shape.points[0], 2) +
@@ -77,12 +78,20 @@ const InspectorPanel = ({ selectedShape, shapes, onLineLengthChange, onArcUpdate
                                 )}
                                 onLengthChange={onLineLengthChange}
                             />
+                            <label className="mt-2">
+                                Width:
+                                <input
+                                    type="number"
+                                    name="width"
+                                    className="ml-2 w-16 border border-gray-300 rounded p-1"
+                                />
+                            </label>
                         </div>
                     )}
                     
                     {shape && shape.type === 'arc' && (
-                        <div style={{ marginTop: '20px' }}>
-                            <h4>Arc Properties</h4>
+                        <div className="mt-4">
+                            <h4 className="text-md font-semibold">Arc Properties</h4>
                             <CustomArcEditor
                                 shape={shape}
                                 onUpdate={onArcUpdate}
