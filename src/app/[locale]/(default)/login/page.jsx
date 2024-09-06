@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
-import images from '../../../../public/images';
+import images from '../../../../../public/images';
 import { useRouter } from 'next/navigation';
 import { setToken,setUser,setPermissions } from '@/lib/features/auth/authSlice';
 import { login } from '@/app/services/apiMethods';
