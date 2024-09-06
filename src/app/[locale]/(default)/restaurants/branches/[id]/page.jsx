@@ -61,7 +61,7 @@ const Branches = () => {
           <>
             <TabLayout title={"Promotions and Deals"} btntext={"add_new_promotion"} inputPlaceholder={"promotion"} onClick={()=>handleOpenModal('promotion')} />
             <Promotions />
-            {isModalOpen['promotion'] && <AddPromotionModal onClose={()=>handleCloseModal('promotion')} />}
+            {<AddPromotionModal onClose={()=>handleCloseModal('promotion')} />}
           </>
         )
       case 'Members':
@@ -78,7 +78,7 @@ const Branches = () => {
   }
 
   return (
-    <div className="bg-bg-main scrollbar-none flex flex-col space-y-5 p-6">
+    <div className="bg-bg-main scrollbar-none flex flex-col gap-y-5 p-6">
       <RestaurantIntro rest={rest_images} />
       <div className="flex">
         <Switcher className="" activeTab={activeTab} setactiveTab={setactiveTab} />

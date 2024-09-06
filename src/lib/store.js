@@ -12,7 +12,7 @@ const persistConfig = {
   timeout: 500,
   key: "root",
   storage,
-  whitelist: ["lang", "cur"],
+  whitelist: ['auth',"lang", "cur"],
 };
 const rootReducer = combineReducers({
   lang: langReducer,

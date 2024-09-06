@@ -5,14 +5,20 @@ import Tags from "./Tags";
 import { useRouter } from "next/navigation";
 import { LuFileEdit,LuTrash2,LuMapPin  } from "react-icons/lu";
 import Rate from "@/app/components/Rating";
+import { deleteRestaurants } from "@/app/services/apiMethods";
 const RestaurantCard = (props) => {
   const router = useRouter();
   const handleCardClick = () => {
     const locale = router.locale || 'en'|| 'ar';
     router.push(`/${locale}/restaurants/branches/${props.id}`);
   };
+
+  const HandleDelete=(id)=>{
+    deleteRestaurants(id);
+  }
+
   return (
-    <div className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden cursor-pointer" onClick={handleCardClick}>
+    <div className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden cursor-pointer" onClick={handleCardClick} >
     <Image
       src={rest_images.rest_image}
       alt="Restaurant Logo"
@@ -40,14 +46,18 @@ const RestaurantCard = (props) => {
         </div>
       </div>
       <div className="flex flex-col lg:flex-row gap-2 justify-start ">
-        <button className=" text-blue-500 max-h-[40px]   rounded-lg border border-blue-500">
+        <button className=" text-blue-500 max-h-[40px]   rounded-lg border border-blue-500"  onClick={(e)=>{
+          e.stopPropagation();
+          console.log('btn click');
+         }}>
         <span className="flex gap-2 items-center py-1 lg:py-2 px-1 lg:px-3 text-sm lg:text-base">
           <LuFileEdit  className=" text-sm  lg:text-lg" /> Modify</span>
         </button>
         <button  className=" text-blue-500 max-h-[40px]   rounded-lg border border-red-500 " 
+         onClick={HandleDelete(props.id)}
         >
         <span className="flex gap-2 items-center py-1 lg:py-2 px-1 lg:px-3 text-sm lg:text-base text-red-500"><LuTrash2 
-         className=" text-sm lg:text-lg"  />Delete</span>
+         className=" text-sm lg:text-lg" />Delete</span>
         </button>
       </div>
     </div>
