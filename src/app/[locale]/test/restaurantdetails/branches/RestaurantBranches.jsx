@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import images from '../../../../../../../public/images';
-import rest_images from '../../../../../../../public/images/restaurant/index';
+import images from '../../../../../../public/images';
+import rest_images from '../../../../../../public/images/restaurant/index';
 import FilterDropdown from '@/app/components/common/dropdowns/FilterDropDown';
 import AddRestaurantButton from './components/AddRestaurantButton';
 import SearchBar from './components/SearchBar';
