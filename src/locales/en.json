@@ -77,7 +77,8 @@
         "make_reservation": "Make Reservation",
         "add_new_food_item": "Add New Food Item",
         "permission" : "Permissions And Roles",
-        "add_new_slot": "Add New Slot"
+        "add_new_slot": "Add New Slot",
+        "add_new_floor": "Add New Floor"
 
        }
     },

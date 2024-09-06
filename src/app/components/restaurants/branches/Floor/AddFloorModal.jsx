@@ -11,7 +11,7 @@ const AddUserModal = ({ onClose }) => {
   const router = useRouter();
   const handleNextBtn = (e) => {
     e.preventDefault()
-    router.push("/en/restaurants/branches/undefined/details/floor")
+    router.push("/en/floor")
   }
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const AddUserModal = ({ onClose }) => {
       <div className="w-full max-w-3xl h-screen bg-[#F2F4F7] flex flex-col justify-between transition-transform duration-300 translate-x-0">
         {/* Modal Header */}
         <div className="font-semibold text-[#15223C] bg-white w-full p-4 flex justify-between items-center">
-          <h2 className="text-xl sm:text-2xl">Add a New User</h2>
+          <h2 className="text-xl sm:text-2xl">Add a New Floor</h2>
           <button className="text-xl" onClick={handleModalClose}>
             {/* //<X /> */} X
           </button>
