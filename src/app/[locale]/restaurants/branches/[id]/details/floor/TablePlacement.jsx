@@ -1,11 +1,14 @@
-import React from "react";
+"use client"
+import React,{useState} from "react";
 import FloorPlan from "./Konva/index";
 import { MdArrowBackIos } from "react-icons/md";
 import Button from "@/app/components/common/filters/Button";
+import FloorReview from "./FloorReview";
 
-const FloorComp = ({ onBack, floorName }) => {
+const TablePlacement = ({ onBack, floorName }) => {
+    const [showComponent, setShowComponent] = useState(false)
   const handleNextBtn = () => {
-    alert("Next button clicked")
+    setShowComponent(true)
   }
   const handleSaveBtn = () => {
     alert("Save button clicked")
@@ -34,14 +37,17 @@ const FloorComp = ({ onBack, floorName }) => {
           type="outlined"
           className="mr-2"
         />
+        <div>
         <Button
           text="Next"
           onClick={handleNextBtn}
-        />
+          />
+          {showComponent && <FloorReview  onBack={() => setShowComponent(false)} /> }
+          </div>
       </div>
     </div>
   );
 };
 
 
-export default FloorComp;
+export default TablePlacement;

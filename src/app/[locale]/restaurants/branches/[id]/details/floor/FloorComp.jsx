@@ -15,6 +15,9 @@ const FloorComp = ({ onBack }) => {
   const handleSaveBtn = () => {
     alert("Save button clicked")
   }
+  const onTableBack = () => {
+    setShowComponent(false)
+  }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       {/* Navbar */}
@@ -45,7 +48,7 @@ const FloorComp = ({ onBack }) => {
           text="Next"
           onClick={handleNextBtn}
           />
-          {showComponent && <TablePlacement floorName={floorName}/>}
+          {showComponent && <TablePlacement floorName={floorName} onBack={() => onTableBack()} /> }
           </div>
       </div>
     </div>
