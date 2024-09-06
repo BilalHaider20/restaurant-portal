@@ -1,6 +1,5 @@
-"use client";
 import React, { useState, useRef, useEffect } from 'react';
-import { Stage, Layer, Line, Shape, Transformer, Image as KonvaImage } from 'react-konva';
+import { Stage, Layer, Line, Image, Shape, Transformer } from 'react-konva';
 import ToolsPanel from './ToolsPanel';
 import ToolsPanelPage2 from './ToolsPanelPage2'; 
 import InspectorPanel from './InspectorPanel';
@@ -62,6 +61,7 @@ const FloorPlan = () => {
                     transformer.boundBoxFunc(undefined);
                 }
 
+                // Update coordinate inputs when a shape is selected
                 setCoordinates({ x: node.x(), y: node.y() });
             } else {
                 setSelectedShape(null);
@@ -133,7 +133,7 @@ const FloorPlan = () => {
             }
         }
     };
-
+    
     const handleDragMove = (e, id) => {
         const { x, y } = e.target.position();
         setShapes(
@@ -173,6 +173,28 @@ const FloorPlan = () => {
                 )
             );
         }
+    };
+
+    const handleArcUpdate = (updatedArc) => {
+        setShapes(shapes.map(shape =>
+            shape.id === selectedShape
+                ? { ...shape, ...updatedArc, scaleX: 1, scaleY: 1 }
+                : shape
+        ));
+    };
+
+    const drawArc = (ctx, shape) => {
+        ctx.beginPath();
+        ctx.arc(
+            shape.width / 2,
+            shape.height / 2,
+            shape.radius,
+            0,
+            (shape.angle * Math.PI) / 180
+        );
+        ctx.strokeStyle = shape.stroke || 'black';
+        ctx.lineWidth = shape.strokeWidth || 2;
+        ctx.stroke();
     };
 
     const handleLineLengthChange = (newLength) => {
@@ -225,12 +247,26 @@ const FloorPlan = () => {
         }
     };
 
+    const handleScaleChange = (newScale) => {
+        if (selectedShape) {
+            setShapes(
+                shapes.map((shape) => {
+                    if (shape.id === selectedShape) {
+                        return { ...shape, scaleFactor: newScale };
+                    }
+                    return shape;
+                })
+            );
+        }
+    };
+
     const handleRotateRight = (id) => {
         setShapes(shapes.map(shape => {
             if (shape.id === id) {
                 let newRotation = ((shape.rotation || 0) + 90) % 360;
                 
                 if (shape.type === 'line') {
+                    // For lines, we need to rotate the points
                     const [x1, y1, x2, y2] = shape.points;
                     const centerX = (x1 + x2) / 2;
                     const centerY = (y1 + y2) / 2;
@@ -248,39 +284,17 @@ const FloorPlan = () => {
                     const [newX2, newY2] = rotatePoint(x2, y2, 90);
                     
                     return { ...shape, points: [newX1, newY1, newX2, newY2] };
+                } else if (shape.type === 'arc') {
+                    // For arcs, we just need to update the rotation
+                    return { ...shape, rotation: newRotation };
                 } else {
+                    // For images, update rotation and adjust position if needed
                     return { ...shape, rotation: newRotation };
                 }
             }
             return shape;
         }));
     };
-
-    const handleArcUpdate = (updatedArc) => {
-        setShapes(shapes.map(shape =>
-            shape.id === selectedShape
-                ? { ...shape, ...updatedArc, scaleX: 1, scaleY: 1 }
-                : shape
-        ));
-    };
-
-    const handleScaleChange = (scale) => {
-        if (selectedShape) {
-            setShapes(
-                shapes.map((shape) => {
-                    if (shape.id === selectedShape) {
-                        return {
-                            ...shape,
-                            scaleX: scale,
-                            scaleY: scale,
-                        };
-                    }
-                    return shape;
-                })
-            );
-        }
-    };
-
     const handleNextPage = () => {
         setCurrentPage(2);
     };
@@ -290,7 +304,7 @@ const FloorPlan = () => {
     };
 
     return (
-        <div style={{ display: 'flex', height: '100vh' }}>
+        <div className='flex max-h-[900px]'>
             {currentPage === 1 ? (
                 <ToolsPanel onSelectTool={handleSelectTool} />
             ) : (
@@ -344,24 +358,12 @@ const FloorPlan = () => {
                                         ref={(node) => shapeRefs.current[shape.id] = node}
                                         onDragMove={(e) => handleDragMove(e, shape.id)}
                                         onTransformEnd={(e) => handleTransformEnd(e, shape.id)}
-                                        sceneFunc={(context, shape) => {
-                                            context.beginPath();
-                                            context.arc(
-                                                shape.width / 2,
-                                                shape.height / 2,
-                                                shape.radius,
-                                                0,
-                                                (shape.angle * Math.PI) / 180
-                                            );
-                                            context.strokeStyle = shape.stroke || 'black';
-                                            context.lineWidth = shape.strokeWidth || 2;
-                                            context.stroke();
-                                        }}
+                                        sceneFunc={(context, shape) => drawArc(context, shape.attrs)}
                                     />
                                 );
                             } else {
                                 return (
-                                    <KonvaImage
+                                    <Image
                                         key={shape.id}
                                         id={shape.id.toString()}
                                         x={shape.x}
@@ -377,12 +379,15 @@ const FloorPlan = () => {
                                         onTransformEnd={(e) => handleTransformEnd(e, shape.id)}
                                         image={images[shape.src]}
                                         opacity={shape.opacity}
+                                        alt=""
                                     />
                                 );
                             }
                         })}
                         {selectedShape && (
-                            <Transformer ref={transformerRef} />
+                            <Transformer
+                                ref={transformerRef}
+                            />
                         )}
                     </Layer>
                 </Stage>
@@ -432,7 +437,7 @@ const FloorPlan = () => {
                 coordinates={coordinates}
                 onCoordinateChange={handleCoordinateChange}
                 onRotateRight={handleRotateRight}
-                onScaleChange={handleScaleChange} // Ensure this is correctly referenced
+                onScaleChange={handleScaleChange}
             />
         </div>
     );
