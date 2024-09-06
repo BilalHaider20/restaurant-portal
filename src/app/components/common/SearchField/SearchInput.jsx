@@ -13,7 +13,7 @@ const SearchInput = ({ placeholder, width = '100%', height = '52px', onQueryChan
         onChange={onQueryChange}
         type="text"
         className={`pl-10 pr-4 text-xs md:text-sm lg:text-base py-3 w-full md:w-[${width}] border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-        placeholder={t(`${placeholder}`)}
+        placeholder={t(placeholder)}
       />
     </div>
   );
