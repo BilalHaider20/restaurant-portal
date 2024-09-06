@@ -13,7 +13,7 @@ import floor from "@/app/components/restaurants/details/Floor/Floor";
 import TabLayout from "@/app/components/common/Common Layout/TabLayout";
 import AddPromotionModal from "@/app/components/restaurants/details/Promotions/AddPromotionModal";
 import BranchesModal from "@/app/components/restaurants/details/Branch/BranchesModal";
-import { branches } from "@/app/utils/restaurants/branches/branchesData";
+// import { branches } from "@/app/utils/restaurants/branches/branchesData";
 import AddUserModal from "@/app/components/users/AddUser/AddUserModal";
 import { getBranches } from "@/app/services/apiMethods";
 
@@ -21,8 +21,30 @@ const Branches = () => {
   const [activeTab, setactiveTab] = useState('Branches');
   const [isModalOpen, setIsModalOpen] = useState({branches: false, promotion: false, user: false});
   const [searchQuery, setSearchQuery] = useState(""); 
+  const [data, setdata] = useState([]);
+  const [error, seterror] = useState(false);
+  const [loading, setloading] = useState(true);
   const { id } = useParams();
-  const restaurantBranches = branches[id];
+  // const restaurantBranches = branches[id];
+
+  useEffect(()=>{
+    setloading(true);
+    getBranch();
+    setloading(false);
+
+  },[]);
+
+  const getBranch = async () => {
+    try {
+      const branches = await getBranches(id);
+      
+        setdata(branches.data);
+        setloading(false);
+    } catch (error) {
+      console.log('error', error);
+      seterror(true);
+    }
+  }
 
   const handleOpenModal = (tab) => {
     setIsModalOpen({...isModalOpen, [tab]: true});
@@ -34,31 +56,16 @@ const Branches = () => {
   
   
 
-  const filteredBranches = restaurantBranches?.filter((branch) =>
-    branch.name.toLowerCase().includes(searchQuery.toLowerCase()) 
-  );
+  // const filteredBranches = restaurantBranches?.filter((branch) =>
+  //   branch.name.toLowerCase().includes(searchQuery.toLowerCase()) 
+  // );
 
-//   const getBranchesFunction = async () => {
-    
-//     try {
-//       const response = await getBranches(id);
-//       console.log(response.data);
-//       setData(response.data);
-//       setloading(false);
-//       console.log(data);
-//     } catch (error) {
-//       console.log(error);
-//     }
-// }
-//   useEffect(() => {
-//     getBranchesFunction();
-    
-//   }, []);
+
 
  
-  if (!restaurantBranches) {
-    return <p>No branches found for this restaurant.</p>;
-  }
+  // if (!restaurantBranches) {
+  //   return <p>No branches found for this restaurant.</p>;
+  // }
 
 
   const renderTab = () => {
@@ -68,9 +75,11 @@ const Branches = () => {
           <>
             <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_floor"} inputPlaceholder={"branches"} onSearch={setSearchQuery}  onClick={()=>handleOpenModal('branches')} />
             <div className="flex flex-col gap-4">
-            {filteredBranches.map((branch, index) => (
-                <BranchCard key={index} id={index} branch={branch} />
-              ))}
+            {data.length ===0 ? <p>No branches found for this restaurant.</p> :
+             data.map((branch) => (
+                <BranchCard key={branch.id} id={branch.id} branch={branch} />
+              ))
+            }
               
               {isModalOpen['branches'] && <BranchesModal onClose={()=>handleCloseModal('branches')} isActive={isModalOpen['branches']} />}
             </div>
@@ -80,7 +89,7 @@ const Branches = () => {
           <>
             <TabLayout title={"Promotions and Deals"} btntext={"add_new_promotion"} inputPlaceholder={"promotion"} onClick={()=>handleOpenModal('promotion')} />
             <Promotions />
-            {<AddPromotionModal onClose={()=>handleCloseModal('promotion')} />}
+            {isModalOpen['promotion'] && <AddPromotionModal onClose={()=>handleCloseModal('promotion')} />}
           </>
         )
       case 'Members':

@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import RestaurantCard from "../../../components/restaurants/RestaurantCard";
 import TabLayout from "../../../components/common/Common Layout/TabLayout";
 import RestaurantModal from "../../../components/restaurants/Restaurant Modal/RestaurantModal";
-import { getRestaurants } from "@/app/services/apiMethods";
+import {addRestaurants, getRestaurants } from "@/app/services/apiMethods";
 import Loading from "@/app/Loading";
 
 const Page = () => {
@@ -25,7 +25,6 @@ const Page = () => {
       console.log(response.data);
       setData(response.data);
       setloading(false);
-      console.log(data);
     } catch (error) {
       console.log(error);
       setError(error);
@@ -38,12 +37,7 @@ const Page = () => {
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
-  const addRestaurant = (newRestaurant) => {
-    console.log(newRestaurant)
-    console.log(data)
-    setData((prevData) => [...prevData, newRestaurant]);
-    console.log(data)
-  };
+  
 
   return (
     <div className="bg-bg-highlight overflow-y-auto p-4 sm:p-6">
@@ -55,7 +49,7 @@ const Page = () => {
             <RestaurantCard key={restaurant.id} id={restaurant.id} {...restaurant} className="cursor-pointer" />
           ))
         }
-      {isModalOpen && <RestaurantModal onClose={handleCloseModal} onAdd={addRestaurant} />}
+      {isModalOpen && <RestaurantModal onClose={handleCloseModal}  />}
     </div>
   );
 };

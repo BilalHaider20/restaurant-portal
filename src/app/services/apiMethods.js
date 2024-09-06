@@ -11,24 +11,19 @@ import api from './api';
 // export const login = (credentials) => api.post('/auth/login', credentials);
 // More methods as needed
 
-
-// const params = {
-//     name: 'Salt N Pepper',
-//     email: '1pizza111@pizza.com',
-//     phone_number: '03244194429',
-//     cuisine: 'italian',
-//     price_range: '$$',
-//     description: 'lorem',
-//     restaurant_id: '3',
-//     phone_number_country: 'PK'
-// }
+const base_url = 'http://restaurants-uat.bookmepk.com';
+//Restaurants
 export const getRestaurants = () =>  api.get('http://restaurants-uat.bookmepk.com/portal/api/restaurants');
-
-export const getUsers = () =>  api.get('http://restaurants-uat.bookmepk.com/portal/api/users');
-
+export const addRestaurants = (params) => api.post('http://restaurants-uat.bookmepk.com/portal/api/restaurants', params);
 export const deleteRestaurants =(id)=> api.delete(`http://restaurants-uat.bookmepk.com/portal/api/restaurants/${id}`);
 
-// export const getBranches = () => 
+
+//Branches
+export const getBranches = (id) =>  api.get(`${base_url}/portal/api/restaurants/${id}/branches`);
+
+
+//USER
+export const getUsers = () =>  api.get('http://restaurants-uat.bookmepk.com/portal/api/users');
 
 export const login = (params) => axios.post('http://restaurants-uat.bookmepk.com/auth/api/login', params);
 

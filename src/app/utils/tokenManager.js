@@ -3,14 +3,21 @@ import axios from 'axios';
 import { setToken } from '@/lib/features/auth/authSlice';
 import { makeStore } from '@/lib/store';
 
-
+function getFromStore() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const token = makeStore().getState().auth.token;
+            resolve(token)
+        }, 1000);
+    });
+}
 export const getToken = async () => {
-    const state = makeStore().getState().auth;
-     const token = state.token;   
-    if (token) {
-        return token;
-    }
-
+    
+    
+        const token = await getFromStore();
+        if (token) {
+            return token;
+        }
     try { 
         const response = await axios.post('http://restaurants-uat.bookmepk.com/auth/api/login', {
             email: "saadahmad@bookme.pk",
