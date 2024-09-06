@@ -5,6 +5,9 @@ import FileUpload from "../../common/FormElements/ImageUpload";
 import images from "../../../../../public/images";
 import { Controller, useForm } from "react-hook-form";
 import DropDownComponent from "../../common/dropdowns/DropDownComponent";
+import Input from "../../common/FormElements/Input";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const cuisineOptions = [
   { value: 'gujarati', label: 'Gujarati cuisine' },
@@ -109,16 +112,21 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                 />
               </div>
               <div className="flex-grow w-full">
-                <label className="block text-[#3C3C3C] font-semibold mb-2">
-                  Restaurant Name
-                </label>
-                <input
-                  type="text"
-                  {...register("name", { required: "Restaurant name is required" })}
-                  className="border border-gray-300 w-full p-2 rounded"
-                  placeholder="Enter Restaurant Name"
+                <Controller
+                  name="name"
+                  control={control}
+                  rules={{ required: "This is a required field" }}
+                  render={({ field }) => (
+                    <Input
+                      label="Restaurant Name"
+                      name="name"
+                      value={field.value}
+                      onChange={field.onChange}
+                      placeholder={`Enter Email Address`}
+                      error={errors.name?.message}
+                    />
+                  )}
                 />
-                {errors.name && <p className="text-red-500">{errors.name.message}</p>}
               </div>
             </div>
 
@@ -166,6 +174,48 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                 </div>
                 {errors.price && <p className="text-red-500">{errors.price.message}</p>}
               </div>
+            </div>
+            <div className="flex flex-col gap-3 md:flex-row">
+              <Controller
+                name="phone"
+                control={control}
+                rules={{ required: "This is a required field" }}
+                render={({ field }) => (
+                  <div className="space-y-1 relative w-full">
+                    <label className="m-0" htmlFor="phone">
+                      Phone Number
+                    </label>
+                    <PhoneInput
+                      country="pk"
+                      name="phone"
+                      value={field.value}
+                      onChange={field.onChange}
+                      className="inputForm"
+                    />
+                    {errors.phone && (
+                      <span className="text-red-600">
+                        {errors.phone.message}
+                      </span>
+                    )}
+                  </div>
+                )}
+              />
+              <Controller
+                name="email"
+                control={control}
+                rules={{ required: "This is a required field" }}
+                render={({ field }) => (
+                  <Input
+                    label="Email Address"
+                    name="email"
+                    type="email"
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder={`Enter Email Address`}
+                    error={errors.email?.message}
+                  />
+                )}
+              />
             </div>
 
             {/* Restaurant Description */}

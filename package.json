@@ -16,6 +16,7 @@
     "axios": "^1.7.7",
     "chart.js": "^4.4.4",
     "easy-currencies": "^1.8.1",
+    "fs": "^0.0.1-security",
     "install": "^0.13.0",
     "konva": "^9.3.14",
     "lucide-react": "^0.438.0",

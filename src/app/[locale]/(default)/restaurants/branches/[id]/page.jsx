@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import rest_images from '@/../public/images/restaurant'
 
@@ -15,6 +15,7 @@ import AddPromotionModal from "@/app/components/restaurants/details/Promotions/A
 import BranchesModal from "@/app/components/restaurants/details/Branch/BranchesModal";
 import { branches } from "@/app/utils/restaurants/branches/branchesData";
 import AddUserModal from "@/app/components/users/AddUser/AddUserModal";
+import { getBranches } from "@/app/services/apiMethods";
 
 const Branches = () => {
   const [activeTab, setactiveTab] = useState('Branches');
@@ -37,6 +38,23 @@ const Branches = () => {
     branch.name.toLowerCase().includes(searchQuery.toLowerCase()) 
   );
 
+//   const getBranchesFunction = async () => {
+    
+//     try {
+//       const response = await getBranches(id);
+//       console.log(response.data);
+//       setData(response.data);
+//       setloading(false);
+//       console.log(data);
+//     } catch (error) {
+//       console.log(error);
+//     }
+// }
+//   useEffect(() => {
+//     getBranchesFunction();
+    
+//   }, []);
+
  
   if (!restaurantBranches) {
     return <p>No branches found for this restaurant.</p>;
@@ -53,6 +71,7 @@ const Branches = () => {
             {filteredBranches.map((branch, index) => (
                 <BranchCard key={index} id={index} branch={branch} />
               ))}
+              
               {isModalOpen['branches'] && <BranchesModal onClose={()=>handleCloseModal('branches')} isActive={isModalOpen['branches']} />}
             </div>
           </>)
@@ -61,7 +80,7 @@ const Branches = () => {
           <>
             <TabLayout title={"Promotions and Deals"} btntext={"add_new_promotion"} inputPlaceholder={"promotion"} onClick={()=>handleOpenModal('promotion')} />
             <Promotions />
-            {isModalOpen['promotion'] && <AddPromotionModal onClose={()=>handleCloseModal('promotion')} />}
+            {<AddPromotionModal onClose={()=>handleCloseModal('promotion')} />}
           </>
         )
       case 'Members':
@@ -78,7 +97,7 @@ const Branches = () => {
   }
 
   return (
-    <div className="bg-bg-main scrollbar-none flex flex-col space-y-5 p-6">
+    <div className="bg-bg-main scrollbar-none flex flex-col gap-y-5 p-6">
       <RestaurantIntro rest={rest_images} />
       <div className="flex">
         <Switcher className="" activeTab={activeTab} setactiveTab={setactiveTab} />

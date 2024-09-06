@@ -5,13 +5,8 @@ import images from '@/../public/images/index'
 import RoleDropdown from './RoleDropdown';
 import { useState } from 'react';
 
-const Users = () => {
-    const users = Array(7).fill({
-        name: 'Basel AbdulMajid',
-        email: 'basel@bookme.pk',
-        role: 'Restaurant Manager',
-      });
-      const [userRoles, setUserRoles] = useState(users.map(user => user.role));
+const Users = ({data}) => {
+      const [userRoles, setUserRoles] = useState(data.map(user => user.role));
 
       const handleRoleChange = (index, newRole) => {
         const updatedRoles = [...userRoles];
@@ -30,7 +25,7 @@ const Users = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
+          {data.map((user, index) => (
             <tr key={index} className="border-b">
               <td className="py-2 px-4 flex items-center justify-center">
                 <div className="w-9 h-9 rounded-full bg-[#F6F9FD]flex items-center justify-center text-blue-600 font-semibold">
