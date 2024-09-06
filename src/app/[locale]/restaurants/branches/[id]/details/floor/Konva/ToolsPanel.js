@@ -1,5 +1,4 @@
 import React from 'react';
-import useImage from 'use-image';
 import Image from 'next/image';
 import lineImage from '../images/line.png';
 import stairsImage from '../images/stairs.png';
@@ -14,19 +13,14 @@ const ToolIcon = ({ icon, onClick }) => (
 );
 
 const ToolsPanel = ({ onSelectTool }) => {
-    const [lineIcon] = useImage(lineImage);
-    const [stairsIcon] = useImage(stairsImage);
-    const [doorIcon] = useImage(doorImage);
-    const [grassIcon] = useImage(grassImage);
-    const [curvedLineIcon] = useImage(curvedLineImage);
-
     return (
-        <div style={{ width: '80px', borderRight: '1px solid #ccc', padding: '10px' }}>
-            <ToolIcon icon={lineIcon?.src} onClick={() => onSelectTool('line')} />
-            <ToolIcon icon={stairsIcon?.src} onClick={() => onSelectTool('stairs')} />
-            <ToolIcon icon={doorIcon?.src} onClick={() => onSelectTool('door')} />
-            <ToolIcon icon={grassIcon?.src} onClick={() => onSelectTool('grass')} />
-            <ToolIcon icon={curvedLineIcon?.src} onClick={() => onSelectTool('arc')} />
+        <div className='w-[80px] border-r-divider-clr p-3'
+        >
+            <ToolIcon icon={lineImage} onClick={() => onSelectTool('line')} />
+            <ToolIcon icon={stairsImage} onClick={() => onSelectTool('stairs')} />
+            <ToolIcon icon={doorImage} onClick={() => onSelectTool('door')} />
+            <ToolIcon icon={grassImage} onClick={() => onSelectTool('grass')} />
+            <ToolIcon icon={curvedLineImage} onClick={() => onSelectTool('arc')} />
         </div>
     );
 };

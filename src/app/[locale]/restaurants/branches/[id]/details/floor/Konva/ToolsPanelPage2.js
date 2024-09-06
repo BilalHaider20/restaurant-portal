@@ -1,6 +1,8 @@
 import React from 'react';
 import squareTableImage from '../images/square-table.png';
 import roundTableImage from '../images/round-table.png';
+import Image from 'next/image';
+
 
 const ToolIcon = ({ icon, onClick, label }) => (
     <div 
@@ -13,7 +15,7 @@ const ToolIcon = ({ icon, onClick, label }) => (
         }} 
         onClick={onClick}
     >
-        <img src={icon} alt={label} width="50" height="50" />
+        <Image src={icon} alt={label} width="50" height="50" />
         <span style={{ fontSize: '12px', marginTop: '5px' }}>{label}</span>
     </div>
 );
