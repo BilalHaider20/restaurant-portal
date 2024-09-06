@@ -9,7 +9,7 @@ import images from '../../../../public/images';
 import { useRouter } from 'next/navigation';
 import { setToken,setUser,setPermissions } from '@/lib/features/auth/authSlice';
 import { login } from '@/app/services/apiMethods';
-import { useAppDispatch } from '@/lib/hooks';
+import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 
 const Page = () => {
     const router = useRouter();

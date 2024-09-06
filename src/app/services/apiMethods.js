@@ -14,6 +14,8 @@ const base_url = 'http://restaurants-uat.bookmepk.com'
 export const getRestaurants = () => api.get('http://restaurants-uat.bookmepk.com/portal/api/restaurants');
 export const deleteRestaurants =(id)=> api.delete(`http://restaurants-uat.bookmepk.com/portal/api/restaurants/${id}`);
 
+// export const getBranches = () => 
+
 export const login = (params) => axios.post('http://restaurants-uat.bookmepk.com/auth/api/login', params);
 
 export const addUser = (params) => axios.post(`${base_url}/portal/api/users`, params)

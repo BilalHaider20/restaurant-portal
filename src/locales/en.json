@@ -14,7 +14,8 @@
         "credit": "Credit",
         "balance": "Total Balance",
         "amenities":"Amenities",
-        "permissions":"Permissions"
+        "permissions":"Permissions",
+        "slots": "Slots"
     },
     "restaurant": {
         "branches": "Branches"

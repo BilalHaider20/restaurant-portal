@@ -13,7 +13,7 @@ import floor from "@/app/components/restaurants/details/Floor/Floor";
 import TabLayout from "@/app/components/common/Common Layout/TabLayout";
 import AddPromotionModal from "@/app/components/restaurants/details/Promotions/AddPromotionModal";
 import BranchesModal from "@/app/components/restaurants/details/Branch/BranchesModal";
-import { branches } from "@/app/utils/restaurants/branches/branchesData";
+// import { branches } from "@/app/utils/restaurants/branches/branchesData";
 import AddUserModal from "@/app/components/users/AddUser/AddUserModal";
 
 const Branches = () => {

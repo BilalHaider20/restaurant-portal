@@ -20,7 +20,7 @@ const Menu = ({ sidebarOpen }) => {
     { text: t('users'), icon: images.users, href: '/en/users' },
     { text: t('permissions'), icon: images.workflow, href: '/en/permissions' },
     // { text: t('departments'), icon: images.departments, href: '/en/dashboard' },
-    // { text: t('privacy'), icon: images.privacy, href: '/en/dashboard' },
+    { text: t('slots'), icon: images.privacy, href: '/en/slots' },
     // { text: t('terms'), icon: images.newspaper, href: '/en/dashboard' }
   ];
 
