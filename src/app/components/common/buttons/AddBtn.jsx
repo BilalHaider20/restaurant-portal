@@ -3,7 +3,7 @@ import images from '../../../../../public/images/index'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
-const AddBtn = ({ btnText,onClick }) => {
+const AddBtn = ({ btnText, onClick }) => {
   const t = useTranslations('Tab_Header.button');
   return (
     <div>
@@ -11,7 +11,7 @@ const AddBtn = ({ btnText,onClick }) => {
       flex flex-row justify-center items-center gap-2 text-xs md:text-sm lg:text-lg text-nowrap ' onClick={onClick}>
         <Image
         src={images.plusSquare}
-        alt=''
+        alt='add new button'
         className='inline-block'
         />
         {t(btnText)}

@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import Image from 'next/image';
 import center from '../../../../../public/images/center.png';
 
-const FileUpload = ({ title }) => {
+const ImageUpload = ({ title }) => {
   const [previews, setPreviews] = useState([]);
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -56,4 +56,4 @@ const FileUpload = ({ title }) => {
   );
 };
 
-export default FileUpload;
+export default ImageUpload;

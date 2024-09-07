@@ -10,7 +10,7 @@ import Promotions from '@/app/components/restaurants/details/Promotions/Promotio
 import Floor from '@/app/components/restaurants/details/Floor/Floor'
 import Reviews from '@/app/components/restaurants/details/Branch/reviews/Reviews'
 import AddPromotionModal from '@/app/components/restaurants/details/Promotions/AddPromotionModal'
-import BranchesModal from '@/app/components/restaurants/details/Branch/BranchesModal'
+import AddFloorModal from '@/app/components/restaurants/branches/Floor/AddFloorModal'
 
 const Page = () => {
   const users = Array(100).fill({
@@ -28,20 +28,18 @@ const Page = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
-    console.log('btn click')
     setIsModalOpen(true);
   };
   const [isBranchesModalOpen, setIsBranchesModalOpen] = useState(false);
-  
 
-  const handleOpenBranchesModal = () => {
-    console.log('Add Branch button clicked');
-    setIsBranchesModalOpen(true);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   const handleCloseBranchesModal = () => {
     setIsBranchesModalOpen(false);
   };
+
   const rest = {
     reviews: 4,
     image: rest_images.branch,
@@ -81,8 +79,42 @@ const Page = () => {
       image: rest_images.food,
       desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
       price: 1840
-    }
-    
+    },
+    {
+      name: "Chicken Chilli Dry",
+      cuisine: "Asian",
+      image: rest_images.food,
+      desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
+      price: 1840
+    },
+    {
+      name: "Chicken Chilli Dry",
+      cuisine: "Asian",
+      image: rest_images.food,
+      desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
+      price: 1840
+    },
+    {
+      name: "Chicken Chilli Dry",
+      cuisine: "Asian",
+      image: rest_images.food,
+      desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
+      price: 1840
+    },
+    {
+      name: "Chicken Chilli Dry",
+      cuisine: "Asian",
+      image: rest_images.food,
+      desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
+      price: 1840
+    },
+    {
+      name: "Chicken Chilli Dry",
+      cuisine: "Asian",
+      image: rest_images.food,
+      desc: "Sautéed slices with green chili and ginger glazed in mouthwatering Chinese sauce.",
+      price: 1840
+    },
   ]
 
   const renderTab = () => {
@@ -90,9 +122,8 @@ const Page = () => {
       case 'Floors':
         return (
           <>
-            <TabLayout title={"Floor Details"} btntext={"add_new_branch"} inputPlaceholder={"branches"} onClick={handleOpenBranchesModal} />
-            {isBranchesModalOpen && <BranchesModal onClose={handleCloseBranchesModal} />}
-            <Floor />
+            <TabLayout title={"Floor Details"} btntext={"add_new_floor"} inputPlaceholder={"branches"}  onClick={handleOpenModal} />
+            {isModalOpen && <AddFloorModal onClose={handleCloseModal} />}            <Floor />
           </>
         )
       case 'Menu':

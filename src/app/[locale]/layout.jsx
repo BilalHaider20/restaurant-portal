@@ -1,10 +1,10 @@
 import { Inter } from "next/font/google";
-import "../styles/globals.css";
+import '../styles/globals.css'
 import Providers from "@/lib/providers";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import PrelineScript from "../components/PrelineScript";
-import LayoutWrapper from "../components/layout/LayoutWrapper";
+import PrelineScript from "@/app/components/PrelineScript";
+import LayoutWrapper from "@/app/components/layout/LayoutWrapper";
 import StoreProvider from "../StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
