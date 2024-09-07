@@ -47,20 +47,11 @@ const RestaurantModal = ({ onClose }) => {
   };
 
   const handlePhoneChange = (value) => {
-    // console.log(value);
-    // onChange(value);
-
-    // if (value) {
       const phoneNumberObject = parsePhoneNumberFromString(`+${value}`);
       const phone_number_country = phoneNumberObject.country;
       console.log(phone_number_country);
       return phone_number_country;
-    //   if (phoneNumberObject) {
-    //     setValue("phone_number_country", phoneNumberObject.country);
-    //   }
-    // } else {
-    //   setValue("phone_number_country", "");
-    // }
+    
   };
 
   const onSubmit = (data) => {
