@@ -54,11 +54,21 @@ const RestaurantModal = ({ onClose }) => {
     
   };
 
+  const Add_New_Restaurants=async (data)=>{
+    try{
+      const reponse = await addRestaurants(data);
+      console.log(reponse);
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
   const onSubmit = (data) => {
     const phone_number_country = handlePhoneChange(data.phone_number);
     data= {...data, phone_number_country};
     console.log(data);
-    addRestaurants(data);
+    Add_New_Restaurants(data);
 
     // handleModalClose();
   };

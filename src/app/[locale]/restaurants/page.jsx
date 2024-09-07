@@ -1,9 +1,9 @@
 "use client";
 import React, { Suspense, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import RestaurantCard from "../../../components/restaurants/RestaurantCard";
-import TabLayout from "../../../components/common/Common Layout/TabLayout";
-import RestaurantModal from "../../../components/restaurants/Restaurant Modal/RestaurantModal";
+import RestaurantCard from "@/app/components/restaurants/RestaurantCard";
+import TabLayout from "@/app/components/common/Common Layout/TabLayout";
+import RestaurantModal from "@/app/components/restaurants/Restaurant Modal/RestaurantModal";
 import {addRestaurants, getRestaurants } from "@/app/services/apiMethods";
 import Loading from "@/app/Loading";
 

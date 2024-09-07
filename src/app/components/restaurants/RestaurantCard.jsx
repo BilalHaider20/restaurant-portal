@@ -56,7 +56,7 @@ const RestaurantCard = (props) => {
         <button  className=" text-blue-500 max-h-[40px]   rounded-lg border border-red-500 " 
          onClick={(e)=>{
           e.stopPropagation();
-          HandleDelete(props.id)
+          HandleDelete(props.id);
         }
         }
         >
