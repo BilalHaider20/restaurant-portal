@@ -15,6 +15,9 @@ const FloorComp = ({ onBack }) => {
   const handleSaveBtn = () => {
     alert("Save button clicked")
   }
+  const onTableBack = () => {
+    setShowComponent(false)
+  }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       {/* Navbar */}
@@ -23,11 +26,12 @@ const FloorComp = ({ onBack }) => {
           <button onClick={onBack}>
             <MdArrowBackIos />
           </button>
-          <p className='text-dark-text font-semibold text-3xl'>Ground Floor</p>
+          <p className='text-dark-text font-semibold text-3xl'>{floorName}</p>
         </div>
       </div>
 
-      <div className="mt-16 pt-16 flex-grow">
+      {/* Floor Creation Konva */}
+      <div className="mt-16 pt-14 flex-grow bg-white">
         <FloorPlan />
       </div>
 
@@ -45,7 +49,7 @@ const FloorComp = ({ onBack }) => {
           text="Next"
           onClick={handleNextBtn}
           />
-          {showComponent && <TablePlacement floorName={floorName}/>}
+          {showComponent && <TablePlacement floorName={floorName} onBack={() => onTableBack()} /> }
           </div>
       </div>
     </div>

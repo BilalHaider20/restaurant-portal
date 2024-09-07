@@ -7,15 +7,17 @@ import doorImage from '../images/door.png';
 import curvedLineImage from '../images/curved-line.png';
 
 const ToolIcon = ({ icon, onClick }) => (
-    <div style={{ margin: '10px', cursor: 'pointer' }} onClick={onClick}>
+    <div className='m-3 p-3 flex items-center justify-center cursor-pointer border border-divider-clr rounded-md bg-white'
+    onClick={onClick}>
         <Image src={icon} alt="tool" width="50" />
     </div>
 );
 
 const ToolsPanel = ({ onSelectTool }) => {
     return (
-        <div className='w-[80px] border-r-divider-clr p-3'
+        <div className='w-[200px] border border-r-divider-clr p-3 '
         >
+            <h2 className='text-2xl font-medium text-center'>Select Tools</h2>
             <ToolIcon icon={lineImage} onClick={() => onSelectTool('line')} />
             <ToolIcon icon={stairsImage} onClick={() => onSelectTool('stairs')} />
             <ToolIcon icon={doorImage} onClick={() => onSelectTool('door')} />

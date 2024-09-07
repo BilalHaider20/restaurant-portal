@@ -312,13 +312,13 @@ const FloorPlan = () => {
             )}
             <div style={{ flex: 1, position: 'relative' }}>
                 <Stage
-                    width={800}
+                    width={1200}
                     height={600}
                     onMouseDown={handleMouseDown}
                     ref={stageRef}
                     style={{ border: '1px solid #ccc' }}
                 >
-                    <Grid width={800} height={600} gridSize={20} />
+                    <Grid width={1400} height={600} gridSize={20} />
                     <Layer>
                         {shapes.map((shape) => {
                             const scale = shape.scaleFactor || 1;
