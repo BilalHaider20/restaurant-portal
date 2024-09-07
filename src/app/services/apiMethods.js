@@ -11,20 +11,20 @@ import api from './api';
 // export const login = (credentials) => api.post('/auth/login', credentials);
 // More methods as needed
 
-const base_url = 'http://restaurants-uat.bookmepk.com';
+
 //Restaurants
-export const getRestaurants = () =>  api.get('http://restaurants-uat.bookmepk.com/portal/api/restaurants');
-export const addRestaurants = (params) => api.post('http://restaurants-uat.bookmepk.com/portal/api/restaurants', params);
-export const deleteRestaurants =(id)=> api.delete(`http://restaurants-uat.bookmepk.com/portal/api/restaurants/${id}`);
+export const getRestaurants = () =>  api.get(`${process.env.base_url}/portal/api/restaurants`);
+export const addRestaurants = (params) => api.post(`${process.env.base_url}/portal/api/restaurants`, params);
+export const deleteRestaurants =(id)=> api.delete(`${process.env.base_url}/api/restaurants/${id}`);
 
 
 //Branches
-export const getBranches = (id) =>  api.get(`${base_url}/portal/api/restaurants/${id}/branches`);
+export const getBranches = (id) =>  api.get(`${process.env.base_url}/portal/api/restaurants/${id}/branches`);
 
 
 //USER
-export const getUsers = () =>  api.get('http://restaurants-uat.bookmepk.com/portal/api/users');
-
-export const login = (params) => axios.post('http://restaurants-uat.bookmepk.com/auth/api/login', params);
-
+export const getUsers = () =>  api.get(`${process.env.base_url}/portal/api/users`);
 export const addUser = (params) => axios.post(`${process.env.base_url}/portal/api/users`, params)
+
+//LOGIN
+export const login = (params) => axios.post(`${process.env.base_url}/auth/api/login`, params);

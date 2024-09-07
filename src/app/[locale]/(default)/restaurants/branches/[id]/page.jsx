@@ -16,6 +16,7 @@ import BranchesModal from "@/app/components/restaurants/details/Branch/BranchesM
 // import { branches } from "@/app/utils/restaurants/branches/branchesData";
 import AddUserModal from "@/app/components/users/AddUser/AddUserModal";
 import { getBranches } from "@/app/services/apiMethods";
+import { set } from "react-hook-form";
 
 const Branches = () => {
   const [activeTab, setactiveTab] = useState('Branches');
@@ -36,6 +37,7 @@ const Branches = () => {
 
   const getBranch = async () => {
     try {
+      setloading(true);
       const branches = await getBranches(id);
       
         setdata(branches.data);
@@ -75,15 +77,16 @@ const Branches = () => {
           <>
             <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_floor"} inputPlaceholder={"branches"} onSearch={setSearchQuery}  onClick={()=>handleOpenModal('branches')} />
             <div className="flex flex-col gap-4">
-            {data.length ===0 ? <p>No branches found for this restaurant.</p> :
-             data.map((branch) => (
+              {loading && <p>Loading...</p>}
+            {
+             data?.map((branch) => (
                 <BranchCard key={branch.id} id={branch.id} branch={branch} />
               ))
             }
               
               {isModalOpen['branches'] && <BranchesModal onClose={()=>handleCloseModal('branches')} isActive={isModalOpen['branches']} />}
             </div>
-          </>)
+          </>) 
       case 'Promotions':
         return (
           <>
