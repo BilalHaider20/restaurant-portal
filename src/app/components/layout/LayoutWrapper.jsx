@@ -66,10 +66,9 @@ const LayoutWrapper = ({ children }) => {
       
       <div className="relative flex w-full mt-[68px]">
         <Sidebar sidebarOpen={sidebarOpen} />
-        <main className={`h-[calc(100vh-4rem)] overflow-y-scroll relative w-full flex-1 transition-all ease-in-out duration-300`}>
-          <div className="flex-1">{children}
-          <Footer />
-          </div>
+        <main className={`h-[calc(100vh-4rem)] flex flex-col overflow-y-scroll relative w-full flex-1 transition-all ease-in-out duration-300`}>
+          <div className="flex-grow">{children}</div>
+          <Footer  />
         </main>
       </div>
     </div>

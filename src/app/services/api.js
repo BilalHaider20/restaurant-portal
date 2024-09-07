@@ -2,6 +2,9 @@
 import axios from 'axios';
 import { getToken } from '../utils/tokenManager';
 
+let isRefreshing = false;
+let failedQueue = [];
+
 const api = axios.create({
     baseURL: 'http://restaurants-uat.bookmepk.com',
     timeout: 10000, // Request timeout
