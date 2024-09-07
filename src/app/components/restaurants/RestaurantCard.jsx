@@ -55,10 +55,10 @@ const RestaurantCard = (props) => {
         </button>
         <button  className=" text-blue-500 max-h-[40px]   rounded-lg border border-red-500 " 
          onClick={(e)=>{
-            e.stopPropagation();
-            HandleDelete(props.id);
-         }
-          }
+          e.stopPropagation();
+          HandleDelete(props.id)
+        }
+        }
         >
         <span className="flex gap-2 items-center py-1 lg:py-2 px-1 lg:px-3 text-sm lg:text-base text-red-500"><LuTrash2 
          className=" text-sm lg:text-lg" />Delete</span>

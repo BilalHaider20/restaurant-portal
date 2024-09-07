@@ -4,8 +4,8 @@ import TotalReservations from '@/app/components/dashboard/TotalReservationStats'
 import RecentBooking from '@/app/components/dashboard/RecentBooking'
 import WelcomeStats from '@/app/components/WelcomeStats'
 
-
 const page = () => {
+  
   return (
     <div className='bg-[#F6F9FD] pb-2 overflow-y-auto'>
       <WelcomeStats 

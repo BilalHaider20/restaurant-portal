@@ -44,7 +44,7 @@ api.interceptors.response.use(
                         failedQueue = [];
                         isRefreshing = false;
 
-                        return api(config);
+                        return api(config);    //here
                     } catch (err) {
                         failedQueue.forEach((prom) => prom.reject(err));
                         failedQueue = [];
@@ -58,7 +58,7 @@ api.interceptors.response.use(
                     failedQueue.push({ resolve, reject });
                 }).then((newToken) => {
                     config.headers.Authorization = `Bearer ${newToken}`;
-                    return api(config);
+                    return api(config);   //here
                 });
             }
         } else {
