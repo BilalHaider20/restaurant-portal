@@ -1,30 +1,30 @@
 "use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from 'react-i18next';
 import images from '../../../../../public/images/navbar';
 import Link from 'next/link';
 
 
 const Menu = ({ sidebarOpen }) => {
 
-  const t = useTranslations('sidebar')
+  const {t} = useTranslation();
   const data = [
-    { text: t('dashboard'), icon: images.dashboard, href: '/dashboard' },
-    { text: t('restaurant'), icon: images.restaurant, href: '/restaurants' },
+    { text: t('sidebar.dashboard'), icon: images.dashboard, href: '/dashboard' },
+    { text: t('sidebar.restaurant'), icon: images.restaurant, href: '/restaurants' },
     // { text: t('make_bookings'), icon: images.make_bookings, href: '/en/dashboard' },
     // { text: t('reports'), icon: images.reports, href: '/en/dashboard' },
     // { text: t('my_bookings'), icon: images.my_bookings, href: '/en/dashboard' },
     // { text: t('invoices'), icon: images.invoice, href: '/en/dashboard' },
-    { text: t('amenities'), icon: images.file_chart_coloumn , href: '/amenities' },
-    { text: t('users'), icon: images.users, href: '/users' },
-    { text: t('permissions'), icon: images.workflow, href: '/permissions' },
+    { text: t('sidebar.amenities'), icon: images.file_chart_coloumn , href: '/amenities' },
+    { text: t('sidebar.users'), icon: images.users, href: '/users' },
+    { text: t('sidebar.permissions'), icon: images.workflow, href: '/permissions' },
     // { text: t('departments'), icon: images.departments, href: '/en/dashboard' },
-    { text: t('slots'), icon: images.privacy, href: '/slots' },
+    { text: t('sidebar.slots'), icon: images.privacy, href: '/slots' },
     // { text: t('terms'), icon: images.newspaper, href: '/en/dashboard' }
   ];
 
-  const [current, setCurrent] = useState(t('dashboard'));
+  const [current, setCurrent] = useState(t('sidebar.dashboard'));
 
   return (
     <ul>

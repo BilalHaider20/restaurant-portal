@@ -1,12 +1,7 @@
 "use client";
-
-import Sort from '@/app/components/common/dropdowns/Sort';
-import SearchInput from '@/app/components/common/SearchField/SearchInput';
-import UserFilter from '@/app/components/users/Others/UserFilter';
 import Image from 'next/image';
 import { LuFileEdit } from "react-icons/lu";
 import images from '../../../../public/images';
-import { useTranslations } from 'next-intl';
 import TabLayout from '@/app/components/common/Common Layout/TabLayout';
 
 const permissionsData = Array(10).fill({
@@ -16,7 +11,6 @@ const permissionsData = Array(10).fill({
 });
 
 const PermissionsTable = () => {
-  const t = useTranslations('permissions');
 
   return (
     <div className="bg-bg-highlight overflow-y-auto p-2 sm:p-4 md:p-6 flex flex-col gap-4">

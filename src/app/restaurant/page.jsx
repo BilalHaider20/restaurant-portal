@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslation } from 'react-i18next'
 import rest_images from '../../../../public/images/restaurant'
 
 //Components
@@ -12,7 +12,7 @@ import FoodFilterMenu from '@/app/components/branch/FoodFilterMenu'
 
 
 const Page = () => {
-    const t = useTranslations('restaurant')
+    const { t } = useTranslation();
     const rest = {
         reviews: 4,
         image: rest_images.rest_image,
@@ -80,7 +80,7 @@ const Page = () => {
             <RestaurantIntro rest={rest} />
 
             <div className='px-5 flex justify-between'>
-                <h2 className='font-semibold text-2xl text-heading-clr' >{rest.name} {t('branches')}</h2>
+                <h2 className='font-semibold text-2xl text-heading-clr' >{rest.name} {t('restaurant.branches')}</h2>
                 <FoodFilterMenu />
 
             </div>

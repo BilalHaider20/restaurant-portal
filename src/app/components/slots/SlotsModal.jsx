@@ -8,7 +8,7 @@ import images from "@/../public/images";
 import DropDownComponent from "@/app/components/common/dropdowns/DropDownComponent";
 import AvailableInput from "@/app/components/common/FormElements/AvailableInput";
 import Input from "@/app/components/common/FormElements/Input";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ImageUpload from '@/app/components/common/FormElements/ImageUpload';
@@ -95,7 +95,7 @@ const SlotsModal = ({ onClose }) => {
     ];
 
 
-    const t = useTranslations("slots.form");
+    const {t} = useTranslation();
 
 
     return (
@@ -108,7 +108,7 @@ const SlotsModal = ({ onClose }) => {
                 {/* Modal Header */}
                 <div className="font-semibold text-[#15223C] bg-[#FFFFFF] w-full p-4 flex justify-between items-center">
                     <h2 className="text-xl sm:text-2xl">
-                        {t("edit")} Arcadian Cafe Packages Mall
+                        {t("slots.form.edit")} Arcadian Cafe Packages Mall
                     </h2>
                     <button className="text-xl" onClick={handleModalClose} >&times;</button>
                 </div>
@@ -119,10 +119,10 @@ const SlotsModal = ({ onClose }) => {
                         <Controller
                             name="type"
                             control={control}
-                            rules={{ required: t("requiredField") }}
+                            rules={{ required: t("slots.form.requiredField") }}
                             render={({ field }) => (
                                 <DropDownComponent
-                                    label={t("type")}
+                                    label={t("slots.form.type")}
                                     name="type"
                                     options={typeOptions}
                                     value={field.value}
@@ -135,14 +135,14 @@ const SlotsModal = ({ onClose }) => {
                             <Controller
                                 name="title"
                                 control={control}
-                                rules={{ required: t("requiredField") }}
+                                rules={{ required: t("slots.form.requiredField") }}
                                 render={({ field }) => (
                                     <Input
-                                        label={t("title")}
+                                        label={t("slots.form.title")}
                                         name="title"
                                         value={field.value}
                                         onChange={field.onChange}
-                                        placeholder={`Enter ${t("title")}`}
+                                        placeholder={`Enter ${t("slots.form.title")}`}
                                         error={errors.title?.message}
                                     />
                                 )}
@@ -150,10 +150,10 @@ const SlotsModal = ({ onClose }) => {
                             <Controller
                                 name="duration"
                                 control={control}
-                                rules={{ required: t("requiredField") }}
+                                rules={{ required: t("slots.form.requiredField") }}
                                 render={({ field }) => (
                                     <DropDownComponent
-                                        label={t("duration")}
+                                        label={t("slots.form.duration")}
                                         name="duration"
                                         options={durationOptions}
                                         value={field.value}

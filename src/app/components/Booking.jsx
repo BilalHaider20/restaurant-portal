@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import vector from '../../../public/images/vector.png';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from 'react-i18next';
 import email from '../../../public/images/email-box.png'
 import Select from './Select';
 import Input from './Input'
@@ -16,7 +16,7 @@ import { useForm, Controller } from "react-hook-form";
 
 
 const Booking = () => {
-    const t = useTranslations('addRestaurant');
+    const {t } =useTranslation();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     
@@ -99,16 +99,16 @@ const Booking = () => {
 
       <div className="bg-white rounded-lg m-4 p-4 space-y-6">
         <div className=" items-center gap-4">
-        <div className="text-[#3C3C3C] w-[254px] h-[32px] font-semibold text-xl">{t('reservation')}</div> 
+        <div className="text-[#3C3C3C] w-[254px] h-[32px] font-semibold text-xl">{t('addRestaurant.reservation')}</div> 
           <div className="flex-grow w-full">
-            <label className="block text-[#3C3C3C] font-normal mb-2">{t('reservationid')}</label>
+            <label className="block text-[#3C3C3C] font-normal mb-2">{t('addRestaurant.reservationid')}</label>
             <input type="text" className="border border-gray-300 w-full p-2 rounded" placeholder="RES1234567890" />
           </div>
         </div>
 
           <div className="flex flex-col sm:flex-row justify-between gap-8 ">
             <div className="">
-              <label className="block text-[#3C3C3C] font-normal mb-2">{t('tablenumber')}</label>
+              <label className="block text-[#3C3C3C] font-normal mb-2">{t('addRestaurant.tablenumber')}</label>
               <div className="flex items-center   rounded-full  ">
                 <input type="text" className="flex-grow p-2  w-[200px] " placeholder="Select" />  
                 <Image className='cursor-pointer' src={vector}  alt=''/>              
@@ -116,7 +116,7 @@ const Booking = () => {
             </div>
 
             <div className="flex flex-col">
-              <label className="block text-[#3C3C3C] font-normal mb-2">{t('guest')}</label>
+              <label className="block text-[#3C3C3C] font-normal mb-2">{t('addRestaurant.guest')}</label>
               <div className=" sm:w-1/3 w-[200px] border border-collapse ">
               <div className="flex items-center   rounded-full ">
                 <input type="text" className="flex-grow p-2 w-[180px]  " placeholder="1" />  
@@ -126,7 +126,7 @@ const Booking = () => {
             </div>
 
             <div className="">
-              <label className="block text-[#3C3C3C] font-normal mb-2">{t('slot')}</label>
+              <label className="block text-[#3C3C3C] font-normal mb-2">{t('addRestaurant.slot')}</label>
               <div className="flex items-center   rounded-full   ">
                 <input type="text" className="flex-grow p-2 w-[200px]  " placeholder="45 minutes" />  
                 <Image className='cursor-pointer' src={vector}  alt=''/>              
@@ -142,8 +142,8 @@ const Booking = () => {
                             name=""
                             control={control}
                             render={({ field }) => (
-                                <Select  label={t('reservationdate')}
-                                 name={t('reservationdate')} 
+                                <Select  label={t('addRestaurant.reservationdate')}
+                                 name={t('addRestaurant.reservationdate')} 
                                  options={dateOptions} 
                                  value={field.value} 
     
@@ -164,8 +164,8 @@ const Booking = () => {
                             name="opening-hours"
                             control={control}
                             render={({ field }) => (
-                                <Select  label={t('reservationtime')}
-                                 name={t('reservationtime')} 
+                                <Select  label={t('addRestaurant.reservationtime')}
+                                 name={t('addRestaurant.reservationtime')} 
                                  options={timeOptions} 
                                  value={field.value} 
     
@@ -177,7 +177,7 @@ const Booking = () => {
             </div>
 
             <div className="flex-1">
-              <label className="block text-[#3C3C3C] font-normal mb-2">{t('status')}</label>
+              <label className="block text-[#3C3C3C] font-normal mb-2">{t('addRestaurant.status')}</label>
               <div className="flex items-center   rounded-full  ">
                 <input type="text" className="flex-grow p-2  w-[200px] " placeholder="Confirmed" />  
                 <Image className='cursor-pointer' src={vector}  alt=''/>              
@@ -186,18 +186,18 @@ const Booking = () => {
             </div>
 
         <div className="pt-1">
-          <label className="block text-[#3C3C3C] font-semibold text-xl mb-2">{t('clientdetails')}</label>
+          <label className="block text-[#3C3C3C] font-semibold text-xl mb-2">{t('addRestaurant.clientdetails')}</label>
         </div>
 
         <div className="flex-grow w-full">
-            <label className="block text-[#3C3C3C] font-normal mb-2">{t('fullname')}</label>
+            <label className="block text-[#3C3C3C] font-normal mb-2">{t('addRestaurant.fullname')}</label>
             <input type="text" className="border border-gray-300 w-full p-2 rounded" placeholder="Basel AbdulMajid"/>
           </div>
 
           <div className="sm:1/2 flex flex-col justify-between  sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 w-full">
 
           <div className="flex-1">
-              <label className="block text-[#3C3C3C] font-normal mb-2">{t('phonenumber')}</label>
+              <label className="block text-[#3C3C3C] font-normal mb-2">{t('addRestaurant.phonenumber')}</label>
               <div className="flex items-center flex-row">
                 <div className="w-[56px] flex">
               <PhoneInput country='pk' name="phone" className="inputForm " />
@@ -207,7 +207,7 @@ const Booking = () => {
             </div>
 
             <div className="flex-1">
-              <label className="block text-[#3C3C3C] font-normal  mb-2">{t('email')}</label>
+              <label className="block text-[#3C3C3C] font-normal  mb-2">{t('addRestaurant.email')}</label>
               <div className="flex items-center   rounded-full  ">
                 <Image className='w-[56px] h-[52px] 'src={email} alt=''/>
                 <input type="text" className="flex-grow p-2  w-[200px] " placeholder="Enter Email Address" />  

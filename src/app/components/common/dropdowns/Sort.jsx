@@ -1,13 +1,12 @@
 "use client";
 import React, { useState } from "react";
-// import { useTranslations } from "next-intl";
+
 import Image from "next/image";
 import images from "../../../../../public/images/index";
 
 const Sort = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState("All");
-    // const t = useTranslations('FilterDropdown');
 
     const Sortoptions = ['Ascending', 'Descending'];
 

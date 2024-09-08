@@ -53,10 +53,10 @@ const LayoutWrapper = ({ children }) => {
       <Navbar toggleSidebar={toggleSidebar} />
 
       <div className="relative flex w-full mt-[68px]">
-        {/*<Sidebar sidebarOpen={sidebarOpen} />*/}
-        <main className={`h-[calc(100vh-4rem)] flex flex-col overflow-y-scroll relative w-full flex-1 transition-all ease-in-out duration-300`}>
+        <Sidebar sidebarOpen={sidebarOpen} />
+        <main className={`h-[calc(100vh-4rem)] flex flex-col overflow-y-auto relative w-full flex-1 transition-all ease-in-out duration-300`}>
           <div className="flex-grow">{children}</div>
-          {/*<Footer  />*/}
+          <Footer  />
         </main>
       </div>
     </div>

@@ -8,7 +8,7 @@ import {withTranslation} from "react-i18next";
 const TotalReservations = ({t}) => {
 
 
-  const DropdownOptions = [`${t("Last Week")}`, `${t("Last Month")}`,`${t("Last Year")}`];
+  const DropdownOptions = [`${t("dashboard.IntervalDropDown.Last Week")}`, `${t("dashboard.IntervalDropDown.Last Month")}`,`${t("dashboard.IntervalDropDown.Last Year")}`];
   return (
     <div className="bg-white rounded-lg py-3 shadow-md min-w-[300px] sm:min-w-[472px] px-4">
       <div className="flex justify-between items-center mb-4">
@@ -43,7 +43,7 @@ const TotalReservations = ({t}) => {
                   </p>
                   {reservation.bookings > 0 ? (
                     <p className="text-xs text-green-500 text-nowrap">
-                      +{reservation.bookings} {t('booking')}
+                      +{reservation.bookings} {t('dashboard.booking')}
                     </p>
                   ) : (
                     <span className="text-sm text-gray-500">{reservation.amount}</span>

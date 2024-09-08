@@ -1,6 +1,6 @@
 "use client";
 import React, { Suspense, useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslation } from "react-i18next";
 import RestaurantCard from "@/app/components/restaurants/RestaurantCard";
 import TabLayout from "@/app/components/common/Common Layout/TabLayout";
 import RestaurantModal from "@/app/components/restaurants/Restaurant Modal/RestaurantModal";
@@ -8,7 +8,7 @@ import {addRestaurants, getRestaurants } from "@/app/services/apiMethods";
 import Loading from "@/app/Loading";
 
 const Page = () => {
-  const t = useTranslations('restaurants');
+  const {t} = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
@@ -41,7 +41,7 @@ const Page = () => {
 
   return (
     <div className="bg-bg-highlight p-4 sm:p-6">
-      <TabLayout title={t('restaurantListing')} onClick={handleOpenModal}
+      <TabLayout title={t('restaurants.restaurantListing')} onClick={handleOpenModal}
         btntext={'add_new'} inputPlaceholder='restaurants'  />
         {loading && <p>Loading...</p>}
         {

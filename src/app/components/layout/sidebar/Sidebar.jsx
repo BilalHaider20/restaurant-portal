@@ -7,9 +7,9 @@ import { Convert } from 'easy-currencies';
 
 import {  useAppSelector } from '@/lib/hooks';
 import { useState, useEffect } from 'react';
-import {useTranslation} from "next-i18next";
+import { useTranslation } from 'react-i18next';
 const Sidebar = ({ sidebarOpen }) => {
-  const {t} = useTranslation('sidebar');
+ const {t} = useTranslation();
   const {cur} = useAppSelector((state) => state.cur);
   const temp_amount = 1.80
   const [amount, setAmount] = useState()
@@ -33,12 +33,12 @@ const Sidebar = ({ sidebarOpen }) => {
             <div className='flex flex-col rounded-lg my-5 space-y-2 px-3 py-2 border border-[#C3D5EF]'>
               <div className='flex gap-2 text-primary-blue'>
                 <Image src={nav_images.wallet} alt='wallet' width={24} height={24} />
-                <span>{t('credit')}</span>
+                <span>{t('sidebar.credit')}</span>
               </div>
 
               <div className="flex flex-col">
                 <span className="font-medium text-dark-text text-base">
-                  {t('balance')}
+                  {t('sidebar.balance')}
                 </span>
                 <span className="font-base text-dark-text text-base">
                   {cur} {amount}
