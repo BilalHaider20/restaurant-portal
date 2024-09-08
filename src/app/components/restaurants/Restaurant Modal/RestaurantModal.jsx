@@ -81,7 +81,7 @@ const RestaurantModal = ({ onClose }) => {
         `}
       >
         {/* Modal Header */}
-        <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
+        <div className="font-semibold text-[#15223C] bg-[#FFFFFF] w-full p-4 flex justify-between items-center">
           <h2 className="text-xl sm:text-2xl">Add a New Restaurant</h2>
           <button className="text-xl" onClick={handleModalClose}>
             &times;

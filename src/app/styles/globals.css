@@ -49,9 +49,9 @@ body::-webkit-scrollbar {
 }
 
 .colStyle{
-  @apply text-center h-[80px] text-sm border border-[#E6E6E6];
+  @apply text-center py-2 text-sm border border-[#E6E6E6];
 }
 
 .colStyle.colHead{
-  @apply h-[50px] bg-[#E6E6E6] text-base font-normal;
+  @apply py-2 bg-[#E6E6E6] text-base font-normal;
 }

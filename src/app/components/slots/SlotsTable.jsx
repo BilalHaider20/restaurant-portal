@@ -18,7 +18,7 @@ const {t} = useTranslation();
   });
 
   return (
-    <div className=" overflow-x-scroll w-full">
+    <div className="overflow-auto w-full">
       <table className="min-w-full bg-white border border-gray-200">
         <thead>
           <tr className="">

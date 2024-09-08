@@ -40,15 +40,17 @@ const Page = () => {
 
 
   return (
-    <div className="bg-bg-highlight p-4 sm:p-6">
+    <div className="bg-bg-highlight px-4">
       <TabLayout title={t('restaurants.restaurantListing')} onClick={handleOpenModal}
         btntext={'add_new'} inputPlaceholder='restaurants'  />
+        <div className="py-2  h-[calc(78vh-8rem)] overflow-y-auto">
         {loading && <p>Loading...</p>}
         {
           data.map((restaurant) => (
             <RestaurantCard key={restaurant.id} id={restaurant.id} {...restaurant} className="cursor-pointer" />
           ))
         }
+        </div>
       {isModalOpen && <RestaurantModal onClose={handleCloseModal}  />}
     </div>
   );

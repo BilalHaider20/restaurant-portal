@@ -13,7 +13,6 @@ import floor from "@/app/components/restaurants/details/Floor/Floor";
 import TabLayout from "@/app/components/common/Common Layout/TabLayout";
 import AddPromotionModal from "@/app/components/restaurants/details/Promotions/AddPromotionModal";
 import BranchesModal from "@/app/components/restaurants/details/Branch/BranchesModal";
-// import { branches } from "@/app/utils/restaurants/branches/branchesData";
 import AddUserModal from "@/app/components/users/AddUser/AddUserModal";
 import { getBranches } from "@/app/services/apiMethods";
 import { set } from "react-hook-form";
@@ -75,7 +74,7 @@ const Branches = () => {
       case 'Branches':
         return (
           <>
-            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new_floor"} inputPlaceholder={"branches"} onSearch={setSearchQuery}  onClick={()=>handleOpenModal('branches')} />
+            <TabLayout title={"Arcdian Cafe Branches"} btntext={"add_new"} inputPlaceholder={"branches"} onSearch={setSearchQuery}  onClick={()=>handleOpenModal('branches')} />
             <div className="flex flex-col gap-4">
               {loading && <p>Loading...</p>}
             {

@@ -36,8 +36,8 @@ const Page = () => {
        
             console.log("sucessfully logged in");
             
-            const locale = router.locale || 'en'|| 'ar';
-            router.push(`/${locale}/dashboard`);
+            
+            router.push(`/dashboard`);
         } catch (error) {
             console.log('login failed', error);
             setError(error);
