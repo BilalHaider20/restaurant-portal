@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import RestaurantCard from "../../../components/restaurants/RestaurantCard";
 import TabLayout from "../../../components/common/Common Layout/TabLayout";
 import RestaurantModal from "../../../components/restaurants/Restaurant Modal/RestaurantModal";
-import { getRestaurants } from "@/app/services/apiMethods";
+import { Addrestaurant, getRestaurants } from "@/app/services/apiMethods";
 import Loading from "@/app/Loading";
 
 const Page = () => {
@@ -13,11 +13,33 @@ const Page = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setloading] = useState(true);
+
+  const params = {
+    image:null,
+    email: '1pizza111@pizza.com',
+    phone_number: '03244194429',
+    cuisine: 'italian',
+    price_range: '$$',
+    description: 'lorem',
+    restaurant_id: '3',
+    phone_number_country: 'PK'
+}
   useEffect(() => {
     getRestaurantsFunction();
-    
+    addrest();
   }, []);
+  
+  const addrest =async () => {
+try {
+  
+  const res = await Addrestaurant(params);
+  console.log(res);
+} catch (error) {
+  console.log(error);
+}
+    
 
+  }
   const getRestaurantsFunction = async () => {
     
     try {

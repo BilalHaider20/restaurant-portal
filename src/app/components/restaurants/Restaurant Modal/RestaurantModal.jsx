@@ -115,14 +115,14 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                 <Controller
                   name="name"
                   control={control}
-                  rules={{ required: "This is a required field" }}
+                  // rules={{ required: "This is a required field" }}
                   render={({ field }) => (
                     <Input
                       label="Restaurant Name"
                       name="name"
                       value={field.value}
                       onChange={field.onChange}
-                      placeholder={`Enter Email Address`}
+                      placeholder={`Enter restaurant name`}
                       error={errors.name?.message}
                     />
                   )}
@@ -211,7 +211,7 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                     type="email"
                     value={field.value}
                     onChange={field.onChange}
-                    placeholder={`Enter Email Address`}
+                    placeholder={`Enter email address`}
                     error={errors.email?.message}
                   />
                 )}

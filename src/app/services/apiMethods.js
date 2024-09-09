@@ -12,17 +12,9 @@ import api from './api';
 // More methods as needed
 
 
-// const params = {
-//     name: 'Salt N Pepper',
-//     email: '1pizza111@pizza.com',
-//     phone_number: '03244194429',
-//     cuisine: 'italian',
-//     price_range: '$$',
-//     description: 'lorem',
-//     restaurant_id: '3',
-//     phone_number_country: 'PK'
-// }
+
 export const getRestaurants = () =>  api.get('http://restaurants-uat.bookmepk.com/portal/api/restaurants');
+export const Addrestaurant = (params) =>  api.post('http://restaurants-uat.bookmepk.com/portal/api/restaurants',params);
 
 export const getUsers = () =>  api.get('http://restaurants-uat.bookmepk.com/portal/api/users');
 
