@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import images from '../../../../../public/images/index';
+import Link from 'next/link'
 import nav_images from '../../../../../public/images/navbar'
 import Menu from './Menu';
 import { Convert } from 'easy-currencies';
