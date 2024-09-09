@@ -13,6 +13,7 @@ import { addRestaurants } from "@/app/services/apiMethods";
 import { useAppSelector } from "@/lib/hooks";
 
 const cuisineOptions = [{ value: "italian", label: "italian" }];
+
 const RestaurantModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { lang } = useAppSelector((lang) => state.lang)
