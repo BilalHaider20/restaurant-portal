@@ -1,21 +1,22 @@
 "use client";
 import Image from 'next/image';
-import Link from 'next/link'
+import Link from 'next/link';
 import nav_images from '../../../../../public/images/navbar'
 import Menu from './Menu';
 import { Convert } from 'easy-currencies';
-import {  useAppSelector, useAppDispatch } from '@/lib/hooks';
+import { useTranslations } from 'next-intl';
+import { useAppSelector } from '@/lib/hooks';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { authReset } from '@/lib/features/auth/authSlice';
 import { logout } from '@/app/services/apiMethods';
 
 const Sidebar = ({ sidebarOpen }) => {
+
  const {t} = useTranslation();
   const {cur} = useAppSelector((state) => state.cur);
   const {user} = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch()
-
   const temp_amount = 1.80
   const [amount, setAmount] = useState()
 
@@ -68,6 +69,7 @@ const Sidebar = ({ sidebarOpen }) => {
 
       {/* Logout button section */}
       {sidebarOpen && (
+
         <button onClick={handleLogout} className=' px-[20px] py-2 flex gap-2'>
           <Image src={nav_images.logout} alt="logout" />
           <span className='text-red-500'>Logout</span>
