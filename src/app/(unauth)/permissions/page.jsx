@@ -1,7 +1,7 @@
 "use client";
 import Image from 'next/image';
 import { LuFileEdit } from "react-icons/lu";
-import images from '../../../public/images';
+import images from '../../../../public/images';
 import TabLayout from '@/app/components/common/Common Layout/TabLayout';
 
 const permissionsData = Array(10).fill({

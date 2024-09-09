@@ -13,6 +13,7 @@ const LayoutWrapper = ({ children }) => {
   const [mobile, setMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [loaded, setLoaded] = useState(false)
   const { lang } = useAppSelector((state) => state.lang);
   const { i18n } = useTranslation();
   const {user} = useAppSelector((state) => state.auth)
@@ -48,15 +49,18 @@ const LayoutWrapper = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (!user){
+    if (!user) {
       router.push('/login')
-  }
-  else{
-      console.log(user);
-  }
-  })
+    }
+    setLoaded(true)
+
+  }, [user, router])
 
   if (!isMounted) {
+    // Avoid rendering anything that depends on window or localStorage until the component is mounted
+    return null;
+  }
+  if (!loaded) {
     // Avoid rendering anything that depends on window or localStorage until the component is mounted
     return null;
   }
@@ -64,7 +68,6 @@ const LayoutWrapper = ({ children }) => {
   return (
     <div lang={lang} dir={lang=='en'?"ltr":"rtl"}>
       <Navbar toggleSidebar={toggleSidebar} />
-
       <div className="relative flex w-full mt-[68px]">
         <Sidebar sidebarOpen={sidebarOpen} />
         <main className={`flex flex-col overflow-y-auto relative w-full flex-1 transition-all ease-in-out duration-300`}>
