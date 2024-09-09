@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslation } from "react-i18next";
 import { RxCross2 } from "react-icons/rx";
 
 //Components
@@ -9,8 +9,8 @@ import FilterButton from '../../common/filters/FilterButton'
 
 const UserFilter = () => {
 
-    const t = useTranslations("UserFilter");
-    const roles = [t('restaurant_manager'),t('branch_manager'), t('staff'), t('any')]
+    const {t} = useTranslation();
+    const roles = [t('UserFilter.restaurant_manager'),t('UserFilter.branch_manager'), t('UserFilter.staff'), t('UserFilter.any')]
 
     const [isOpen, setIsOpen] = useState(false);
     const toggleDropDown = () => {
@@ -34,7 +34,7 @@ const UserFilter = () => {
                     className=" min-h-10 inline-flex justify-between items-center  rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-xs md:text-sm lg:text-base xl:text-lg font-medium text-gray-80 hover:bg-gray-50 "
                 >
                     {/* <Image src={images.filter} alt="" className="mr-2" /> */}
-                    <span>{t("filter")}</span>
+                    <span>{t("UserFilter.filter")}</span>
                     <svg
                         className="-mr-1 ml-2 h-5 w-5"
                         xmlns="http://www.w3.org/2000/svg"

@@ -8,7 +8,7 @@ import images from "@/../public/images";
 import DropDownComponent from "@/app/components/common/dropdowns/DropDownComponent";
 import AvailableInput from "@/app/components/common/FormElements/AvailableInput";
 import Input from "@/app/components/common/FormElements/Input";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ImageUpload from '@/app/components/common/FormElements/ImageUpload';
@@ -83,7 +83,7 @@ const BranchesModal = ({ onClose }) => {
     });
   };
 
-  const t = useTranslations("BranchesModal");
+  const { t } = useTranslation();
 
 
   const cityOptions = [
@@ -119,7 +119,7 @@ const BranchesModal = ({ onClose }) => {
         {/* Modal Header */}
         <div className="font-semibold text-[#15223C] bg-[#FFFFFF] w-full p-4 flex justify-between items-center">
           <h2 className="text-xl sm:text-2xl">
-            {t("edit")} Arcadian Cafe Packages Mall
+            {t("BranchesModal.edit")} Arcadian Cafe Packages Mall
           </h2>
           <button className="text-xl" onClick={handleModalClose} >&times;</button>
         </div>
@@ -130,14 +130,14 @@ const BranchesModal = ({ onClose }) => {
             <Controller
               name="name"
               control={control}
-              rules={{ required: t("requiredField") }}
+              rules={{ required: t("BranchesModal.requiredField") }}
               render={({ field }) => (
                 <Input
-                  label={t("branchName")}
+                  label={t("BranchesModal.branchName")}
                   name="name"
                   value={field.value}
                   onChange={field.onChange}
-                  placeholder={t("branchName")}
+                  placeholder={t("BranchesModal.branchName")}
                   error={errors.name?.message}
                 />
               )}
@@ -146,11 +146,11 @@ const BranchesModal = ({ onClose }) => {
               <Controller
                 name="phone"
                 control={control}
-                rules={{ required: t("requiredField") }}
+                rules={{ required: t("BranchesModal.requiredField") }}
                 render={({ field }) => (
                   <div className="space-y-1 relative w-full">
                     <label className="m-0" htmlFor="phone">
-                      {t("phoneNumber")}
+                      {t("BranchesModal.phoneNumber")}
                     </label>
                     <PhoneInput
                       country="pk"
@@ -170,15 +170,15 @@ const BranchesModal = ({ onClose }) => {
               <Controller
                 name="email"
                 control={control}
-                rules={{ required: t("requiredField") }}
+                rules={{ required: t("BranchesModal.requiredField") }}
                 render={({ field }) => (
                   <Input
-                    label={t("emailAddress")}
+                    label={t("BranchesModal.emailAddress")}
                     name="email"
                     type="email"
                     value={field.value}
                     onChange={field.onChange}
-                    placeholder={`Enter ${t("emailAddress")}`}
+                    placeholder={`Enter ${t("BranchesModal.emailAddress")}`}
                     error={errors.email?.message}
                   />
                 )}
@@ -188,10 +188,10 @@ const BranchesModal = ({ onClose }) => {
               <Controller
                 name="city"
                 control={control}
-                rules={{ required: t("requiredField") }}
+                rules={{ required: t("BranchesModal.requiredField") }}
                 render={({ field }) => (
                   <DropDownComponent
-                    label={t("branchCity")}
+                    label={t("BranchesModal.branchCity")}
                     name="city"
                     options={cityOptions}
                     value={field.value}
@@ -203,10 +203,10 @@ const BranchesModal = ({ onClose }) => {
               <Controller
                 name="country"
                 control={control}
-                rules={{ required: t("requiredField") }}
+                rules={{ required: t("BranchesModal.requiredField") }}
                 render={({ field }) => (
                   <DropDownComponent
-                    label={t("branchCountry")}
+                    label={t("BranchesModal.branchCountry")}
                     name="country"
                     options={countryOptions}
                     value={field.value}
@@ -229,14 +229,14 @@ const BranchesModal = ({ onClose }) => {
               name="facilities"
               control={control}
               render={({ field }) => (
-                <DropDownComponent label={t("selectFacilities")} name="facilities" options={facilitiesOptions} value={field.value} onChange={field.onChange} />
+                <DropDownComponent label={t("BranchesModal.selectFacilities")} name="facilities" options={facilitiesOptions} value={field.value} onChange={field.onChange} />
               )}
             />
             <Controller
               name="payment-methods"
               control={control}
               render={({ field }) => (
-                <DropDownComponent label={t("selectPayment")} name="payment-methods" options={paymentOptions} value={field.value} onChange={field.onChange} />
+                <DropDownComponent label={t("BranchesModal.selectPayment")} name="payment-methods" options={paymentOptions} value={field.value} onChange={field.onChange} />
               )}
             />
           </div>

@@ -9,7 +9,7 @@ import LangDropdown from '../../common/dropdowns/LangDropdown'
 
 const Navbar = ({toggleSidebar}) => {
   return (
-    <div className='flex items-center justify-between px-5 py-3 bg-white dark:bg-secondary-bg-dark shadow-sm fixed top-0 left-0 w-full z-50'>
+    <div className='flex items-center justify-between px-5 py-3 bg-white dark:bg-secondary-bg-dark shadow-sm fixed top-0 left-0 w-full z-50 '>
       <div className='flex gap-5'>
         <Image className='cursor-pointer' onClick={toggleSidebar} src={nav_images.menu} alt='menu icon' />
         <Image src={images.logo} alt='logo' />

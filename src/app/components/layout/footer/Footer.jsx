@@ -5,7 +5,7 @@ import images from '../../../../../public/images/index'
 
 const Footer = () => {
   return (
-    <footer className='bg-white py-2 pr-10 pl-5 '>
+    <footer className='bg-white py-2 pr-10 pl-5 z-100 '>
       <div className='flex justify-between items-center'>
         <div className='flex gap-3'>
           <li className='text-base font-normal text-[#999] list-none'>© Copyright 2022</li>

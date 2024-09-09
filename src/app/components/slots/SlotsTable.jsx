@@ -1,12 +1,12 @@
 import React from 'react'
 import Image from 'next/image';
 import images from '../../../../public/images';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from 'react-i18next';
 
 
 const SlotsTable = () => {
 
-  const t = useTranslations('slots.table')
+const {t} = useTranslation();
 
   const slots = Array(7).fill({
     slotTitle: 'Lunch Slot',
@@ -18,17 +18,17 @@ const SlotsTable = () => {
   });
 
   return (
-    <div className=" overflow-x-scroll w-full">
+    <div className="overflow-auto w-full">
       <table className="min-w-full bg-white border border-gray-200">
         <thead>
           <tr className="">
-            <th className="colStyle colHead  w-[175px] min-w-[109px] ">{t('title')} </th>
-            <th className="colStyle colHead w-[175px] min-w-[109px]">{t('type')}</th>
-            <th className="colStyle colHead w-[175px] min-w-[109px]">{t('days')}</th>
-            <th className="colStyle colHead w-[100px] min-w-[68px]">{t('opening_time')}</th>
-            <th className="colStyle colHead w-[100px] min-w-[68px]">{t('closing_time')}</th>
-            <th className="colStyle colHead w-[100px] min-w-[68px]">{t('duration')}</th>
-            <th className="colStyle colHead w-[80px] min-w-[68px]">{t('actions')}</th>
+            <th className="colStyle colHead  w-[175px] min-w-[109px] ">{t('slots.table.title')} </th>
+            <th className="colStyle colHead w-[175px] min-w-[109px]">{t('slots.table.type')}</th>
+            <th className="colStyle colHead w-[175px] min-w-[109px]">{t('slots.table.days')}</th>
+            <th className="colStyle colHead w-[100px] min-w-[68px]">{t('slots.table.opening_time')}</th>
+            <th className="colStyle colHead w-[100px] min-w-[68px]">{t('slots.table.closing_time')}</th>
+            <th className="colStyle colHead w-[100px] min-w-[68px]">{t('slots.table.duration')}</th>
+            <th className="colStyle colHead w-[80px] min-w-[68px]">{t('slots.table.actions')}</th>
           </tr>
         </thead>
         <tbody>

@@ -8,9 +8,8 @@ import Rate from "@/app/components/Rating";
 import { deleteRestaurants } from "@/app/services/apiMethods";
 const RestaurantCard = (props) => {
   const router = useRouter();
-  const handleCardClick = () => {
-    const locale = router.locale || 'en'|| 'ar';
-    router.push(`/${locale}/restaurants/branches/${props.id}`);
+  const handleCardClick = () => { 
+    router.push(`/restaurants/branches/${props.id}`);
   };
 
   const HandleDelete=(id)=>{
@@ -18,7 +17,7 @@ const RestaurantCard = (props) => {
   }
 
   return (
-    <div className="relative flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden cursor-pointer" onClick={handleCardClick} >
+    <div className="relative my-2 flex flex-col w-[85%] sm:w-full mx-auto  sm:flex-row border border-gray-200 rounded-lg shadow-md overflow-hidden cursor-pointer" onClick={handleCardClick} >
     <Image
       src={rest_images.rest_image}
       alt="Restaurant Logo"

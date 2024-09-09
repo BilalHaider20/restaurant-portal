@@ -6,8 +6,8 @@ import RoleDropdown from "./RoleDropdown";
 import { useState } from "react";
 
 
-const Users = ({ data }) => {
-  const [userRoles, setUserRoles] = useState(data?.map((user) => user.role));
+const Users = ({data}) => {
+      const [userRoles, setUserRoles] = useState(data?.map(user => user.role));
 
   const handleRoleChange = (index, newRole) => {
     const updatedRoles = [...userRoles];

@@ -28,9 +28,12 @@ const authSlice = createSlice({
     clearPermissions:(state)=>{
       state.permissions = [];
     },
+    authReset: (state) =>{
+      return initialState;
+    }
   },
 });
 
-export const { setToken, clearToken,setUser,clearUser,setPermissions,clearPermissions } = authSlice.actions;
+export const { setToken, clearToken,setUser,clearUser,setPermissions,clearPermissions,authReset } = authSlice.actions;
 
 export default authSlice.reducer;

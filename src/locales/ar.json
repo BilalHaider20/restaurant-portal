@@ -1,3 +1,134 @@
 {
-    
+"sidebar": {
+"dashboard": "لوحة التحكم",
+"restaurant": "المطاعم",
+"make_bookings": "إجراء الحجوزات",
+"reports": "التقارير",
+"my_bookings": "حجوزاتي",
+"invoices": "الفواتير",
+"users": "المستخدمون",
+"departments": "الأقسام",
+"privacy": "سياسة الخصوصية",
+"terms": "الشروط والأحكام",
+"login": "تسجيل الدخول",
+"credit": "الرصيد",
+"balance": "إجمالي الرصيد",
+"amenities":"وسائل الراحة",
+"permissions":"الأذونات",
+"slots": "الفترات الزمنية"
+},
+"restaurant": {
+"branches": "الفروع"
+},
+"dashboard":{
+"totalreservations": "إجمالي الحجوزات",
+"recentbooking": "الحجوزات الأخيرة",
+"booking": "الحجوزات",
+"cafedropdown":{
+"Arcadian Cafe": "مقهى أركاديان",
+"Burger Lab": "برجر لاب",
+"Gloria Jeans": "غلوريا جينز",
+"KFC": "كنتاكي",
+"McDonalds": "ماكدونالدز"
+},
+"BarChartLabels": {
+"Monday": "الاثنين",
+"Tuesday": "الثلاثاء",
+"Wednesday": "الأربعاء",
+"Thursday": "الخميس",
+"Friday": "الجمعة",
+"Saturday": "السبت",
+"Sunday": "الأحد"
+},
+"IntervalDropDown": {
+"Last Week": "الأسبوع الماضي",
+"Last Month": "الشهر الماضي",
+"Last Year": "العام الماضي"
+}
+},
+"restaurants": {
+"restaurantListing": "قائمة المطاعم"
+},
+"SearchInput": {
+"restaurants": "البحث عن المطاعم",
+"branches": "البحث عن الفروع",
+"user": "البحث عن المستخدم",
+"promotion":"البحث عن العروض الترويجية",
+"food_items": "البحث عن العناصر الغذائية",
+"amenities": "البحث عن وسائل الراحة",
+"roles_permissions":"البحث عن الأدوار والأذونات",
+"slots": "البحث عن الفترات الزمنية"
+},
+"FilterDropdown": {
+"filter": "تصفية",
+"all": "الكل",
+"italian": "إيطالي",
+"french": "فرنسي",
+"asian": "آسيوي",
+"mexican": "مكسيكي"
+},
+"Tab_Header":{
+"button":{
+"add_new":"إضافة جديد",
+"add_new_branch": "إضافة فرع جديد",
+"add_new_user": "إضافة مستخدم جديد",
+"add_new_promotion": "إضافة عرض ترويجي جديد",
+"make_reservation": "إجراء حجز",
+"add_new_food_item": "إضافة عنصر غذائي جديد",
+"permission" : "الأذونات والأدوار",
+"add_new_slot": "إضافة فترة زمنية جديدة",
+"add_new_floor": "إضافة طابق جديد"
+}
+},
+"BranchesModal": {
+"edit":"تعديل",
+"branchName": "اسم الفرع",
+"phoneNumber": "رقم الهاتف",
+"emailAddress": "عنوان البريد الإلكتروني",
+"branchCity": "مدينة الفرع",
+"branchCountry": "بلد الفرع",
+"chooseDay": "اختر اليوم",
+"openingHours": "ساعات العمل",
+"closingHours": "ساعات الإغلاق",
+"selectFacilities": "اختر المرافق",
+"selectPayment": "اختر طرق الدفع",
+"add": "إضافة",
+"cancel": "إلغاء"
+},
+"UserFilter" : {
+"filter" :"تصفية",
+"restaurant_manager" : "مدير المطعم",
+"branch_manager" : "مدير الفرع",
+"staff" : "الطاقم",
+"any": "أي",
+"cancel": "إلغاء",
+"requiredField": "هذا الحقل مطلوب"
+},
+"loginPage":{
+"bookmeLogin":"بوابة مطاعم بوكمي",
+"provideDetails":"يرجى تقديم التفاصيل أدناه لتسجيل الدخول إلى حسابك",
+"email" : "عنوان البريد الإلكتروني",
+"password":"كلمة المرور",
+"remember" : "تذكرني",
+"forgot":"هل نسيت كلمة المرور؟",
+"signin": "تسجيل الدخول"
+},
+"slots": {
+"slots": "الفترات الزمنية",
+"table": {
+"title": "عنوان الفترة الزمنية",
+"type": "نوع الفترة الزمنية",
+"days": "أيام الفترة",
+"opening_time": "وقت الافتتاح",
+"closing_time": "وقت الإغلاق",
+"duration" : "مدة الفترة",
+"actions": "الإجراءات"
+},
+"form": {
+"edit": "تعديل",
+"type": "نوع الفترة الزمنية",
+"title": "عنوان الفترة الزمنية",
+"duration":"مدة الفترة"
+}
+}
 }

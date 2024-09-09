@@ -10,11 +10,15 @@ import PhoneInput from "react-phone-input-2";
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import "react-phone-input-2/lib/style.css";
 import { addRestaurants } from "@/app/services/apiMethods";
+import { useAppSelector } from "@/lib/hooks";
 
 const cuisineOptions = [{ value: "italian", label: "italian" }];
-
 const RestaurantModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { lang } = useAppSelector((lang) => state.lang)
+
+  const dir = lang === 'en' ? 'ltr' : 'rtl'
+
   const {
     control,
     handleSubmit,
@@ -77,11 +81,11 @@ const RestaurantModal = ({ onClose }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50">
       <div
         className={`w-full max-w-3xl h-screen bg-[#F2F4F7] flex flex-col justify-between transition-transform duration-300
-          ${isModalOpen ? "translate-x-0" : "translate-x-full"}
+          ${ isModalOpen ? "translate-x-0" : "translate-x-full"}
         `}
       >
         {/* Modal Header */}
-        <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
+        <div className="font-semibold text-[#15223C] bg-[#FFFFFF] w-full p-4 flex justify-between items-center">
           <h2 className="text-xl sm:text-2xl">Add a New Restaurant</h2>
           <button className="text-xl" onClick={handleModalClose}>
             &times;
