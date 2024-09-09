@@ -43,7 +43,7 @@ const Page = () => {
     <div className="bg-bg-highlight px-4">
       <TabLayout title={t('restaurants.restaurantListing')} onClick={handleOpenModal}
         btntext={'add_new'} inputPlaceholder='restaurants'  />
-        <div className="py-2  h-[calc(78vh-8rem)] overflow-y-auto">
+        <div className="py-2  h-[calc(80vh-8rem)] overflow-y-auto">
         {loading && <p>Loading...</p>}
         {
           data.map((restaurant) => (
@@ -51,7 +51,7 @@ const Page = () => {
           ))
         }
         </div>
-      {isModalOpen && <RestaurantModal onClose={handleCloseModal}  />}
+      { isModalOpen  && <RestaurantModal onClose={handleCloseModal}  />}
     </div>
   );
 };

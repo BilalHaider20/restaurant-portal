@@ -3,8 +3,8 @@ import { useState } from 'react'
 import BranchIntro from '../../../../restaurant/components/BranchIntro'
 import rest_images from '../../../../../../../public/images/restaurant'
 import TabLayout from '@/app/components/common/Common Layout/TabLayout'
-import MenuItem from '@/app/[locale]/restaurant/components/MenuItem' 
-import Switch from '@/app/[locale]/restaurant/components/Switch'
+import MenuItem from '@/app/components/restaurants/details/components/MenuItem' 
+import Switch from '@/app/components/restaurants/details/components/Switch'
 import Users from '@/app/components/restaurants/details/Members/Users'
 import Promotions from '@/app/components/restaurants/details/Promotions/Promotions'
 import Floor from '@/app/components/restaurants/details/Floor/Floor'
@@ -167,7 +167,7 @@ const Page = () => {
   }
 
   return (
-    <div className={`px-5 py-5 bg-bg-main relative`}>
+    <div className={`px-5 py-5 bg-bg-main relative space-y-4`}>
       <BranchIntro rest={rest} />
       <div className="flex">
         <Switch className="" activeTab={activeTab} setactiveTab={setactiveTab} />
