@@ -7,7 +7,7 @@ import SearchInput from '@/app/components/common/SearchField/SearchInput';
 const TabLayout = (props) => {
 
   return (
-    <div className="flex flex-col justify-between py-2">
+    <div className="flex flex-col justify-between">
         <div className='flex-col justify-between w-full '>
         <div className='flex justify-between w-full py-2'>
 
