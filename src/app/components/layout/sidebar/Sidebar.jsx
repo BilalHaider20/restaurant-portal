@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import images from '../../../../../public/images/index';
+import Link from 'next/link'
 import nav_images from '../../../../../public/images/navbar'
 import Menu from './Menu';
 import { Convert } from 'easy-currencies';
@@ -51,10 +51,12 @@ const Sidebar = ({ sidebarOpen }) => {
 
       {/* Logout button section */}
       {sidebarOpen && (
+        <Link href="/logout">
         <div className=' px-[20px] py-2 flex gap-2'>
           <Image src={nav_images.logout} alt="logout" />
           <span className='text-red-500'>Logout</span>
         </div>
+        </Link>
       )}
     </div>
   );
