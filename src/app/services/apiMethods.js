@@ -28,3 +28,4 @@ export const addUser = (params) => axios.post(`${process.env.base_url}/portal/ap
 
 //LOGIN
 export const login = (params) => axios.post(`${process.env.base_url}/auth/api/login`, params);
+export const logout = () => axios.post(`${process.env.base_url}/auth/api/logout`);

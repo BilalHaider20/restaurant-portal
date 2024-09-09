@@ -6,7 +6,7 @@ import RecentBooking from '@/app/components/dashboard/RecentBooking'
 import WelcomeStats from '@/app/components/WelcomeStats'
 
 
-const page = () => {
+const DashboardPage = () => {
 
   return (
     <div className='bg-[#F6F9FD] pb-2 overflow-y-auto'>
@@ -30,4 +30,4 @@ const page = () => {
   )
 }
 
-export default page
+export default DashboardPage

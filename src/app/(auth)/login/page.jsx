@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
-import images from '../../../../../public/images';
+import images from '../../../../public/images';
 import { useRouter } from 'next/navigation';
 import { setToken,setUser,setPermissions } from '@/lib/features/auth/authSlice';
 import { login } from '@/app/services/apiMethods';
@@ -15,6 +15,7 @@ const Page = () => {
     const router = useRouter();
     const isArabic = router.locale === 'ar'; 
     const dispatch = useAppDispatch();
+    const {user} = useAppSelector((state) => state.auth);
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -35,9 +36,9 @@ const Page = () => {
             dispatch(setPermissions(Permissions));   
        
             console.log("sucessfully logged in");
-            
-            
+            console.log(user);
             router.push(`/dashboard`);
+
         } catch (error) {
             console.log('login failed', error);
             setError(error);

@@ -3,16 +3,20 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./header/Navbar";
 import Footer from "./footer/Footer";
 import Sidebar from "./sidebar/Sidebar";
-
+import { useRouter } from "next/navigation";
 import { useAppSelector } from "@/lib/hooks";
 import '../../../i18n'
 import { withTranslation,useTranslation } from 'react-i18next';
+
+
 const LayoutWrapper = ({ children }) => {
   const [mobile, setMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const { lang } = useAppSelector((state) => state.lang);
   const { i18n } = useTranslation();
+  const {user} = useAppSelector((state) => state.auth)
+  const router = useRouter()
 
 
   const toggleSidebar = () => {
@@ -42,6 +46,15 @@ const LayoutWrapper = ({ children }) => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    if (!user){
+      router.push('/login')
+  }
+  else{
+      console.log(user);
+  }
+  })
 
   if (!isMounted) {
     // Avoid rendering anything that depends on window or localStorage until the component is mounted
