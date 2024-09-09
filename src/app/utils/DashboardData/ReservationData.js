@@ -1,4 +1,4 @@
-import { dashboardimages } from "../../../../public/images";
+
 
 
 export const reservations = [

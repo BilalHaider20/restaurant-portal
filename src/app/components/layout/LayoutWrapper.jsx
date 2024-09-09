@@ -3,33 +3,17 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./header/Navbar";
 import Footer from "./footer/Footer";
 import Sidebar from "./sidebar/Sidebar";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { useAppSelector } from "@/lib/hooks";
 
+import { useAppSelector } from "@/lib/hooks";
+import '../../../i18n'
+import { withTranslation,useTranslation } from 'react-i18next';
 const LayoutWrapper = ({ children }) => {
   const [mobile, setMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const { lang } = useAppSelector((state) => state.lang);
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { i18n } = useTranslation();
 
-  const locale = searchParams.get('locale');
-  useEffect(() => {
-    if (lang !== locale) {
-      // Remove the old locale from pathname
-      const localePattern = /^\/[a-z]{2}/; // Assuming locale is a two-letter language code
-      const updatedPathname = pathname.replace(localePattern, '');
-
-      // Construct the new path with the updated locale
-      const newPath = `/${lang}${updatedPathname}`;
-      const queryParams = new URLSearchParams(searchParams.toString()).toString();
-      const fullPath = queryParams ? `${newPath}?${queryParams}` : newPath;
-
-      router.push(fullPath);
-    }
-  }, [lang, locale, pathname, searchParams, router]);
 
   const toggleSidebar = () => {
     const newSidebarOpen = !sidebarOpen;
@@ -40,6 +24,10 @@ const LayoutWrapper = ({ children }) => {
   };
 
   useEffect(() => {
+    if (lang!='en'){
+      i18n.changeLanguage(lang)
+    }
+
     setIsMounted(true); // Ensure the component is mounted before checking window properties
 
     const handleResize = () => {
@@ -61,13 +49,13 @@ const LayoutWrapper = ({ children }) => {
   }
 
   return (
-    <div>
+    <div lang={lang} dir={lang=='en'?"ltr":"rtl"}>
       <Navbar toggleSidebar={toggleSidebar} />
-      
+
       <div className="relative flex w-full mt-[68px]">
         <Sidebar sidebarOpen={sidebarOpen} />
-        <main className={`h-[calc(100vh-4rem)] flex flex-col overflow-y-scroll relative w-full flex-1 transition-all ease-in-out duration-300`}>
-          <div className="flex-grow">{children}</div>
+        <main className={`flex flex-col overflow-y-auto relative w-full flex-1 transition-all ease-in-out duration-300`}>
+          <div className="h-[calc(90vh-4rem)] overflow-y-auto flex-grow">{children}</div>
           <Footer  />
         </main>
       </div>
@@ -75,4 +63,4 @@ const LayoutWrapper = ({ children }) => {
   );
 };
 
-export default LayoutWrapper;
+export default withTranslation()(LayoutWrapper);

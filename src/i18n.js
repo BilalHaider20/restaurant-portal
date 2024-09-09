@@ -1,12 +1,27 @@
-import {notFound} from 'next/navigation';
-import {getRequestConfig} from 'next-intl/server';
-import {locales} from './config';
- 
-export default getRequestConfig(async ({locale}) => {
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale)) notFound();
- 
-  return {
-    messages: (await import(`./locales/${locale}.json`)).default
-  };
-});
+// src/i18n.js
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+import enTranslation from './locales/en.json';
+import arTranslation from './locales/ar.json';
+
+i18n.use(initReactI18next).init({
+        resources: {
+            en: {
+                translation: enTranslation,
+            },
+            ar: {
+                translation: arTranslation,
+            },
+        },
+        fallbackLng: 'en',
+        lng: 'en',// Fallback language
+        debug: true,
+        interpolation: {
+            escapeValue: false, // React already does escaping
+        },
+    });
+
+export default i18n;
+
+

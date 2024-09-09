@@ -1,15 +1,15 @@
 "use client";
 import React, { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import images from "../../../../../public/images/index";
 
 const FilterDropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedFilter, setSelectedFilter] = useState("All");
-    const t = useTranslations('FilterDropdown');
+    const {t}   = useTranslation();
 
-    const filters = [t('all'), t('italian'),t('asian'),t('mexican'),t('french')];
+    const filters = [t('FilterDropdown.all'), t('FilterDropdown.italian'),t('FilterDropdown.asian'),t('FilterDropdown.mexican'),t('FilterDropdown.french')];
 
     const handleFilterSelect = (filter) => {
         setSelectedFilter(filter);
@@ -25,7 +25,7 @@ const FilterDropdown = () => {
                     className=" min-h-10 inline-flex justify-between items-center  rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-xs md:text-sm lg:text-base xl:text-lg font-medium text-gray-80 hover:bg-gray-50 "
                 >
                     <Image src={images.filter} alt="" className="mr-2" />
-                    <span>{t('filter')}</span>
+                    <span>{t('FilterDropdown.filter')}</span>
                     <svg
                         className="-mr-1 ml-2 h-5 w-5"
                         xmlns="http://www.w3.org/2000/svg"

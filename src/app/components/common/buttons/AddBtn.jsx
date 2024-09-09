@@ -1,10 +1,10 @@
 import React from 'react'
 import images from '../../../../../public/images/index'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import { useTranslation } from 'react-i18next'
 
 const AddBtn = ({ btnText, onClick }) => {
-  const t = useTranslations('Tab_Header.button');
+ const {t} = useTranslation();
   return (
     <div>
       <button className='min-w-24 px-4 py-2 md:py-3  bg-primary-blue rounded-lg text-white 
@@ -14,7 +14,7 @@ const AddBtn = ({ btnText, onClick }) => {
         alt='add new button'
         className='inline-block'
         />
-        {t(btnText)}
+        {t(`Tab_Header.button.${btnText}`)}
       </button>
     </div>
   )

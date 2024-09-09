@@ -7,18 +7,13 @@ import { Controller, useForm } from "react-hook-form";
 import DropDownComponent from "../../common/dropdowns/DropDownComponent";
 import Input from "../../common/FormElements/Input";
 import PhoneInput from "react-phone-input-2";
+import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import "react-phone-input-2/lib/style.css";
+import { addRestaurants } from "@/app/services/apiMethods";
 
-const cuisineOptions = [
-  { value: 'gujarati', label: 'Gujarati cuisine' },
-  { value: 'maharashtrian', label: 'Maharashtrian cuisine' },
-  { value: 'malvani', label: 'Malvani cuisine' },
-  { value: 'parsi', label: 'Parsi cuisine' },
-  { value: 'rajasthani', label: 'Rajasthani cuisine' },
-  { value: 'sindhi', label: 'Sindhi cuisine' },
-];
+const cuisineOptions = [{ value: "italian", label: "italian" }];
 
-const RestaurantModal = ({ onClose, onAdd }) => {
+const RestaurantModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     control,
@@ -51,14 +46,31 @@ const RestaurantModal = ({ onClose, onAdd }) => {
     }
   };
 
+  const handlePhoneChange = (value) => {
+      const phoneNumberObject = parsePhoneNumberFromString(`+${value}`);
+      const phone_number_country = phoneNumberObject.country;
+      console.log(phone_number_country);
+      return phone_number_country;
+    
+  };
+
+  const Add_New_Restaurants=async (data)=>{
+    try{
+      const reponse = await addRestaurants(data);
+      console.log(reponse);
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
   const onSubmit = (data) => {
-    const newRestaurant = {
-      id: Date.now(), // Unique ID for the new restaurant
-      ...data,
-      image: profileImage,
-    };
-    onAdd(newRestaurant);
-    handleModalClose();
+    const phone_number_country = handlePhoneChange(data.phone_number);
+    data= {...data, phone_number_country};
+    console.log(data);
+    Add_New_Restaurants(data);
+
+    // handleModalClose();
   };
 
   return (
@@ -69,7 +81,7 @@ const RestaurantModal = ({ onClose, onAdd }) => {
         `}
       >
         {/* Modal Header */}
-        <div className="font-semibold text-[#15223C] bg-[#E6E6E6] w-full p-4 flex justify-between items-center">
+        <div className="font-semibold text-[#15223C] bg-[#FFFFFF] w-full p-4 flex justify-between items-center">
           <h2 className="text-xl sm:text-2xl">Add a New Restaurant</h2>
           <button className="text-xl" onClick={handleModalClose}>
             &times;
@@ -115,14 +127,14 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                 <Controller
                   name="name"
                   control={control}
-                  // rules={{ required: "This is a required field" }}
+                  rules={{ required: "This is a required field" }}
                   render={({ field }) => (
                     <Input
                       label="Restaurant Name"
                       name="name"
                       value={field.value}
                       onChange={field.onChange}
-                      placeholder={`Enter restaurant name`}
+                      placeholder={`Enter Restaurant Name`}
                       error={errors.name?.message}
                     />
                   )}
@@ -147,7 +159,9 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                     />
                   )}
                 />
-                {errors.cuisine && <p className="text-red-500">{errors.cuisine.message}</p>}
+                {errors.cuisine && (
+                  <p className="text-red-500">{errors.cuisine.message}</p>
+                )}
               </div>
 
               {/* Pricing Category */}
@@ -158,11 +172,17 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                 <div className="flex items-center space-x-6">
                   <div className="flex items-center space-x-6 mt-[8px]">
                     {["$", "$$", "$$$"].map((price) => (
-                      <label key={price} className="flex items-center cursor-pointer">
+                      <label
+                        key={price}
+                        className="flex items-center cursor-pointer"
+                      >
                         <input
+                          name="price_range"
                           type="radio"
                           value={price}
-                          {...register("price", { required: "Pricing category is required" })}
+                          {...register("price_range", {
+                            required: "Pricing category is required",
+                          })}
                           className="peer"
                         />
                         <span className="ml-2 text-gray-500 peer-checked:text-blue-500">
@@ -172,12 +192,14 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                     ))}
                   </div>
                 </div>
-                {errors.price && <p className="text-red-500">{errors.price.message}</p>}
+                {errors.price && (
+                  <p className="text-red-500">{errors.price.message}</p>
+                )}
               </div>
             </div>
             <div className="flex flex-col gap-3 md:flex-row">
               <Controller
-                name="phone"
+                name="phone_number"
                 control={control}
                 rules={{ required: "This is a required field" }}
                 render={({ field }) => (
@@ -186,12 +208,14 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                       Phone Number
                     </label>
                     <PhoneInput
-                      country="pk"
-                      name="phone"
+                      country={"pk"}
+          
+                      name="phone_number"
                       value={field.value}
                       onChange={field.onChange}
                       className="inputForm"
                     />
+                   
                     {errors.phone && (
                       <span className="text-red-600">
                         {errors.phone.message}
@@ -200,6 +224,7 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                   </div>
                 )}
               />
+               
               <Controller
                 name="email"
                 control={control}
@@ -211,7 +236,7 @@ const RestaurantModal = ({ onClose, onAdd }) => {
                     type="email"
                     value={field.value}
                     onChange={field.onChange}
-                    placeholder={`Enter email address`}
+                    placeholder={`Enter Email Address`}
                     error={errors.email?.message}
                   />
                 )}

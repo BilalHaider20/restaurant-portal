@@ -1,17 +1,19 @@
+"use client";
 import { RestaurantDropDown } from "./RestaurantDropDown";
 import { reservations } from "../../utils/DashboardData/ReservationData";
-import { useTranslations } from "next-intl";
+import {withTranslation} from "react-i18next";
 
 
-const TotalReservations = () => {
-  const t = useTranslations('dashboard');
-  const tt = useTranslations('dashboard.IntervalDropDown');
-  const DropdownOptions = [`${tt("Last Week")}`, `${tt("Last Month")}`,`${tt("Last Year")}`];
+
+const TotalReservations = ({t}) => {
+
+
+  const DropdownOptions = [`${t("dashboard.IntervalDropDown.Last Week")}`, `${t("dashboard.IntervalDropDown.Last Month")}`,`${t("dashboard.IntervalDropDown.Last Year")}`];
   return (
     <div className="bg-white rounded-lg py-3 shadow-md min-w-[300px] sm:min-w-[472px] px-4">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-heading-clr font-semibold text-xl sm:text-2xl tracking-tighter">
-          {t('totalreservations')}
+          {t('dashboard.totalreservations')}
         </h3>
         <RestaurantDropDown DropdownOptions={DropdownOptions} />
       </div>
@@ -41,7 +43,7 @@ const TotalReservations = () => {
                   </p>
                   {reservation.bookings > 0 ? (
                     <p className="text-xs text-green-500 text-nowrap">
-                      +{reservation.bookings} {t('booking')}
+                      +{reservation.bookings} {t('dashboard.booking')}
                     </p>
                   ) : (
                     <span className="text-sm text-gray-500">{reservation.amount}</span>
@@ -57,4 +59,4 @@ const TotalReservations = () => {
   );
 };
 
-export default TotalReservations;
+export default  withTranslation()(TotalReservations);

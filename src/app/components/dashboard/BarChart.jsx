@@ -5,24 +5,22 @@ import Chart from 'chart.js/auto';
 import { CategoryScale } from 'chart.js';
 import { RestaurantDropDown } from "./RestaurantDropDown";
 import BarChartcomponent from './BarChartcomponent';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from 'react-i18next';
 Chart.register(CategoryScale);
 
 
 export const BarChart = () => {
-  const t = useTranslations('dashboard.cafedropdown');
-  const tt = useTranslations('dashboard');
-  const labels = useTranslations('dashboard.BarChartLabels');
+  const {t} = useTranslation();
 
   const DropdownOptions = [
-    `${t('Arcadian Cafe')}`, `${t('Burger Lab')}`, `${t('Gloria Jeans')}`, `${t('KFC')}`, `${t('McDonalds')}`
+    `${t('dashboard.cafedropdown.Arcadian Cafe')}`, `${t('dashboard.cafedropdown.Burger Lab')}`, `${t('dashboard.cafedropdown.Gloria Jeans')}`, `${t('dashboard.cafedropdown.KFC')}`, `${t('dashboard.cafedropdown.McDonalds')}`
   ];
 
   const barchartdata = {
-    labels: [`${labels('Monday')}`, `${labels('Tuesday')}`, `${labels('Wednesday')}`, `${labels('Thursday')}`, `${labels('Friday')}`, `${labels('Saturday')}`, `${labels('Sunday')}`],
+    labels: [`${t('dashboard.BarChartLabels.Monday')}`, `${t('dashboard.BarChartLabels.Tuesday')}`, `${t('dashboard.BarChartLabels.Wednesday')}`, `${t('dashboard.BarChartLabels.Thursday')}`, `${t('dashboard.BarChartLabels.Friday')}`, `${t('dashboard.BarChartLabels.Saturday')}`, `${t('dashboard.BarChartLabels.Sunday')}`],
     datasets: [
       {
-        label: `${tt('totalreservations')}`,
+        label: `${t('dashboard.totalreservations')}`,
         data: [40, 140, 110, 5, 5, 420, 310],
         backgroundColor:
          [
@@ -43,7 +41,7 @@ export const BarChart = () => {
     <div className=" rounded-lg bg-white px-3 py-4 shadow-md">
       <div className='flex justify-between items-center mb-8'>
         <h3 className="text-heading-clr font-semibold text-xl sm:text-2xl tracking-tighter">
-         {tt('totalreservations')}
+         {t('dashboard.totalreservations')}
         </h3>
         <RestaurantDropDown DropdownOptions={DropdownOptions} />
       </div>

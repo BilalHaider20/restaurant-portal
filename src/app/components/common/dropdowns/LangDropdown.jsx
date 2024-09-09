@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import ReactCountryFlag from "react-country-flag";
 import Image from 'next/image';
@@ -6,6 +7,7 @@ import images from '../../../../../public/images/navbar';
 // import { setLanguage } from '../lib/features/lang/langSlice';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { setLanguage } from '@/lib/features/lang/langSlice';
+import {useTranslation} from "react-i18next";
 
 const options = [
     { lang: "English", code: "en", iconCode: "GB" },
@@ -14,7 +16,7 @@ const options = [
 
 
 const LangDropdown = () => {
-
+    const { i18n } = useTranslation();
     const dispatch = useAppDispatch()
     const {lang} = useAppSelector((state) => state.lang);
 
@@ -34,6 +36,7 @@ const LangDropdown = () => {
 
     const handleOptionClick = (option) => {
         setSelectedOption(option);
+        i18n.changeLanguage(option.code);
         dispatch(setLanguage(option.code));
         setIsOpen(false);
     };
