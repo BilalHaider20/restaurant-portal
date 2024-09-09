@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import SimpleInput from "./SimpleInput";
 import SimpleTextarea from './SimpleTextrea';
 import FileUpload from "@/app/components/common/FormElements/ImageUpload";
-import FloorComp from "@/app/[locale]/restaurants/branches/[id]/details/floor/FloorComp";
+import FloorComp from "@/app/(unauth)/restaurants/branches/[id]/details/floor/FloorComp";
 
 const AddFloorModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -6,19 +6,17 @@ import images from "../../../../../public/images";
 import { Controller, useForm } from "react-hook-form";
 import DropDownComponent from "../../common/dropdowns/DropDownComponent";
 import Input from "../../common/FormElements/Input";
-import PhoneInput from "react-phone-input-2";
-import { parsePhoneNumberFromString } from 'libphonenumber-js';
-import "react-phone-input-2/lib/style.css";
+// import PhoneInput from "react-phone-input-2";
+// import { parsePhoneNumberFromString } from 'libphonenumber-js';
+// import "react-phone-input-2/lib/style.css";
 import { addRestaurants } from "@/app/services/apiMethods";
-import { useAppSelector } from "@/lib/hooks";
+import { PhoneNumber,getCountryCode } from "../../common/FormElements/PhoneNumber";
 
 const cuisineOptions = [{ value: "italian", label: "italian" }];
 
 const RestaurantModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { lang } = useAppSelector((lang) => state.lang)
 
-  const dir = lang === 'en' ? 'ltr' : 'rtl'
 
   const {
     control,
@@ -51,13 +49,13 @@ const RestaurantModal = ({ onClose }) => {
     }
   };
 
-  const handlePhoneChange = (value) => {
-      const phoneNumberObject = parsePhoneNumberFromString(`+${value}`);
-      const phone_number_country = phoneNumberObject.country;
-      console.log(phone_number_country);
-      return phone_number_country;
+  // const handlePhoneChange = (value) => {
+  //     const phoneNumberObject = parsePhoneNumberFromString(`+${value}`);
+  //     const phone_number_country = phoneNumberObject.country;
+  //     console.log(phone_number_country);
+  //     return phone_number_country;
     
-  };
+  // };
 
   const Add_New_Restaurants=async (data)=>{
     try{
@@ -70,7 +68,8 @@ const RestaurantModal = ({ onClose }) => {
   }
 
   const onSubmit = (data) => {
-    const phone_number_country = handlePhoneChange(data.phone_number);
+    console.log(data);
+    const phone_number_country = getCountryCode(data.phone_number);
     data= {...data, phone_number_country};
     console.log(data);
     Add_New_Restaurants(data);
@@ -203,7 +202,8 @@ const RestaurantModal = ({ onClose }) => {
               </div>
             </div>
             <div className="flex flex-col gap-3 md:flex-row">
-              <Controller
+              <PhoneNumber control={control} errors={errors} />
+              {/* <Controller
                 name="phone_number"
                 control={control}
                 rules={{ required: "This is a required field" }}
@@ -228,7 +228,7 @@ const RestaurantModal = ({ onClose }) => {
                     )}
                   </div>
                 )}
-              />
+              /> */}
                
               <Controller
                 name="email"
