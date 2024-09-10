@@ -16,8 +16,8 @@ const LayoutWrapper = ({ children }) => {
   const [loaded, setLoaded] = useState(false)
   const { lang } = useAppSelector((state) => state.lang);
   const { i18n } = useTranslation();
-  const {user} = useAppSelector((state) => state.auth)
-  const router = useRouter()
+  const {user} = useAppSelector((state) => state.auth);
+  const router = useRouter();
 
 
   const toggleSidebar = () => {

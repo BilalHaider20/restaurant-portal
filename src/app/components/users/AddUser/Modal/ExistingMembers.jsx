@@ -9,7 +9,7 @@ const ExistingMembers = () => {
     'User 4',
   ];
   return (
-    <div className="mb-4 flex flex-row gap-2 w-full ">
+    <div className="mb-4 flex flex-row gap-3 w-full ">
       {/* <h2 className="font-semibold">Choose From Existing Members</h2> */}
       <div className="flex flex-col gap-1 w-1/2">
         <Dropdown

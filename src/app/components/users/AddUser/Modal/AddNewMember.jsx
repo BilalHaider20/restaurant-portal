@@ -20,7 +20,7 @@ const AddNewMember = ({ setProfile }) => {
 
     return (
         <div className="bg-white rounded-lg p-4 space-y-4">
-            <h2 className="text-2xl font-medium">Basic Details</h2>
+            <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-medium">Basic Details</h2>
             <div className="flex flex-col items-center mb-4">
                 {/* Profile Image Upload Section */}
                 <div className="relative">
@@ -33,7 +33,7 @@ const AddNewMember = ({ setProfile }) => {
                     />
                     <button
                         onClick={handleClick}
-                        className="absolute bottom-0 right-[22px] bg-primary-blue text-white rounded-full px-3 py-1 flex items-center text-sm"
+                        className="absolute bottom-0 inset-x-7 bg-primary-blue text-white rounded-full px-2  text-center py-1 flex items-center justify-center gap-1 text-xs md:text-sm "
                     >
                         <Image
                             src={images.camera}
@@ -60,16 +60,16 @@ const AddNewMember = ({ setProfile }) => {
                     onChange={handleFileChange}
                 />
             </div>
-            <div className="space-y-4">
-                <div className="flex justify-between">
+            <div className="flex flex-col gap-y-3">
+                <div className="flex justify-between gap-3">
                     <input type="text" placeholder="First Name" className="border rounded-lg p-2 w-1/2" />
                     <input type="text" placeholder="Last Name" className="border rounded-lg p-2 w-1/2" />
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-3">
                     <input type="text" placeholder="Phone Number" className="border rounded-lg p-2 w-1/2" />
                     <input type="email" placeholder="Email Address" className="border rounded-lg p-2 w-1/2" />
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-3">
                     <select className="border rounded-lg p-2 w-1/2">
                         <option>Gender</option>
                         <option>Male</option>
@@ -78,9 +78,9 @@ const AddNewMember = ({ setProfile }) => {
                     <input type="date" className="border rounded-lg p-2 w-1/2" />
                 </div>
                 <div className="flex flex-col justify-between">
-                    <h2 className="text-2xl font-medium">Permission Details</h2>
+                    <h2 className="text-xs md:text-base lg:text-lg font-medium">Permission Details</h2>
                     
-                    <div className="flex flex-row">
+                    <div className="flex flex-row justify-between gap-3">
                         <select className="border rounded-lg p-2 w-1/2">
                             <option>Choose Your Role</option>
                         </select>

@@ -51,7 +51,7 @@ const AmenitiesPage = () => {
       <Amenities 
         amenitiesData={amenitiesData} 
         onClickDelete={handleOpenDeleteDialog} // Pass the delete handler
-
+        
       />
       {/* {console.log('parent onClickDelete:', onClick)} */}
       {isAddAmenitiesModalOpen && (<AddAmenityModal onClose={handleCloseAmenitiesModal} onAddAmenity={handleAddAmenity} />)}

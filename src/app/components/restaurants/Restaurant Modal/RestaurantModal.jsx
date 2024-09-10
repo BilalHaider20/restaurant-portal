@@ -6,22 +6,22 @@ import images from "../../../../../public/images";
 import { Controller, useForm } from "react-hook-form";
 import DropDownComponent from "../../common/dropdowns/DropDownComponent";
 import Input from "../../common/FormElements/Input";
-// import PhoneInput from "react-phone-input-2";
-// import { parsePhoneNumberFromString } from 'libphonenumber-js';
-// import "react-phone-input-2/lib/style.css";
 import { addRestaurants } from "@/app/services/apiMethods";
 import { PhoneNumber,getCountryCode } from "../../common/FormElements/PhoneNumber";
+import { useAppSelector } from "@/lib/hooks";
 
 const cuisineOptions = [{ value: "italian", label: "italian" }];
 
 const RestaurantModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-
+  const {lang} = useAppSelector((state) => state.lang);
+  
+  
   const {
     control,
     handleSubmit,
     register,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -49,13 +49,6 @@ const RestaurantModal = ({ onClose }) => {
     }
   };
 
-  // const handlePhoneChange = (value) => {
-  //     const phoneNumberObject = parsePhoneNumberFromString(`+${value}`);
-  //     const phone_number_country = phoneNumberObject.country;
-  //     console.log(phone_number_country);
-  //     return phone_number_country;
-    
-  // };
 
   const Add_New_Restaurants=async (data)=>{
     try{
@@ -73,7 +66,7 @@ const RestaurantModal = ({ onClose }) => {
     data= {...data, phone_number_country};
     console.log(data);
     Add_New_Restaurants(data);
-
+    reset();
     // handleModalClose();
   };
 
@@ -81,7 +74,9 @@ const RestaurantModal = ({ onClose }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50">
       <div
         className={`w-full max-w-3xl h-screen bg-[#F2F4F7] flex flex-col justify-between transition-transform duration-300
-          ${ isModalOpen ? "translate-x-0" : "translate-x-full"}
+          ${ isModalOpen ? 
+            "translate-x-0"
+            : lang === "en" ?"translate-x-full": "-translate-x-full"}
         `}
       >
         {/* Modal Header */}

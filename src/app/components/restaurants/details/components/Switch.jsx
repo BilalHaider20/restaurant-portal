@@ -1,9 +1,9 @@
 "use client"
 import { useEffect, useState } from "react";
-
+import { useAppSelector } from "@/lib/hooks";
 export default function Switch({ activeTab, setactiveTab }) {
     const [indicatorPosition, setIndicatorPosition] = useState("-1%");
-
+    const {lang} = useAppSelector((state)=>state.lang);
     const handleClick = (selection) => {
         setactiveTab(selection);
     };
@@ -59,7 +59,7 @@ export default function Switch({ activeTab, setactiveTab }) {
             <div
                 className={`absolute z-10 bottom-0 w-1/5 h-full bg-[#346CC4] rounded-full flex items-center justify-center pointer-events-none transition-left duration-300 ease-in-out`}
                 style={{
-                    left: indicatorPosition,
+                   left : indicatorPosition
                 }}
             >
             </div>
