@@ -3,13 +3,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import images from "../../../../public/images";
 import Image from "next/image";
-
+import { useAppSelector } from "@/lib/hooks";
 const AddAmenitiesModal = ({ onClose, onAddAmenity }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [profileImage, setProfileImage] = useState(images.profile);
   const [amenityTitle, setAmenityTitle] = useState("");
   const [amenityDescription, setAmenityDescription] = useState("");
-
+  const { lang } = useAppSelector((state) => state.lang);
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsModalOpen(true);
@@ -55,11 +55,11 @@ const AddAmenitiesModal = ({ onClose, onAddAmenity }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50">
-      <div className={`w-full max-w-lg h-screen bg-[#F2F4F7] flex flex-col justify-between transition-transform duration-300 ${isModalOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`w-full max-w-lg h-screen bg-[#F2F4F7] flex flex-col justify-between transition-transform duration-300 ${isModalOpen ? 'translate-x-0' : lang==='en'? 'translate-x-full': '-translate-x-full' }`}>
         
         {/* Responsive Modal Header */}
         <div className="font-semibold bg-[#FFFFFF] text-[#15223C] w-full p-4 flex justify-between items-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl text-[#15223C]">Add New Amenity</h2>
+          <h2 className="text-sm sm:text-base md:text-lg lg:text-2xl text-[#15223C]">Add New Amenity</h2>
           <button className="text-xl sm:text-2xl" onClick={handleModalClose}>
             &times;
           </button>

@@ -11,6 +11,7 @@ import Floor from '@/app/components/restaurants/details/Floor/Floor'
 import Reviews from '@/app/components/restaurants/details/Branch/reviews/Reviews'
 import AddPromotionModal from '@/app/components/restaurants/details/Promotions/AddPromotionModal'
 import AddFloorModal from '@/app/components/restaurants/branches/Floor/AddFloorModal'
+import { useAppSelector } from '@/lib/hooks'
 
 const Page = () => {
   const users = Array(100).fill({
@@ -21,12 +22,11 @@ const Page = () => {
     reference: 'TAB-1234567890',
     comments: 'It was Great',
     rating:3,
-    
-
   });
+
   const [activeTab, setactiveTab] = useState("Floors");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const {lang} = useAppSelector(state => state.lang);
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
@@ -167,7 +167,7 @@ const Page = () => {
   }
 
   return (
-    <div className={`px-5 py-5 bg-bg-main relative space-y-4`}>
+    <div className={`px-5 py-5 bg-bg-main relative `}>
       <BranchIntro rest={rest} />
       <div className="flex">
         <Switch className="" activeTab={activeTab} setactiveTab={setactiveTab} />

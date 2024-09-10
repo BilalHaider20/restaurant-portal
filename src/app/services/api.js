@@ -1,6 +1,9 @@
 // utils/api.js
 import axios from 'axios';
 import { getToken } from '../utils/tokenManager';
+import store, {makeStore} from "@/lib/store";
+import {toast} from "react-toastify";
+
 
 let isRefreshing = false;
 let failedQueue = [];
@@ -12,9 +15,15 @@ const api = axios.create({
 
 api.interceptors.request.use(async (config) => {
     try {
-        const token = await getToken(); // Retrieve the token
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`; // Set auth header
+
+        if (typeof window !== 'undefined') {
+            const token = await store.getState().auth.token;
+            // const token = await getToken(); // Retrieve the token
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`; // Set auth header
+            }
+        }else{
+
         }
     } catch (error) {
         console.error('Error getting token', error);
@@ -26,42 +35,26 @@ api.interceptors.request.use(async (config) => {
 
 api.interceptors.response.use(
     (response) => {
+        // if (typeof window !== 'undefined') {
+        // Router.push('/login');
+        // }
         return response;
     },
     async (error) => {
         const { config, response } = error;
 
         if (response) {
+
+
             const { status } = response;
 
             if (status === 401) {
-                if (!isRefreshing) {
-                    isRefreshing = true;
 
-                    try {
-                        const newToken = await getToken();
-                        failedQueue.forEach((prom) => prom.resolve(newToken));
-                        failedQueue = [];
-                        isRefreshing = false;
+                toast("Session Expired,please login Again")
 
-                        return api(config);    //here
-                    } catch (err) {
-                        failedQueue.forEach((prom) => prom.reject(err));
-                        failedQueue = [];
-                        isRefreshing = false;
-
-                        return Promise.reject(err);
-                    }
-                }
-
-                return new Promise((resolve, reject) => {
-                    failedQueue.push({ resolve, reject });
-                }).then((newToken) => {
-                    config.headers.Authorization = `Bearer ${newToken}`;
-                    return api(config);   //here
-                });
             }
         } else {
+
             // Handle errors without response (e.g., network errors)
             console.error('Network or other error', error);
         }

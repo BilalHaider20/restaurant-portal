@@ -10,7 +10,7 @@ import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 
 const Page = () => {
     const router = useRouter();
-    const isArabic = router.locale === 'ar'; 
+
     const dispatch = useAppDispatch();
     const {user} = useAppSelector((state) => state.auth);
     const [email, setEmail] = useState('');
@@ -26,12 +26,12 @@ const Page = () => {
                     password
                 }
             );
-           
+
             const {Token,User,Permissions} = response.data;
             dispatch(setToken(Token));
             dispatch(setUser(User));
-            dispatch(setPermissions(Permissions));   
-       
+            dispatch(setPermissions(Permissions));
+
             console.log("sucessfully logged in");
             console.log(user);
             router.push(`/dashboard`);
@@ -42,7 +42,7 @@ const Page = () => {
         }
     };
 
-    
+
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-white text-[#3c3c3c] px-4 sm:px-6 lg:px-8">
@@ -95,7 +95,7 @@ const Page = () => {
                                 value={password}
                                 onChange={(e) => setpassword(e.target.value)}
                             />
-                            
+
                         </div>
                     </div>
                     <div className="flex items-center justify-between text-sm">

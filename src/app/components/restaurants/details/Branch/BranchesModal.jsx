@@ -12,9 +12,10 @@ import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ImageUpload from '@/app/components/common/FormElements/ImageUpload';
-
+import { useAppSelector } from '@/lib/hooks';
 const BranchesModal = ({ onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const {lang} = useAppSelector(state => state.lang);
   const {
     control,
     handleSubmit,
@@ -113,7 +114,7 @@ const BranchesModal = ({ onClose }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-end z-50">
       <div
         className={`w-full max-w-3xl h-screen bg-[#F2F4F7] flex flex-col justify-between transition-transform duration-300
-          ${isModalOpen ? "translate-x-0" : "translate-x-full"}
+          ${isModalOpen ? "translate-x-0" : lang === 'en'? "translate-x-full":'-translate-x-full'}
         `}
       >
         {/* Modal Header */}
