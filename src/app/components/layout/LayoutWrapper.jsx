@@ -6,14 +6,12 @@ import Sidebar from "./sidebar/Sidebar";
 import { useRouter } from "next/navigation";
 import { useAppSelector } from "@/lib/hooks";
 import '../../../i18n'
-import { withTranslation,useTranslation } from 'react-i18next';
-
+import { withTranslation, useTranslation } from 'react-i18next';
 
 const LayoutWrapper = ({ children }) => {
   const [mobile, setMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const [loaded, setLoaded] = useState(false)
   const { lang } = useAppSelector((state) => state.lang);
   const { i18n } = useTranslation();
   const {user} = useAppSelector((state) => state.auth);
@@ -29,8 +27,8 @@ const LayoutWrapper = ({ children }) => {
   };
 
   useEffect(() => {
-    if (lang!='en'){
-      i18n.changeLanguage(lang)
+    if (lang !== 'en') {
+      i18n.changeLanguage(lang);
     }
 
     setIsMounted(true); // Ensure the component is mounted before checking window properties
@@ -46,27 +44,21 @@ const LayoutWrapper = ({ children }) => {
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [lang, i18n]);
 
   useEffect(() => {
     if (!user) {
-      router.push('/login')
+      router.push('/login');
     }
-    setLoaded(true)
+  }, [user, router]);
 
-  }, [user, router])
-
-  if (!isMounted) {
-    // Avoid rendering anything that depends on window or localStorage until the component is mounted
-    return null;
-  }
-  if (!loaded) {
-    // Avoid rendering anything that depends on window or localStorage until the component is mounted
+  // Avoid rendering the content until authentication is checked
+  if (!isMounted || !user) {
     return null;
   }
 
   return (
-    <div lang={lang} dir={lang=='en'?"ltr":"rtl"}>
+    <div lang={lang} dir={lang === 'en' ? "ltr" : "rtl"}>
       <Navbar toggleSidebar={toggleSidebar} />
       <div className="relative flex w-full mt-[68px]">
         <Sidebar sidebarOpen={sidebarOpen} />
